@@ -882,7 +882,7 @@
                         <label for="password">Password</label>
                         <input id="login-password" type="password" name="password" placeholder="Password" required>
                         <p class="reset"><a>Reset my password</a></p>
-                        <input type="submit" value="Login">
+                        <input class="modal-btn login-btn" type="submit" value="Login">
                     </div>
                 </form>
             </div>
@@ -923,7 +923,7 @@
                         <input id="signup-email" type="email" name="email" placeholder="Email Address" required>
                         <label for="signup-password">Password</label>
                         <input id="signup-password" type="password" name="passwd" placeholder="Password" required>
-                        <input class="sign-up-btn" type="submit" value="Sign Up">
+                        <input class="modal-btn sign-up-btn" type="submit" value="Sign Up">
                         <p class="terms">Click above to agree to our <a href="/tos" target="_blank">Terms of Service</a></p>
 
                     </div>
@@ -988,7 +988,7 @@
                         <p ><strong style="color: red;">$10.40</strong></p>
                     </div>
                 </div>
-                <button id="btnStartTrial" class="btn modal-btn">Start Free Trial</button>
+                <input id="btnStartTrial" class="btn modal-btn" type="submit" value="Start Free Trial">
                 <p class="terms">Click above to agree to our <a href="/tos" target="_blank">Terms of Service</a></p>
             </div>
         </div>
@@ -1003,7 +1003,7 @@
                 </p>
                 <label for="email">Email Address</label>
                 <input type="text" name="email" id="reset-pass-email" placeholder="Email">
-                <input type="submit" value="Send Password Reset Email">
+                <input class="modal-btn send-pass-btn" type="submit" value="Send Password Reset Email">
                 <p class="set-reset-code"><a>I already have a reset code &#8594;</a></p>
             </div>
         </div>
@@ -1022,7 +1022,7 @@
                 <input type="text" name="new-pass" id="new-pass" placeholder="New Password">
                 <label for="confirm-pass">Confirm Password</label>
                 <input type="text" name="confirm-pass" id="confirm-pass" placeholder="Confirm Password">
-                <input type="submit" value="Reset Password">
+                <input class="modal-btn reset-pass-btn" type="submit" value="Reset Password">
                 <p class="get-reset-code"><a>&#8592; Send a new reset code</a></p>
             </div>
         </div>
