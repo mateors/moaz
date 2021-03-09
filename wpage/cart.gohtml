@@ -113,7 +113,22 @@
             font-family: nova;
             /* letter-spacing: 0.03em; */
         }
-        
+        button,
+        input[type="submit"],
+        input[type="button"],
+        .btn 
+        {
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding: 15px ;
+            cursor: pointer !important;
+        }
+        a
+        {
+            color: white;
+            cursor: pointer;
+        }
         .one
         {
             height: 25em;
@@ -205,6 +220,21 @@
             font-size: 16px;
             font-weight: 500;
         }
+        .two .count 
+        {
+            padding: 3px 5px;
+            border-radius: 50px;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+            margin-left: -15px;
+            margin-top: 22px;
+            position: absolute;
+            font-family: nova;
+            min-width: 1.7em;
+            height: 1.7em;
+            text-align: center;
+        }
     </style>
 
     <style>
@@ -233,7 +263,7 @@
         {
             margin: 20px 0px;
             display:grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: 90px auto 60px;
             grid-gap: 1em;
         }
         .cards-wrapper .product_image-wrap
@@ -279,8 +309,20 @@
         }
         .cards-wrapper .product-price p
         {
-            padding: 3px 0px;
+            padding: 3px 5px 3px 0;
             text-align: right;
+            justify-self: right;
+        }
+        .cards-wrapper .product-price a.btn-cancel
+        {
+            float: right;
+            padding: 5px;
+            padding-left: 7px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .cards-wrapper .product-price a.btn-cancel:hover
+        {
+            color: rgba(255, 255, 255, 1);
         }
         .cards-wrapper .total-price
         {
@@ -317,16 +359,48 @@
             padding: 15px 10px;
             font-size: 16px;
             background-color: rgba(255, 255, 255, 0.07);
+            color: white;
             border: 1px solid;
-            border-color: rgba(255, 255, 255, 0.8);
+            outline-color: rgba(255, 255, 255, 0.5);
+            outline: none;
             border-radius: 4px;
             transition: 0.3s;
+            transition: border 0ms ;
         }
+
         .payment input[type="text"]:hover,
         .payment input[type="text"]:focus
         {
             background-color: rgba(255, 255, 255, 0);
+            
         }
+        .payment input[type="text"]:focus
+        {
+            
+            border: 2px solid;
+            border-color: rgba(255, 255, 255, 1);
+            outline:none;
+            padding: 14px 9px;
+        }
+        .payment input[type="text"].err-email,
+        .payment input[type="text"].err-email:focus
+        {
+            border-color: rgb(229, 100, 100);
+            background-color: rgba(229, 100, 100, 0.1);
+        }
+        .payment input[type="text"].err-email::placeholder
+        {
+            color: rgb(229, 100, 100);
+        }
+        .payment .err-email-msg
+        {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(229, 100, 100);
+            margin: -14px 0 20px 0;
+            display: none;
+        }
+
         .payment input[type="checkbox"]
         {
             margin: 10px 5px 10px 0px;
@@ -344,7 +418,7 @@
             align-items: center;
             
         }
-        .checkout input[type="button"]
+        .checkout .form-control__button
         {
             font-family: nova;
             font-size: 18px;
@@ -356,7 +430,7 @@
             padding: 13px;
             transition: 0.3s;
         }
-        .checkout input[type="button"]:hover
+        .checkout .form-control__button:hover
         {
             background-color: rgba(255, 255, 255, 0.3);
         }
@@ -413,35 +487,40 @@
         {
             margin: 5px 0;
         }
-
-    .payment
-    {
-        margin-top:3em;
-        margin-bottom: 2em;
-        margin-left:3em;
-    }
-    .two .cards-wrapper p.center,
-    .two .cards-wrapper .btn-center
-    {
-        padding: 10px;
-    }
-    .two .cards-wrapper .btn-center input
-    {
-        font-family: nova;
-        font-weight: 600;
-        font-size: 16px;
-        padding: 10px 30px;
-        color: rgba(255, 255, 255, 1);
-        background-color: rgba(255, 255, 255, 0.2);
-        border: none;
-        border-radius: 3px;
-        transition: 0.3s;
-       
-    }
-    .two .cards-wrapper .btn-center input:hover
-    {
-        background-color: rgba(255, 255, 255, 0.4);
-    }
+    </style>
+    <!-- empty-cart -->
+    <style>
+        .empty-cart-payment
+        {
+            /* margin-top:3em;
+            margin-bottom: 2em;
+            margin-left:3em; */
+            
+            align-items: center;
+        }
+        .two .cards-wrapper p.center,
+        .two .cards-wrapper .btn-center
+        {
+            padding: 10px;
+            text-align: center;
+        }
+        .two .cards-wrapper .btn-center input
+        {
+            font-family: nova;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 10px 30px;
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 3px;
+            transition: 0.3s;
+        
+        }
+        .two .cards-wrapper .btn-center input:hover
+        {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
     </style>
 
     <!-- terms & condition modal -->
@@ -553,7 +632,81 @@
             margin-bottom: 2.5em;
         }
     </style>
+    <!-- custom checkbox -->
+    <style>
+        .checkbox-container {
+        display: block;
+        position: relative;
+        padding-left: 25px;
+        /* margin-bottom: 12px; */
+        cursor: pointer;
+        /* font-size: 22px; */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
+    /* Hide the browser's default checkbox */
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid white;
+        border-radius: 3px;
+        transition: 0.3s;
+    }
+
+    /* On mouse-over, add a grey background color */
+    /* .checkbox-container:hover input ~ .checkmark {
+        background-color: #ccc;
+    } */
+
+
+    .checkbox-container input:checked ~ .checkmark {
+        background-color: #e6e6e6;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        
+    }
+
+    /* Show the checkmark when checked */
+    .checkbox-container input:checked ~ .checkmark:after {
+        display: block;
+        
+    }
+
+    /* Style the checkmark/indicator */
+    .checkbox-container .checkmark:after {
+        left: 4px;
+        top: 0px;
+        width: 4px;
+        height: 8px;
+        border: solid black;
+        /* border-radius: 3px; */
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    </style>
 {{end}}
 
      <!--<div class="container">-->
@@ -570,19 +723,24 @@
             <section class="two">
                 <p>STRANDBRANDS™️ <span>Updated Every Sunday.</span></p>
                 <a href="/shop" style="color: white;" >
-                    <p class="count" style="margin: 30px 0;">
-                        <svg class="icon-shopping-bag" width="36" height="30" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg" >
+                    <!-- <p class="count" > -->
+                        <svg class="icon-shopping-bag" width="36" height="30" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg" style="margin: 30px 0;">
                             <g fill="none" fill-rule="evenodd">
                                 <path d="M7 7h22v18a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V7z" stroke="currentColor" stroke-width="2"></path>
                                 <path d="M13 10V6c0-2.993 2.009-5 5-5s5 2.026 5 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                 <!-- <circle class="cart-not-empty" cx="18" cy="18" r="4" fill="currentColor"></circle> -->
                             </g>
-                        </svg><span>{{.TotalQty}}</span>
-                    </p>
+                        </svg><span class="count">{{.TotalQty}}</span>
+                    <!-- </p> -->
                     
                     <!-- <img src="./icon/square-shopping-bag-with-handle.png" alt="" > -->
                 </a>
+                
                 <div class="cards-wrapper">
+
+                    
+                    
+                    
                     <div class="cart-describe">
                         <h1>Shopping cart</h1>
                         <p><a href="/shop">Store</a> &nbsp;/ &nbsp;Shopping cart</p>
@@ -612,13 +770,13 @@
                             </div>
 
                             <div class="product-price">
-                                <p class="btn-cancel" data-trxid="{{$trxid}}" data-id="{{$itemID}}">
+                                <a class="btn-cancel" data-trxid="{{$trxid}}" data-id="{{$itemID}}">
                                     <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                                         <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round">
                                             <path d="M.5.5l11 11M.5 11.5l11-11"></path>
                                         </g>
                                     </svg>
-                                </p>
+                                </a>
                                 <p>${{toRound $price}}</p>
                             </div>
                         </div>
@@ -637,12 +795,12 @@
                     </div>
 
                     {{if eq $cartCount 0}}
-                    <div class="payment">
+                    <div class="empty-cart-payment">
                         <p class="center">Your shopping cart is empty</p>
                         <p class="btn-center"><a href="/shop"><input type="button" value="Browse Store"></a></p>
                     </div>
                     {{end}}
-
+                    
                     {{if gt $cartCount 0}}
                     <div class="payment">
                         <h1>Checkout</h1>
@@ -651,10 +809,18 @@
                             used to send you order status updates.
                         </p>
                         <input id="myInput" type="text" name="email" placeholder="Your email address">
-                        <input type="checkbox" name="terms" id="terms">
-                        <label for="terms">I agree with <span class="terms-modal">Terms & Conditions</span></label><br>
-                        <input type="checkbox" name="updated" id="updated">
-                        <label for="updated">Keep me up to date on new and exclusive offers</label>
+                        <p class="err-email-msg">Please enter your email<p>
+                        
+                        <label class="checkbox-container" for="terms">I agree with <span class="terms-modal">Terms & Conditions</span>
+                            <input type="checkbox" name="terms" id="terms">
+                            <span class="checkmark"></span>
+                        </label><br>
+                        
+                        <label class="checkbox-container" for="updated">Keep me up to date on new and exclusive offers
+                            <input type="checkbox" name="updated" id="updated">
+                            <span class="checkmark"></span>
+                        </label>
+                        
                         <div class="checkout form-control form-control--bounce">
                             <!--<input type="button" value="Checkout">-->
                             <button class="form-control__button" type="button">
@@ -843,6 +1009,17 @@
 
 {{block "script" .}}
     <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <!-- Error Email -->
+    <script>
+        var errEmailBtn = document.querySelector(".form-control__button");
+        var openErrEmail = document.querySelector("#myInput");
+        var openErrEmailMsg = document.querySelector(".err-email-msg");
+
+        errEmailBtn.addEventListener("click", function(){
+            openErrEmail.classList.add("err-email");
+            openErrEmailMsg.style.display = "block";
+        })
+    </script>
     <script>
 
         $(document).ready(function(){
