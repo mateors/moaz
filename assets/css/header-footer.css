@@ -10,13 +10,16 @@ body
     background-color: black;
     color: white;
 }
+button,
+input[type="submit"],
+input[type="button"],
 .btn 
 {
     border: none;
     outline: none;
-    font-weight: bold;
-    font-size: 16px;
+    border-radius: 5px;
     padding: 15px ;
+    cursor: pointer !important;
 }
 a
 {
@@ -162,7 +165,12 @@ footer .contact p:last-child
     border-radius: 4px;
     
 }
-
+.modal-btn
+{
+    background-color: red !important;
+    box-shadow: none !important;
+    
+}
 .modal .part-one
 {
     text-align: center;
@@ -181,14 +189,14 @@ footer .contact p:last-child
 .modal .part-two
 {
     background-color: rgba(250, 250, 250, 0.4);
-    padding: 1.5em 0.5em;
+    padding: 20px 40px 30px 40px;
     box-shadow: 0px 0px 5px 1px #f0f0f0 inset;
 }
 .modal input
 {
     font-family: 'Segoe UI', sans-serif;
-    width: 80%;
-    margin: 0px 8%;
+    width: 100%;
+    /* margin: 0px 8%; */
     margin-top: 5px;
     margin-bottom: 15px;
     padding: 1.2em;
@@ -233,7 +241,7 @@ footer .contact p:last-child
     font-weight: 700;
     color: red;
     text-align: right;
-    margin: 10px 8%;
+    margin: 10px 0;
     text-align: right;
 }
 
@@ -268,7 +276,7 @@ footer .contact p:last-child
     font-weight: 700; 
     color: black;
     width: 90%;
-    margin: 0px 8%;
+    
     margin-top: 20px;
     padding: 0px 2px ;
     
