@@ -1,0 +1,47 @@
+body
+{
+    margin: 0px;
+    background-color: black;
+    color: white;
+}
+a
+{
+    text-decoration: none;
+}
+a.btn
+{
+    
+    text-transform: uppercase;
+    padding: 18px 28px;
+    background-color: white;
+    border-radius: 5px;
+}
+a.btn:hover
+{
+
+}
+header
+{
+    background-color: #1D1D1D;
+    height: 17vh;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+}
+header .part-one
+{
+    margin: auto 53%;
+}
+.header-title-logo img
+{
+    height: 50px; 
+}
+header .part-two
+{
+    margin: auto 0%;
+}
+
+header .part-two a
+{
+    font-family: "lato", sans-serif;
+    /* padding: 0%; */
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <style>
+    .tabs {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        margin:0;
+        padding:0;
+        border-bottom: 1px solid black;
+    }
+    </style>
+</head>
+
+<body>
+
+        <ul class="tabs">
+            <li data-tab-target="#customer" class="tab">Customers</li>
+            <li data-tab-target="#supplier" class="tab">Suppliers</li>
+            <li data-tab-target="#employee" class="tab">Employees</li>
+            <li data-tab-target="#other" class="tab">Others</li>
+        </ul>
+
+        <div class="tab_content">
+
+            <div id="customer" data-tab-content class="active">
+                <h1>Customer</h1>
+                <p>My home</p>
+            </div>
+
+            <div id="supplier" data-tab-content class="active">
+                <h1>Supplier</h1>
+                <p>Supplier home</p>
+            </div>
+        
+        </div>
+
+
+<script>
+
+            const tabs = document.querySelectorAll('[data-tab-id]');
+            const tabContents = document.querySelectorAll('[data-tab-content]');
+
+            tabs.forEach( tab => {
+
+                //console.log(tab);
+                tab.addEventListener('click', () => {
+
+                    const target = document.querySelector(tab.dataset.tabId);
+                    console.log(tab.dataset.tabId);
+
+                    tabs.forEach(tab => {
+                        //tab.classList.remove('active');
+                        tab.parentElement.classList.remove("active");
+                        //console.log(tab);
+                    });
+
+                    tabContents.forEach(tabContent  => {
+                        tabContent.classList.remove('active');
+                    });
+
+                    //tab.classList.add("active");
+                    tab.parentElement.classList.add("active");
+                    //console.log();
+                    target.classList.add('active');
+                    //console.log(target);
+                    
+                });
+
+
+            });
+
+
+        var hash = window.location.hash;
+        if (hash != ''){
+            console.log(hash);
+            var ss=document.querySelector(`[data-tab-id="${hash}"]`);
+            console.log(ss);
+            ss.click();
+            window.location.hash=hash;
+        }
+</script>
+
+</body>
+</html>

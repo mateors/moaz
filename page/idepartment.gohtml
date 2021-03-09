@@ -1,0 +1,798 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .demo-width-class {
+        width: 100%;
+    }
+
+    .mdc-text-field{
+        width: 25rem;
+    }
+
+    .table_top_toolbar {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        justify-content: space-between;
+        background-color: #FAFAFA;
+    }
+
+
+    .doc_title{
+         flex: 1 1 55%;
+         padding: 1em;
+         font-weight:500;
+         font-size:1.2rem;
+    }
+    .doc_action{
+        flex: 0 0 45%;
+        text-align:right;
+    }
+
+
+    .pageination{
+        display: flex;
+        border-top: 1px solid #e0e0e0;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .page_info{
+        display: flex;
+        padding: 1em;
+    }
+
+    .rows_per_page{
+        display: flex;
+        padding: 1em;
+        align-items: center;
+    }
+
+    .page_data_info{
+        display: flex;
+        padding: 1em;
+        align-items: center;
+    }
+
+    .left_right_nav{
+        display: flex;
+        text-align: right;
+
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mdc-menu-width{
+        width: 200px;
+    }
+    
+    #error_message{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    #error_message2{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    .mdc-select__menu{
+        height:120px;
+
+    }
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .mdc-data-table{
+      
+    }
+    
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link href="resources/css/select2.min.css" rel="stylesheet"/>
+    <link href="resources/css/custom-select2.css" rel="stylesheet">
+
+{{end}}
+
+{{define "content"}}
+    
+    {{$row_start := .RowStart}}
+    {{$row_end := .RowEnd}}
+    {{$total_page := .TotalPage}}
+    {{$total_rows := .TotalRows}}
+    {{$current_page := .CurrentPage}}
+    {{$page_limit := .PageLimit}}
+
+    {{$sfMap := .SearchForm}}
+    <input type="hidden" id="mapform" value="{{.PageQuery}}">
+
+
+    <section id="dlist">
+
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+               <div class="mdc-layout-grid__cell--span-10">
+
+
+             
+                    <div class="mdc-data-table">
+
+                        <div class="table_top_toolbar">
+                            <div class="doc_title">
+                                Item Department
+                            </div>
+
+                            <div class="doc_action"> 
+                                <button class="mdc-icon-button material-icons">filter_list</button>
+                                <button class="mdc-icon-button material-icons">add</button>
+                            </div>
+                        </div>
+
+                        <table class="mdc-data-table__table" aria-label="">
+                            <thead>
+                                <tr class="mdc-data-table__header-row">
+                                    <th class="mdc-data-table__header-cell mdc-data-table__header-cell--checkbox" role="columnheader" scope="col">
+                                        <div class="mdc-checkbox mdc-data-table__header-row-checkbox mdc-checkbox--selected">
+                                            <input type="checkbox" class="mdc-checkbox__native-control" aria-label="Checkbox for header row selection"/>
+                                            <div class="mdc-checkbox__background">
+                                            <svg class="mdc-checkbox__checkmark" viewbox="0 0 24 24">
+                                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                            </svg>
+                                            <div class="mdc-checkbox__mixedmark"></div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Name</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Code</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Status</th>
+                                    <th class="mdc-data-table__header-cell" role="columnheader" scope="col">&nbsp;</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="mdc-data-table__content">
+
+                            {{if .Rows}}
+
+                                {{range $i, $rMap := .Rows}}
+
+                                  
+                              
+                                    {{$aid := index $rMap "aid"}}
+                                    {{$status := index $rMap "status"}}
+
+                                    <tr data-row-id="u0" class="mdc-data-table__row">
+                                        <td class="mdc-data-table__cell mdc-data-table__cell--checkbox">
+                                        <div class="mdc-checkbox mdc-data-table__row-checkbox">
+                                            <input type="checkbox" class="mdc-checkbox__native-control" aria-labelledby="u0"/>
+                                            <div class="mdc-checkbox__background">
+                                            <svg class="mdc-checkbox__checkmark" viewbox="0 0 24 24">
+                                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                            </svg>
+                                            <div class="mdc-checkbox__mixedmark"></div>
+                                            </div>
+                                        </div>
+                                        </td>
+                                        <td class="mdc-data-table__cell">{{index $rMap "name"}}</td>
+                                        <td class="mdc-data-table__cell">{{index $rMap "description"}}</td>
+                                        <td class="mdc-data-table__cell">{{index $rMap "code"}}</td>
+                                        <td class="mdc-data-table__cell">{{if eq $status 1.}}Active{{end}}{{if eq $status 0.}}Inactive{{end}}</td>
+                                        
+                                        <td class="mdc-data-table__cell">
+                                            <button data-id="{{$aid}}" class="mdc-icon-button material-icons">edit</button>
+                                        </td>
+
+                                    </tr>
+                                {{end}}
+
+
+                            {{else}}
+
+                             <tr>
+                              <td class="mdc-data-table__cell" colspan="6">No record found.</td>
+                             </tr>   
+                            {{end}}
+
+
+
+
+                            </tbody>
+                        </table>
+
+                        <div class="pageination">
+                           <div class="page_info">&nbsp;</div>
+                           
+                            <div class="rows_per_page">            
+
+                                
+                                Rows per page:
+                                <div class="mdc-menu-surface--anchor">
+
+                                <!--<button id="btnRowPerPage" class="mdc-button mdc-button--outlined">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label">Rows per page 10</span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_drop_down</i>
+                                </button>-->
+                                
+                                <a href="#" id="btnRowPerPage" data-cp="{{$current_page}}" data-tr="{{$total_rows}}">&nbsp;<span id="pageLimit">{{$page_limit}}</span> <i class="material-icons">arrow_drop_down</i></a>
+                                
+                                
+                                    <div id="perPageMenu" class="mdc-list mdc-menu-surface" tabindex="-1" style="transform-origin: center bottom; left: 0px; bottom: 0px; max-height: 500.781px;">
+                                        <ul class="mdc-list" role="menu" aria-hidden="true">
+                                           {{if gt $total_rows 10}}
+                                            <li class="mdc-list-item {{if eq $page_limit "10"}}mdc-list-item--selected{{end}} mdc-ripple-upgraded" role="menuitem" tabindex="-1">10</li>
+                                            
+                                            <li class="mdc-list-item {{if eq $page_limit "20"}}mdc-list-item--selected{{end}} mdc-ripple-upgraded" role="menuitem" tabindex="-1">20</li>
+                                            <li class="mdc-list-item {{if eq $page_limit "50"}}mdc-list-item--selected{{end}} mdc-ripple-upgraded" role="menuitem" tabindex="-1">50</li>
+                                            <li class="mdc-list-item {{if eq $page_limit "100"}}mdc-list-item--selected{{end}} mdc-ripple-upgraded" role="menuitem" tabindex="-1">100</li>
+                                            {{end}}
+                                        </ul>
+                                    </div>
+                                </div>
+                               
+                        
+
+                                
+
+                            </div>
+
+                           <div class="page_data_info">Page {{$current_page}}/{{$total_page}}, {{$row_start}}-{{if eq $current_page $total_page}}{{$total_rows}}{{else}}{{$row_end}}{{end}} of {{$total_rows}} records</div>
+                           <div class="left_right_nav">
+                            <button id="btnPrev" data-cp="{{$current_page}}" data-pl="{{$page_limit}}" class="mdc-icon-button material-icons" {{if eq $current_page "1"}}disabled{{end}}>chevron_left</button>
+                            <button id="btnNext" data-cp="{{$current_page}}" data-pl="{{$page_limit}}" class="mdc-icon-button material-icons" {{if eq $total_page $current_page}}disabled{{end}}>chevron_right</button>
+                           </div>
+                        </div>
+
+                    </div>
+
+               </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section id="modal_1">
+       <form id="dform" method="post" enctype="multipart/form-data" autocomplete='off'>
+        <div class="mdc-dialog"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="title">Department Info</h2>
+                <span id="error_message"></span>
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                
+                
+                <table class="mytable">
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="name" class="mdc-text-field__input" required>
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Department Name
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                            <input type="hidden" name="id" value="0">
+                            <input type="hidden" name="todo" value="insert">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="code" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Code
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="description" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Description
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <div class="mdc-form-field">
+                            <div class="mdc-checkbox" id="sts">
+                            <input type="checkbox" class="mdc-checkbox__native-control" name="status"/>
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                    viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path"
+                                        fill="none"
+                                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="checkbox-1">Active</label>
+                        </div>
+
+                      </td>
+                    </tr>
+
+                </table>
+
+                    
+                </div>
+                <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                    <span class="mdc-button__label">Close</span>
+                </button>
+                <button id="btnSave" type="submit" class="mdc-button">
+                    <span class="mdc-button__label">Save</span>
+                </button>
+                </footer>
+            </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+      </form>  
+    </section>
+
+
+    <section id="modal_3">
+       <form id="search_info" action="/idepartment" method="post" autocomplete="off">
+        <input type="hidden" name="todo" value="search">
+
+        <div id="search" class="mdc-dialog"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="search_title">Search</h2>
+                <span id="error_message3"></span>
+                <div class="mdc-dialog__content" id="my-dialog-content3">
+                
+               
+                <table class="mytable">
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="product_name" value="{{index $sfMap "name"}}" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Name
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="code" value="{{index $sfMap "code"}}" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Code
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="description" value="{{index $sfMap "description"}}" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Description
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+                    
+                </div>
+                <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                    <span class="mdc-button__label">Close</span>
+                </button>
+                <button type="submit" class="mdc-button">
+                    <span class="mdc-button__label">Search</span>
+                </button>
+                </footer>
+            </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+      </form>  
+    </section>
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script>
+
+        //for (key in mdc) {
+           // console.log(key);
+        //}
+
+        const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+        //const dialog2 = mdc.dialog.MDCDialog.attachTo(document.querySelector('#dialog2'));
+         const dialog3 = mdc.dialog.MDCDialog.attachTo(document.querySelector('#search'));
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+        textFieldElements.forEach((textFieldEl) => {
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+        const perPageMenu = mdc.menu.MDCMenu.attachTo(document.querySelector('#perPageMenu'));
+
+        $(document).ready(function() {
+
+            function parseQuery(search) {
+
+                var args = search.substring(1).split('&');
+                var argsParsed = {};
+                var i, arg, kvp, key, value;
+
+                for (i=0; i < args.length; i++) {
+
+                    arg = args[i];
+                    if (-1 === arg.indexOf('=')) {
+
+                        argsParsed[decodeURIComponent(arg).trim()] = true;
+                    }
+                    else {
+
+                        kvp = arg.split('=');
+                        key = decodeURIComponent(kvp[0]).trim();
+                        value = decodeURIComponent(kvp[1]).trim();
+                        value=value.replace(/\+/g, ' ').trim();
+                        argsParsed[key] = value;
+                    }
+                }
+
+                return argsParsed;
+            }
+
+            var mapform=$('#mapform').val();
+            //console.log(mapform);
+
+            var jsObj=parseQuery(mapform);
+            var limit=jsObj.limit;
+            //console.log(limit);
+
+
+
+            $('#btnRowPerPage').on('click', function(e){
+
+                e.preventDefault();
+                perPageMenu.open = !perPageMenu.open;
+
+            });
+
+
+            perPageMenu.listen("MDCMenu:selected", (d)=> {
+                //console.log('menu item selected'+d.detail.item.innerHTML);
+                //console.log('>'+d);
+                var page_limit=d.detail.item.innerHTML;
+                $('#pageLimit').text(page_limit);
+                var current_page=$('#btnRowPerPage').attr('data-cp');
+                var total_rows=$('#btnRowPerPage').attr('data-tr');
+                var number_of_page=Math.ceil(Number(total_rows)/Number(page_limit));
+
+                var cp=Number(current_page);
+                if (number_of_page<cp){
+                    current_page=number_of_page; //1
+                }
+                //var formdata=`page=${current_page}&limit=${page_limit}`;
+                //formDataPass(formdata, "/retailer");
+                $('#search_info').append(`<input type="hidden" name="page" value="${current_page}">`);
+                $('#search_info').append(`<input type="hidden" name="limit" value="${page_limit}">`);
+                $('#search_info').submit();
+
+            });
+
+            $('#btnPrev').on('click', function(e){
+
+                var current_page=$(this).attr("data-cp");
+                var page_limit=$(this).attr("data-pl");
+                var prev_page=Number(current_page)-1;
+                //var formdata=`page=${prev_page}&limit=${page_limit}`;
+                //formDataPass(formdata, "/retailer");
+                $('#search_info').append(`<input type="hidden" name="page" value="${prev_page}">`);
+                $('#search_info').append(`<input type="hidden" name="limit" value="${page_limit}">`);
+                $('#search_info').submit();
+
+            });
+
+            $('#btnNext').on('click', function(e){
+
+                var current_page=$(this).attr("data-cp");
+                var page_limit=$(this).attr("data-pl");
+                var next_page=Number(current_page)+1;
+                //var formdata=`page=${next_page}&limit=${page_limit}`;
+                //formDataPass(formdata, "/retailer");
+                $('#search_info').append(`<input type="hidden" name="page" value="${next_page}">`);
+                $('#search_info').append(`<input type="hidden" name="limit" value="${page_limit}">`);
+                $('#search_info').submit();
+
+            });
+
+
+            //var obj ={};
+            var cAray =[];
+
+            $('.selectCategory').select2({
+                placeholder :'Service Category',
+                width: '100%',
+                allowClear:true
+            });
+
+
+            //populate category option
+            var categoryOption="<option value=''></option>";
+            $.ajax({
+                async: true,
+                type: "POST",
+                dataType: "json",
+                url: "/api",
+                data: {"info": "product_category", "field_key": "status", "field_val": 1},
+                error: function(){
+                }
+
+            }).done(function(dres){
+
+                var length=dres.length
+                for(var i=0; i<length; i++){
+                    var value= dres[i].aid;
+                    var text= dres[i].category_name;
+                    categoryOption += `<option value="${value}">${text}</option>`;
+                }
+                $('.selectCategory').empty().append(categoryOption);
+            }); 
+
+
+            //form submit now
+            $('#dform').submit(function(e){
+
+                e.preventDefault();
+                $('#btnSave').prop('disabled', true);
+                $('#btnSave').text("Please wait...");
+
+                var ajaxData = new FormData();
+                $.each($('#dform').find('input,textarea,select'), function(){
+
+                        var name = $(this).attr("name");
+                        var nvalue = $(this).val();
+                        var tagName=$(this).prop('tagName');
+                        var type=$(this).attr('type');
+
+                        if (typeof name != "undefined" && typeof nvalue != "undefined"){
+
+                            if (type=="text"){
+                                ajaxData.append(name, nvalue);
+
+                            }else if (type=="checkbox"){
+                                if($(this).is(':checked')){
+                                    nvalue=1;
+                                }else{
+                                    nvalue=0;
+                                }
+                                //console.log('chekbox: '+nvalue);
+                                ajaxData.append(name, nvalue);
+
+                            }else{
+                                //hidden
+                                ajaxData.append(name, nvalue);
+                            }
+                            //console.log(name+'-'+nvalue+'='+tagName);
+                        }
+
+                });
+
+                //$.each($('#pfile')[0].files, function(i, file) {
+                   //console.log(file); 
+                   //ajaxData.append('file-'+i, file);
+                //});
+                
+                $.ajax({
+                    //dataType: "json",
+                    async: true,
+                    type: "POST",
+                    url: "/idepartment",
+                    data: ajaxData, //$('#account_info').serialize(),
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(){
+                    },
+                    error: function(jqXHR, textStatus){
+                        console.log("failed with error: " + textStatus);
+                    }
+
+                 }).done(function(dres){
+
+                     //console.log(dres);
+                     if (dres.trim()=='OK'){
+                         location.reload();
+
+                     }else{
+                         var nmsg=dres.replace(/(.{48})/g, "$1<br>");
+                         $('#error_message').html(nmsg);
+
+                          $('#btnSave').prop('disabled', false);
+                          $('#btnSave').text("SAVE");
+                     }
+
+                });
+              
+                return false
+                //console.log("form submit");
+
+            });
+
+           
+
+            $(".mdc-icon-button").on('click', function(e){
+
+                var btnName=$(this).text().trim();
+                //console.log(btnName);
+                if (btnName=="edit"){
+
+                    //console.log('update');
+                    $('#dform').find('input[name="todo"]').val('update');
+                    var id=$(this).attr("data-id");   
+                    $('#title').text('Update Department');
+                    //console.log(id);  
+
+                    dialog.autoStackButtons = false;
+                    dialog.open();
+                    dialog.escapeKeyAction="";
+                    dialog.scrimClickAction="";
+
+                    
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/api",
+                        data: {"info": "department", "field_key": 'META().id', "field_val": id},
+                        success: function(){
+                        },
+                        error: function(){
+                        }
+
+                    }).done(function(dres){
+
+                        //console.log(dres[0].ledger_number);
+                        $('#my-dialog-content > table').find('input[name="id"]').val(dres[0].aid);
+
+                        $('#my-dialog-content > table').find('input[name="name"]').val(dres[0].name);
+                        $('#my-dialog-content > table').find('input[name="description"]').val(dres[0].description);
+                        $('#my-dialog-content > table').find('input[name="code"]').val(dres[0].code);
+
+                        //$('.selectCategory').val(dres[0].category_id).trigger("change");
+                        var sts=dres[0].status;
+                        const stsBox = new mdc.checkbox.MDCCheckbox(document.querySelector('#sts'));
+                        stsBox.checked= (sts == "1") ? true : false;
+                        stsBox.value=dres[0].status;
+                        //console.clear();
+
+                        
+                    });
+
+                }else if(btnName=="add"){
+
+                    $('#error_message').text('');
+                    $('#title').text('NEW Department');
+
+                    $.each($('#dform').find('input,textarea,select'), function(){
+
+                            var name = $(this).attr("name");
+                            var nvalue = $(this).val();
+                            var tagName=$(this).prop('tagName');
+                            var type=$(this).attr('type');
+                            
+                            if (tagName=="TEXTAREA"){
+                                $(this).val('');
+
+                            }else if (tagName=="INPUT"){
+
+                                if(type=="checkbox"){
+                                    //console.log(tagName+'-'+type+'-'+name+'='+nvalue);
+                                    $(this).prop('checked', false);
+                                }else if(type=="text"){
+                                    $(this).val('');
+                                }
+                            }
+
+
+                    });
+
+                    $('#dform').find('input[name="todo"]').val('insert');
+                    dialog.open();
+
+                }else if (btnName=="filter_list"){
+
+                    $('#search_title').text('Search/Filter');
+                    dialog3.autoStackButtons = false;
+                    dialog3.open();
+                    dialog3.escapeKeyAction="";
+                    dialog3.scrimClickAction="";
+
+                    //console.log(jsObj.status);
+                    //var sts=jsObj.status;
+                    //const stsBox = new mdc.checkbox.MDCCheckbox(document.querySelector('#sts2'));
+                    //stsBox.checked= (sts == "1") ? true : false;
+                    //stsBox.value=sts;
+
+                }
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+

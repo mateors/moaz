@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <base href="{{.Base}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{block "link" .}}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">-->
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    {{end}}
+
+    <title>{{block "title" .}}Default Title{{end}}</title>
+
+    {{block "style" .}}
+    <style>
+
+
+    </style>
+    {{end}}
+
+</head>
+
+<body>
+
+    
+
+
+    <div id="container">
+      <div id="main">
+
+         {{block "header" .}}{{end}}
+
+         {{block "drawer" .}}{{end}}
+
+         {{block "content" .}}This is the default body.{{end}}
+
+      </div><!--main--->
+    </div><!--container--->
+
+    <footer id="footer">
+      <div class="copyright">&copy; 2021 {{.CompanyName}}</div>
+    </footer> 
+
+    {{block "footer_script" .}}
+     <!--<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>-->
+     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+  
+    {{end}}
+
+    <script>
+      //console.log(mdc);
+      //const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+      const drawer=mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+
+      const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+      topAppBar.setScrollTarget(document.getElementById('main-content'));
+      topAppBar.listen('MDCTopAppBar:nav', () => {
+        drawer.open = !drawer.open;
+        console.log('topAppBar.listen');
+      });
+
+
+      const menu = new mdc.menu.MDCMenu(document.querySelector('#appMenu'));
+      //menu.setAnchorCorner(Corner.TOP_RIGHT);
+      //console.log('corner');
+      //console.log(mdc.Corner.TOP_RIGHT);
+      //console.log(menu);
+
+      document.getElementById("appBtn").addEventListener("click", function(){
+        menu.open = !menu.open;
+      });
+
+      menu.listen("MDCMenu:selected", (d)=> {
+        //console.log('menu item selected'+d.detail.item.innerHTML);
+      });
+
+
+      const menuSurface = new mdc.menuSurface.MDCMenuSurface(document.querySelector('.mdc-menu-surface'));
+      //console.log(menuSurface);
+      //menuSurface.setAbsolutePosition(100, 100);
+      menuSurface.listen("MDCMenuSurface:opened", function(){
+        //console.log("menuSurface opened...");
+      });
+
+      menuSurface.listen("MDCMenuSurface:closed", function(){
+        //console.log("menuSurface closed...");
+      });
+
+      const menu2 = new mdc.menu.MDCMenu(document.querySelector('#profileMenu'));
+      const profBtn = document.querySelector('#profileBtn');
+      profBtn.addEventListener("click", ()=> {
+        menu2.open = !menu2.open;
+      });
+
+      const menu3 = new mdc.menu.MDCMenu(document.querySelector('#noticeMenu'));
+      const noticeBtn = document.querySelector('#noticeBtn');
+      noticeBtn.addEventListener("click", ()=> {
+        menu3.open = !menu3.open;
+      });
+
+    </script>
+   
+  </body>
+</html>

@@ -1,0 +1,171 @@
+{{block "style" .}}
+
+<style>
+    @font-face
+    {
+        src: url(./font/proxima_ssv/proxima_ssv/ProximaNova-Regular.otf);
+        font-family: nova;
+    }
+    .one
+    {
+        margin-top: 5em;
+        padding: 6em 8em;
+    }
+    .one h1
+    {
+        font-family: "archivo black", sans-serif;
+        font-size: 84px;
+        letter-spacing: -0.09em;
+    } 
+    .one p 
+    {
+        font-family: nova;
+        margin: 1em 0px;
+    }
+    .two 
+    {
+        padding: 0em 7.5em;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 12em 2em;
+        margin-bottom: 9em;
+    }
+    .two .grid-wrapper
+    {
+        width: 100%;
+
+    }
+    .two .grid-wrapper img
+    {
+        width: 100%;
+    }
+    .grid-wrapper p
+    {
+        font-family: nova;
+        text-align: center;
+        line-height: 28px;
+        margin: 2em 0em;
+
+    }
+    .grid-wrapper button
+    {
+        
+        border: none;
+        outline: none;
+        font-size: 22px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 20px 30px;
+        border-radius: 5px;
+        transition: 0.2s;
+    }
+    .grid-wrapper button:hover
+    {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+</style>
+
+{{end}}
+
+     <!--<div class="container">-->
+
+        {{block "section" .}}
+
+            <section class="one">
+                <h1>Subscribe to get access now.</h1>
+                <p>
+                    Choose from below and let us know how 
+                    we can best connect with you.
+                </p>
+            </section>
+
+            <section class="two">
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand.jpg" alt="">
+                    <p>
+                        Would you like for us to notify when our products 
+                        are in your area?
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                notify me
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand (2).jpg" alt="">
+                    <p>
+                        Would you like to earn a high commission as a Bag-N-Brand
+                        affiliate sales representative?
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                sales partner
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand (1).jpg" alt="">
+                    <p>
+                        Become a commissioned illustrator for Bag-N-Brand 
+                        today and earn commission on every unit sold!
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                design partner
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand (3).jpg" alt="">
+                    <p>
+                        Would you like to become a Brick & Mortar Retail 
+                        Partner
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                retail partner
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand (4).jpg" alt="">
+                    <p>
+                        Do you need custom packaging services?
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                custom packaging services
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+                <div class="grid-wrapper">
+                    <img src="./resources/images/partner/bag-n-brand (5).jpg" alt="">
+                    <p>
+                        Do you want to source products from our supply 
+                        chain for your own business operations? 
+                    </p>
+                    <center>
+                        <a href="#">
+                            <button class="notification">
+                                developer program
+                            </button> 
+                        </a>
+                    </center>
+                </div>
+            </section>
+
+        {{end}}
+
+    <!--</div>-->

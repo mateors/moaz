@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <base href="{{.Base}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{block "link" .}}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">-->
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    
+
+    
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    
+    
+
+    {{end}}
+
+    <title>{{block "title" .}}404 Error{{end}}</title>
+
+    {{block "style" .}}
+    <style>
+
+
+    </style>
+    {{end}}
+
+</head>
+
+<body>
+
+    
+
+
+    <div id="container">
+      <div id="main">
+
+         {{block "header" .}}
+
+            <header class="mdc-top-app-bar app-bar mdc-elevation--z4" id="app-bar">
+                <div class="mdc-top-app-bar__row">
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                        <span class="mdc-top-app-bar__title">{{.CompanyName}}</span>
+                    </section>
+
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                        
+                        
+                        <button id="appBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Print this page" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">a</button>
+                            
+                            <div class="toolbar mdc-menu-surface--anchor">
+                                <div id="appMenu" class="mdc-menu mdc-menu-surface app-surface gb_H gb_F gb_X">
+                                
+                                    <ul class="mdc-list gb_J gb_A" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                                        
+                                    
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            
+                        <button id="noticeBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Download" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">announcement</button>
+                        
+                            <div class="toolbar mdc-menu-surface--anchor">
+                            <div id="noticeMenu" class="mdc-menu mdc-menu-surface notice-surface">
+                                <ul id="listTWO_LINE" class="mdc-list mdc-list--two-line mdc-list--avatar-list">
+
+
+                                    <li class="mdc-list-item mdc-ripple-upgraded" tabindex="-1">
+                                        
+                                        <span class="mdc-list-item__graphic material-icons" aria-hidden="true">
+                                        <!----><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><g fill="none" fill-rule="evenodd"><path d="M20 0C8.96 0 0 8.96 0 20s8.96 20 20 20 20-8.96 20-20S31.04 0 20 0z" fill="#9e9e9e" fill-rule="nonzero"></path><path d="M20 17.727c2.767 0 5-2.233 5-5s-2.233-5-5-5-5 2.233-5 5 2.233 5 5 5zm0 2.954c-6.11 0-10.908 2.954-10.908 5.681A13.018 13.018 0 0 0 20 32.271c4.552 0 8.598-2.354 10.908-5.909 0-2.727-4.798-5.68-10.908-5.68z" fill="#ececec" fill-rule="nonzero"></path><path d="M0 0h40v40H0z"></path></g></svg>
+                                        <!---->
+                                        </span>
+                                        
+                                        <span class="mdc-list-item__text">
+                                        <span class="mdc-list-item__primary-text">
+                                            No message found
+                                        </span>
+                                        <span class="mdc-list-item__secondary-text">
+                                            00 00 0000</span>
+                                        </span>
+                                        
+                                    </li>
+
+                                </ul>
+                            </div>
+                            </div>
+
+
+
+                        
+        
+                        
+                        <button id="profileBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Logout" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">account_circle</button>
+
+                        
+                            <div class="toolbar mdc-menu-surface--anchor">
+                            <div id="profileMenu" class="mdc-menu mdc-menu-surface profile-surface">
+
+
+                                <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                                
+                                    <a href="/dashboard">
+                                        <li class="mdc-list-item" role="menuitem">
+                                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                                        <span class="mdc-list-item__text">Dashboard</span>
+                                        </a>
+                                        </li>
+                                    </a>
+
+                                    <a href="/changepass">  
+                                        <li class="mdc-list-item" role="menuitem">
+                                            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">lock</i>
+                                            <span class="mdc-list-item__text">Change Password</span>
+                                        </li>
+                                    </a>
+
+                                    <a href="/logout">
+                                        <li class="mdc-list-item" role="menuitem">
+                                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+                                        <span class="mdc-list-item__text">Logout</span>
+                                        </li>
+                                    </a>
+
+                                </ul>
+
+                            </div>
+                            </div>
+
+
+
+
+                    </section>
+                    
+                </div>
+            </header>
+
+         {{end}}
+
+         {{block "drawer" .}}
+
+            <section id="drawer">
+                <aside class="mdc-drawer mdc-drawer--modal">
+                    <div class="mdc-drawer__header"><h3 class="mdc-drawer__title">{{.CompanyName}}</h3><h6 class="mdc-drawer__subtitle">{{.CompanyWebsite}}</h6></div>
+
+                    <div class="mdc-drawer__content">
+                    <nav class="mdc-list">
+
+                        <a tabindex="0" class="mdc-list-item mdc-list-item--activated" href="/dashboard">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                        <span class="mdc-list-item__text">Dashboard</span>
+                        </a>
+
+                        <hr class="mdc-list-divider">
+
+
+                    </nav>
+                    </div>
+                </aside>
+
+                <div class="mdc-drawer-scrim"></div>
+                <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+                    <main class="main-content" id="main-content">
+                    &nbsp;
+                    </main>
+                </div>
+            </section>
+
+         {{end}}
+
+         {{block "content" .}}&nbsp;&nbsp;&nbsp;&nbsp;We could not find your request, <a href="/dashboard">GET BACK</a> {{end}}
+
+      </div><!--main--->
+    </div><!--container--->
+
+    <footer id="footer">
+      <div class="copyright">&copy; 2020 {{.CompanyName}}</div>
+    </footer> 
+
+    {{block "footer_script" .}}
+     <!--<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>-->
+     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+  
+    {{end}}
+
+    <script>
+      //console.log(mdc);
+      //const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+      const drawer=mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+
+      const topAppBar = mdc.topAppBar.MDCTopAppBar.attachTo(document.getElementById('app-bar'));
+      topAppBar.setScrollTarget(document.getElementById('main-content'));
+      topAppBar.listen('MDCTopAppBar:nav', () => {
+        drawer.open = !drawer.open;
+        console.log('topAppBar.listen');
+      });
+
+
+      const menu = new mdc.menu.MDCMenu(document.querySelector('#appMenu'));
+      //menu.setAnchorCorner(Corner.TOP_RIGHT);
+      //console.log('corner');
+      //console.log(mdc.Corner.TOP_RIGHT);
+      //console.log(menu);
+
+      document.getElementById("appBtn").addEventListener("click", function(){
+        menu.open = !menu.open;
+      });
+
+      menu.listen("MDCMenu:selected", (d)=> {
+        //console.log('menu item selected'+d.detail.item.innerHTML);
+      });
+
+
+      const menuSurface = new mdc.menuSurface.MDCMenuSurface(document.querySelector('.mdc-menu-surface'));
+      //console.log(menuSurface);
+      //menuSurface.setAbsolutePosition(100, 100);
+      menuSurface.listen("MDCMenuSurface:opened", function(){
+        //console.log("menuSurface opened...");
+      });
+
+      menuSurface.listen("MDCMenuSurface:closed", function(){
+        //console.log("menuSurface closed...");
+      });
+
+      const menu2 = new mdc.menu.MDCMenu(document.querySelector('#profileMenu'));
+      const profBtn = document.querySelector('#profileBtn');
+      profBtn.addEventListener("click", ()=> {
+        menu2.open = !menu2.open;
+      });
+
+      const menu3 = new mdc.menu.MDCMenu(document.querySelector('#noticeMenu'));
+      const noticeBtn = document.querySelector('#noticeBtn');
+      noticeBtn.addEventListener("click", ()=> {
+        menu3.open = !menu3.open;
+      });
+
+    </script>
+   
+  </body>
+</html>

@@ -1,0 +1,510 @@
+{{define "link"}} 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Roboto&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link href="resources/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="resources/css/custom-select2.css">
+
+
+{{end}}
+
+
+{{define "title"}}{{.Title}}{{end}}
+
+
+{{define "style"}}
+    <style>
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+        border: 1px solid #aaa;
+    }
+
+    .border{
+        border: 1px solid red;
+    }
+
+        .my-card-content {
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-bottom:0rem;
+        }
+
+        .welcome{
+            display:flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #E6E6E6;
+            height: 30px;
+            margin:5px;
+            padding:1rem;
+        }
+
+        .welcome_text_box{
+            flex: 1 0 0;
+        }
+
+        .welcome_text_style{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+        }
+
+        .block_text_style{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .welcome_block_box{
+            flex: 0 0 1;
+        }
+
+        .total_balance{
+            display:block;
+            height: 30px;
+            margin:5px;
+            padding:1rem;
+        }
+
+        .total_balance_text{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-align:center;
+        }
+
+        .gregfin-wallet{
+            padding-top:0rem;
+            padding-left:1rem;
+            padding-right:1rem;
+            padding-bottom:1rem;
+        }
+
+        .box_wrapper{
+            padding-top:0rem;
+            padding-left:1.5rem;
+            padding-right:1.5rem;
+            padding-bottom:1rem;
+            border: 0px solid yellow;
+        }
+
+        .box_area{
+            display:flex;
+            padding: 0rem;
+            justify-content: space-between;
+        }
+
+        .box_row{
+            display: block;
+            padding: 0.60rem;
+            margin: 2px;
+        }
+        .box_bg{
+            background-color:#E6E6E6;
+        }
+
+        .box_img{
+            height: 10px;
+        }
+
+        .rounded{
+            border-radius: 18px;
+        }
+
+        .text-field{
+             border-radius: 18px;
+        }
+
+        .balance-corner{
+            border-radius: 5px;
+        }
+
+        .box_btn{
+            display: block;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .wider{
+            width: 100%;
+        }
+        
+        .balance-text{
+            font-family: 'Poppins', 'sans-serif';
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .margin-bottom{
+            margin-bottom:20px;
+        }
+
+        .text-size{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .box_row-border{
+            border: 2px solid red;
+        }
+
+        .coin-title{
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-style: normal;
+        }
+
+        .coin-balance{
+            flex: 0 0 auto;
+        }
+
+        .coin-title--style{
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: .0125em;
+            background-color:transparent;
+            color: #4D4D4D;
+        }
+        .coin-balance--style{
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            letter-spacing: .0125em; 
+            color: #607D8B;
+            margin-top:1rem;
+            margin-bottom:0px;
+            background-color:transparent;
+        }
+
+        .my-card {
+            height: 150px;
+            width: 300px;
+        }
+
+
+        .card-title{
+            font-family: 'Poppins', sans-serif;
+        
+            line-height: 0rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: .0125em;
+
+            text-decoration: inherit;
+            text-transform: inherit;
+
+        }
+
+        .subtitle2 {
+            font-size: .875rem;
+            line-height: 1rem;
+            font-weight: 500;
+            letter-spacing: .0071428571em;
+        }
+
+        .dash_flex_box{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .text-field{
+            border-radius: 18px;
+            width: 300px;
+        }
+
+        td{
+            padding: 1rem;
+        }
+
+        .choose_payment_option{
+            width: 300px;
+            height:100px;
+            border: 1px solid red;
+            margin:0px;
+            padding:0px;
+        }
+        .cal_btn{
+            flex: 1 1 0;
+            font-weight: 500;
+            color: black;
+        }
+
+        .calculate{
+            display: flex;
+            justify-content: space-between;
+        }
+        .calresult{
+            flex: 0 0 auto;
+            font-size: 1.5rem;
+            line-height: 1rem;
+            font-weight: 500;
+            letter-spacing: .0071428571em;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .transfer_btn{
+            display: block;
+            width: 300px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .instruction_text{
+            width: 300px;
+            font-weight:300;
+            font-size:11px;
+            margin-bottom:0px;
+            text-align: justify;
+            line-height:1.25rem;
+        }
+    </style>
+{{end}}
+
+
+
+{{define "content"}}
+
+
+
+    {{if eq .LoginType "RETAIL"}}
+
+    
+        <section id="dashboard">
+
+            <div class="welcome">
+                <div class="welcome_text_box welcome_text_style">{{.AccountName}}</div>
+                <div class="welcome_block_box block_text_style">Welcome back</div>
+            </div> 
+
+            <div class="total_balance total_balance_text">
+                <a href="/sales?start_date=">
+                <button class="mdc-chip mdc-chip--selected mdc-ripple-upgraded" role="row" id="mdc-chip-7">
+                    <span role="button" tabindex="0" class="mdc-chip__text"></span>
+                </button>
+                Sales are Pending</a>
+            </div> 
+
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+
+
+
+                    <div class="mdc-layout-grid__cell--span-12">
+
+                    <div class="mdc-layout-grid__inner">
+
+                        <!--<div class="mdc-layout-grid__cell"></div>-->
+
+                    </div>
+                    
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </section>
+
+
+    {{else if eq .LoginType "SUPERADMIN"}}
+   
+
+        <section id="dashboard">
+
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+
+            
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">SYS</div>
+                            <div class="coin-balance coin-balance--style">{{.SystemuserCount}}</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/account" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">System User</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">STOCK</div>
+                            <div class="coin-balance coin-balance--style">{{.CarsCount}}</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/retailer" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Available Stock</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">MEM</div>
+                            <div class="coin-balance coin-balance--style">{{.ServicesCount}}</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/customer" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Membership</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">PNT</div>
+                            <div class="coin-balance coin-balance--style">{{.SellsRequestCount}}</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/sales?start_date=" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Bonus Point</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                </div>
+            </div>
+
+        </section>
+
+
+    {{else}}
+
+        <section id="dashboard">
+
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+
+            
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">RET</div>
+                            <div class="coin-balance coin-balance--style">0</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/retailer" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Retailer</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="mdc-layout-grid__cell--span-3">
+                    <div class="mdc-card my-cards bg-c-yellows">
+                      <div class="mdc-card__primary-action my-card-content" tabindex="0">
+                            <div class="box_area"><div class="coin-title coin-title--style">SAL</div>
+                            <div class="coin-balance coin-balance--style">0</div></div>
+                      </div>
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                            <a href="/sales?start_date=" class="mdc-button mdc-card__action mdc-card__action--button">
+                                <span class="mdc-button__label">Sales Pending</span>
+                            </a>
+                            </div>
+                            <div class="mdc-card__action-icons">
+                             <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon" title="More options">more_vert</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                </div>
+            </div>
+
+        </section>
+
+    {{end}}
+
+{{end}}
+
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    
+
+    <script>
+
+        //console.log(mdc);
+        //for (key in mdc) {
+           //console.log(key);
+        //}
+
+
+
+    </script>
+
+{{end}}

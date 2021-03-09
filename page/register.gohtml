@@ -1,0 +1,612 @@
+{{define "link"}} 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+{{end}}
+
+
+{{define "title"}}{{.Title}}{{end}}
+
+
+{{define "style"}}
+    <style>
+
+        .my-card {
+            padding:1rem;
+        }
+        .my-cardsR{
+         background-color: white;
+         opacity: 0.3;
+        }
+
+        .profile-title-area{
+            background-color:transparent;
+            padding-top:1rem;
+            padding-left:1rem;
+            padding-right:1rem;
+            padding-bottom:0rem;
+        }
+
+        .profile_title{
+            font-family: Roboto,sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom:0px;
+        }
+
+        .profile_blockno{
+            font-family: Roboto,sans-serif;
+            font-size: .875rem;
+            font-weight: 400;
+            letter-spacing: .0071428571em;
+            margin-top:0px;
+            color:#8C8C8C;
+            
+            
+        }
+        .profile_info{
+            padding:1rem;
+            font-family: Roboto,sans-serif;
+            font-weight: 400;
+            font-size: .875rem;
+            letter-spacing: .0178571429em;
+            line-height: 1.25rem;
+            background-color:transparent;
+        }
+
+        .row{
+            margin-bottom:1rem;
+        }
+
+        .cwidth{
+            width:100%;
+        }
+
+        .field_label {
+            float: left;
+            width: 6rem;
+            font-weight:500;
+        }
+        .field_value {
+            float: left;
+            font-weight:400;
+        }
+
+        .hide{
+            display:none;
+        }
+
+        .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-text-field__input {
+            padding-left: 48px;
+            padding-right: 16px;
+        }
+        .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon {
+            color: rgba(0,0,0,.54);
+        }
+        .mdc-text-field--with-leading-icon.mdc-text-field--outlined .mdc-text-field__icon {
+            left: 16px;
+            right: auto;
+        }
+
+        .mdc-text-field--outlined .mdc-text-field__icon {
+            z-index: 2;
+        }
+
+        .mdc-text-field--with-leading-icon .mdc-text-field__icon, .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .mdcbtnw{
+            width: 355px;
+        }
+
+        .mdc-text-field__input{
+            font-size:24px;
+        }
+
+
+        .CodeMirror {
+            margin: 0px;
+            font-family: "Roboto Mono", monospace;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            display: block;
+        }
+
+        .congrats{ 
+            display: block;
+            margin: 0px;
+            font-family: "Roboto Mono", monospace;
+        }
+
+        .color-green{ color: #018786; }
+        .color-red{ color: #b00020; }
+        .color-success{ color: #005cb2; }
+
+        .daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
+            min-width: 0px;
+        }
+
+    </style>
+{{end}}
+
+{{define "content"}}
+
+
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate hide" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+        <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
+    
+
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                role="status"
+                aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Retry</span>
+            </button>
+            <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="dashboard">
+
+
+    
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+
+                <div class="mdc-layout-grid__cell--span-4">
+                 
+                 <div class="mdc-card my-cards">
+                    <form id="myForm" method="POST">
+                        <div class="mdc-card__primary-actions" tabindex="0">
+                            
+                            <div class="profile-title-area">
+                                <h2 class="profile_title">REGISTER NEW MEMBER</h2>
+                                <h3 class="profile_blockno">Please Consider with one of the following ID</h3>
+                            </div>
+
+                            <div id="register" class="profile_info">
+
+                                
+                                <div class="row">
+                                    <div class="mdc-text-field text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"><i class="material-icons mdc-text-field__icon">settings_cell</i>
+                                        <input type="text" id="cusid" class="mdc-text-field__input" aria-describedby="text-field-outlined-leading-helper-text" required>
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style=""><label class="mdc-floating-label" for="cusid" style="">Phone/Email</label></div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mdc-text-field-helper-line">
+                                        <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg">Enter mobile or email to register</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mdc-circular-progress" style="width:48px;height:48px;" role="progressbar" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1">
+                                        <div class="mdc-circular-progress__determinate-container">
+                                            <svg class="mdc-circular-progress__determinate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                            <circle class="mdc-circular-progress__determinate-track" cx="24" cy="24" r="18" stroke-width="4"/>
+                                            <circle class="mdc-circular-progress__determinate-circle" cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="113.097" stroke-width="4"/>
+                                            </svg>
+                                        </div>
+                                        <div class="mdc-circular-progress__indeterminate-container">
+                                            <div class="mdc-circular-progress__spinner-layer">
+                                            <div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-left">
+                                                <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="56.549" stroke-width="4"/>
+                                                </svg>
+                                            </div><div class="mdc-circular-progress__gap-patch">
+                                                <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="56.549" stroke-width="3.2"/>
+                                                </svg>
+                                            </div><div class="mdc-circular-progress__circle-clipper mdc-circular-progress__circle-right">
+                                                <svg class="mdc-circular-progress__indeterminate-circle-graphic" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="24" cy="24" r="18" stroke-dasharray="113.097" stroke-dashoffset="56.549" stroke-width="4"/>
+                                                </svg>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <h4 class="congrats" id="mTitle">Congratulations!</h4>
+                                    <span class="CodeMirror" id="mText">
+                                        MembershipID <b>...</b> is available <i class="material-icons">done_all</i>
+                                    </span>
+                                    
+                                </div>
+
+                                <!---->
+                                <div class="row">
+                                    <div class="mdc-text-field text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"><i class="material-icons mdc-text-field__icon">account_box</i>
+                                        <input type="text" name="name" class="mdc-text-field__input" aria-describedby="text-field-outlined-leading-helper-text">
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style=""><label class="mdc-floating-label mdc-floating-label--float-above" for="name" style="">Name</label></div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                                        <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                        <div class="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label for="radio-1">Male</label>
+
+                                    <div class="mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+                                        <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                        <div class="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label for="radio-1">Female</label>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mdc-text-field text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--label-floating"><i class="material-icons mdc-text-field__icon">date_range</i>
+                                        <input type="text" name="dob" id="posting_date" class="mdc-text-field__input" aria-describedby="text-field-outlined-leading-helper-text" readonly>
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style=""><label class="mdc-floating-label mdc-floating-label--float-above" for="posting_date" style="">Birthdate</label></div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mdc-text-field text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"><i class="material-icons mdc-text-field__icon">call</i>
+                                        <input type="text" name="phone" class="mdc-text-field__input" aria-describedby="text-field-outlined-leading-helper-text">
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style=""><label class="mdc-floating-label" for="phone" style="">Phone</label></div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mdc-text-field text-field mdc-text-field--outlined mdc-text-field--with-leading-icon"><i class="material-icons mdc-text-field__icon">mail</i>
+                                        <input type="text" name="email" class="mdc-text-field__input" aria-describedby="text-field-outlined-leading-helper-text">
+                                        <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+                                            <div class="mdc-notched-outline__leading"></div>
+                                            <div class="mdc-notched-outline__notch" style=""><label class="mdc-floating-label" for="email" style="">Email</label></div>
+                                            <div class="mdc-notched-outline__trailing"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                            </div>
+
+                            
+
+                        </div><!---primary actions-->
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                                <button class="mdc-button mdc-button--raised mdcbtnw" id="btnChange">
+                                    <div class="mdc-button__ripple"></div>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
+                                    <span class="mdc-button__label">Check</span>
+                                </button>
+
+                            </div>
+                            <div class="mdc-card__action-icons"></div>
+                        </div>
+                    </form>
+                 </div><!---my card---->
+
+                </div><!----cell--span---->
+
+            </div>
+        </div>
+
+    </section>
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    
+    <script>
+
+        //for (key in mdc) {
+          //console.log(key);
+        //}
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+            textFieldElements.forEach((textFieldEl) => {
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+        $(document).ready(function() {
+
+            $('#register > div:nth-child(1)').removeClass("hide"); //username form
+            $('#register > div:nth-child(2)').addClass("hide"); //processing
+            $('#register > div:nth-child(3)').addClass("hide");
+            $('#register > div:nth-child(4)').addClass("hide");
+            $('#register > div:nth-child(5)').addClass("hide");
+            $('#register > div:nth-child(6)').addClass("hide");
+            $('#register > div:nth-child(7)').addClass("hide");
+            $('#register > div:nth-child(8)').addClass("hide");
+
+            $('#posting_date').daterangepicker({
+                autoApply: true,
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 1950,
+                "drops": "down",
+                locale: {format: 'YYYY-MM-DD'},
+                maxYear: parseInt(moment().format('YYYY'),10)
+            });
+            
+            var progress=document.querySelector('.mdc-linear-progress');
+            mdc.linearProgress.MDCLinearProgress.attachTo(progress);
+
+            var cirprog=document.querySelector('.mdc-circular-progress');
+            const circularProgress = mdc.circularProgress.MDCCircularProgress.attachTo(cirprog);
+
+            var snackbarClass=document.querySelector('.mdc-snackbar');
+            const snackbar = mdc.snackbar.MDCSnackbar.attachTo(snackbarClass);
+
+            mdc.textField.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));
+
+            $('.material-icons').on('click', function(){
+
+                var iconName=$(this).text();
+                if (iconName == "remove_red_eye"){
+                    //alert(iconName);
+                    $curr=$(this).parent().find('input');
+                    var ctype=$curr.attr('type');
+                    if (ctype=='text'){ ctype="password"; }
+                    else if (ctype=='password'){ ctype="text"; }else{ }
+                    $curr.attr('type', ctype);
+                }
+
+            });
+
+            document.querySelector(".mdc-snackbar__action").addEventListener("click", function(e){
+                console.log('send clicked');
+            });
+
+            snackbar.listen("MDCSnackbar:opening", function(e){ 
+            
+             console.log("opening...");
+            
+            });
+
+            $('#btnChange').on('click', function(){
+
+                //#btnChange > span
+
+
+                var iconText=$('#btnChange > i').text();
+                var cusid=$('#cusid').val();
+               
+                //step-1
+                if (iconText=="search"){
+                    //alert(iconText);
+                    circularProgress.progress=1;
+                    circularProgress.determinate=false;
+                    $('#register > div:nth-child(1)').addClass("hide");
+                    $('#register > div:nth-child(2)').removeClass("hide");
+                    $('#btnChange').attr("disabled", true);
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/register",
+                        data: {"username": cusid, "todo": 'search'},
+                        success: function(){
+                        },
+                        error: function(){
+                        }
+
+                    }).done(function(dres){
+
+                        //alert(dres);
+                        console.log(dres);
+                        //console.log(snackbar);
+                        circularProgress.progress=0;
+                        circularProgress.determinate=true;
+                        $('#mTitle').text(dres.title);
+                        $('#mText').text(dres.message);
+
+                        if (dres.status=="available"){
+
+                            $('#mTitle').addClass("color-green");
+                            $('#mText').addClass("color-green");
+
+                            $('#register > div:nth-child(1)').addClass("hide"); //username form
+                            $('#register > div:nth-child(2)').addClass("hide"); //processing
+                            $('#register > div:nth-child(3)').removeClass("hide");
+                            $('#register > div:nth-child(4)').addClass("hide");
+                            $('#register > div:nth-child(5)').addClass("hide");
+                            $('#register > div:nth-child(6)').addClass("hide");
+                            $('#register > div:nth-child(7)').addClass("hide");
+                            $('#register > div:nth-child(8)').addClass("hide");
+
+                            $('#btnChange > i').text('done');
+                            $('#btnChange > span').text('Register');
+                            $('#btnChange').attr("disabled", false);
+
+                        }else if(dres.status=="taken"){
+                        
+                            $('#mTitle').addClass("color-red");
+                            $('#mText').addClass("color-red");
+
+                            $('#register > div:nth-child(1)').addClass("hide");
+                            $('#register > div:nth-child(2)').addClass("hide");
+                            $('#register > div:nth-child(3)').removeClass("hide");
+
+                            $('#myForm').find('input[name="name"]').val(dres.account_name);
+                            $('#myForm').find('input[name="dob"]').val(dres.dob);
+                            $('#myForm').find('input[name="phone"]').val(dres.mobile);
+                            $('#myForm').find('input[name="email"]').val(dres.email);
+                            //$('#myForm').find('input[name="name"]').val(dres.account_name);
+
+                            $('#register > div:nth-child(4)').removeClass("hide");
+                            $('#register > div:nth-child(5)').removeClass("hide");
+                            $('#register > div:nth-child(6)').removeClass("hide");
+                            $('#register > div:nth-child(7)').removeClass("hide");
+                            $('#register > div:nth-child(8)').removeClass("hide");
+
+                            $('#btnChange > i').text('edit');
+                            $('#btnChange > span').text('Update');
+                            $('#btnChange').attr("disabled", false);
+
+                            $('#myForm').find('input[name="name"]').focus();
+                        }
+
+                        
+                    });
+
+                }else if (iconText=="done"){
+
+                    //alert('REGI');
+                    $('#btnChange').attr("disabled", true);
+                    $('#register > div:nth-child(3)').addClass("hide");//message
+                    $('#register > div:nth-child(2)').removeClass("hide");//message
+                    circularProgress.progress=1;
+                    circularProgress.determinate=false;
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/register",
+                        data: {"username": cusid, "todo": 'insert'},
+                        success: function(){
+                        },
+                        error: function(){
+                        }
+
+                    }).done(function(dres){
+
+                        //alert(dres);
+                        console.log(dres);
+                        //console.log(snackbar);
+
+                        $('#mTitle').text(dres.title);
+                        $('#mText').text(dres.message);
+
+
+                        if (dres.status=="success"){
+
+                            snackbar.timeoutMs=10000;
+                            snackbar.labelText=dres.message;
+                            snackbar.actionButtonText="OKAY";
+                            snackbar.open();
+
+                            $('#mTitle').addClass("color-success");
+                            $('#mText').addClass("color-success");
+
+
+                            $('#register > div:nth-child(1)').addClass("hide"); //username form
+                            $('#register > div:nth-child(2)').addClass("hide"); //processing
+                            $('#register > div:nth-child(3)').removeClass("hide");//message
+
+                            $('#register > div:nth-child(4)').addClass("hide");
+                            $('#register > div:nth-child(5)').addClass("hide");
+                            $('#register > div:nth-child(6)').addClass("hide");
+                            $('#register > div:nth-child(7)').addClass("hide");
+                            $('#register > div:nth-child(8)').addClass("hide");
+
+                            $('#btnChange > i').text('add');
+                            $('#btnChange > span').text('New');
+                            $('#btnChange').attr("disabled", false);
+
+                        }
+                        
+
+                        
+                    });
+
+
+                }else{
+
+                    $('#cusid').val('');
+                    $('#btnChange > i').text('search');
+                    $('#btnChange > span').text('Check');
+
+                    $('#register > div:nth-child(1)').removeClass("hide"); //username form
+                    $('#register > div:nth-child(2)').addClass("hide"); //processing
+                    $('#register > div:nth-child(3)').addClass("hide");
+                    $('#register > div:nth-child(4)').addClass("hide");
+                    $('#register > div:nth-child(5)').addClass("hide");
+                    $('#register > div:nth-child(6)').addClass("hide");
+                    $('#register > div:nth-child(7)').addClass("hide");
+                    $('#register > div:nth-child(8)').addClass("hide");
+
+                    $('#mTitle').attr("class", "congrats");
+                    $('#mText').attr("class", "CodeMirror");
+                    //$('#mTitle').addClass("color-green");
+                    //$('#mText').addClass("color-green");
+
+                    $('#cusid').focus();
+
+                }
+
+                return false;
+
+            });
+
+        });
+
+    </script>
+
+{{end}}

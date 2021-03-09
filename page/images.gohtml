@@ -1,0 +1,429 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .mdc-data-table{
+        width: 100%;
+    }
+
+    .mdc-data-table__content td{
+           
+    }
+
+    .mdc-text-field{
+        width:25rem;
+    }
+    .demo-width-class{
+        width:25rem;
+    }
+
+    .topWrapper {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        justify-content: space-between;
+    }
+
+    .filter_area{
+         flex: 1 1 55%;
+         padding: 1em;
+    }
+
+    .topAction{
+        /*flex: 0 0 45%;*/
+        flex:1;
+        text-align:right;
+        padding-bottom: 1em;
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+
+    .CodeMirror {
+        height: 500px;
+        color: black;
+        direction: ltr;
+    }
+
+    .image_wrapper{
+        position: relative;
+        width: 100%;
+        border:1px solid #e0e0e0;
+        display: flex;
+        flex-wrap:wrap;
+    }
+
+    .imgContainerX{
+        position: relative;
+        width: 100%;
+        padding: 2px;
+        margin:10px;
+    }
+
+    .imgContainer{
+        position: relative; 
+        width: 100px;
+        height: auto;
+        font-size:12px;
+        margin-top:10px;
+        margin-left:10px;
+        margin-right:10px;
+        margin-bottom:30px;
+        word-wrap: break-word;
+        vertical-align: middle;
+    }
+
+    .simgw{
+     display: block;
+     background:#F2F2F2;
+     width: 100px;
+     height: 90px;
+    }
+
+    .image{
+        width: 100px;
+        height: 90px;
+        /*object-fit: cover;*/
+        vertical-align: middle;
+
+    }
+
+    .overlay {
+        position: absolute; 
+        bottom: 0; 
+        background: rgb(0, 0, 0);
+        background: rgba(74,75,255,0.49); /* Black see-through */
+        color: #f1f1f1; 
+        width: 100%;
+        height:100%;
+        transition: .5s ease;
+        opacity:0;
+        color: white;
+        font-size: 12px;
+        padding: 0px;
+        text-align: center;
+        line-height: 80px;
+        cursor: pointer;
+    }
+
+    .imgContainer:hover .overlay {
+        opacity: 1;
+    }
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+  
+    <link rel="stylesheet" href="resources/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="resources/codemirror/addon/fold/foldgutter.css" />
+    <link rel="stylesheet" href="resources/codemirror/addon/hint/show-hint.css">
+
+{{end}}
+
+{{define "content"}}
+    
+
+    <section id="dlist">
+
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+               <div class="mdc-layout-grid__cell--span-12">
+
+                    <div class="topWrapper">
+                      <div class="topAction">
+                         
+                         <button id="btnAdd" class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">add</i>
+                            <span class="mdc-button__label">Add</span>
+                         </button>
+
+                      </div>
+                    </div>
+
+                    <div class="image_wrapper">
+
+                      {{range $img := .ImgList}}
+                        <div class="imgContainer">
+                            <div class="simgw"><img src="resources/images/{{$img.Name}}" alt="Avatar" class="image">{{$img.Name}}</div>
+                            <div class="overlay" data-name="{{$img.Name}}">EDIT</div>
+                         </div>
+                      {{end}}
+                        
+                    </div>
+
+               </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <section id="modal_1">
+       <form id="dform" method="post" autocomplete='off'>
+        <input type="hidden" name="todo" value="insert">
+
+        <div class="mdc-dialog"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="my-dialog-title">Image</h2>
+                <span id="error_message"></span>
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                
+                
+                <table class="mytable">
+
+                    <tr>
+                      <td>
+                        <div class="mdc-text-field mdc-text-field--no-label">
+                            <input type="file" id="pfile" name="img" accept="image/*" class="mdc-text-field__input" aria-label="Product image">
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="mdc-text-field">
+                                <input type="text" name="image_name" class="mdc-text-field__input" required>
+                                <input type="hidden" name="hidden_name" class="mdc-text-field__input">
+                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                    Image Name
+                                </label>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                            <div class="mdc-text-field-helper-line">
+                                <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">for effective update keep the same extension as before</div>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </table>
+
+                    
+                </div>
+                <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                    <span class="mdc-button__label">Close</span>
+                </button>
+
+                <button id="btnDelete" type="button" class="mdc-button">
+                    <span class="mdc-button__label">Delete</span>
+                </button>
+
+                <button id="btnSave" type="submit" class="mdc-button">
+                    <span class="mdc-button__label">Save</span>
+                </button>
+
+                </footer>
+            </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+      </form>  
+    </section>
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+
+
+
+    <script>
+
+        const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+        textFieldElements.forEach((textFieldEl) => {
+            //new MDCTextField(textFieldEl);
+            //textFieldEl.value="222";
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+            //console.log(textFieldEl);
+        });
+
+
+        $(document).ready(function() {
+
+
+            var codeSelector=document.getElementById("code");
+
+            var cAray =[];
+
+            $('#btnAdd').on('click', function(){
+            
+              $('#dform').find('input[name="todo"]').val('insert');
+              dialog.open();
+
+            });
+
+            $('.overlay').on('click', function(e){
+
+                var originalName=$(this).attr('data-name');
+                //alert('update click'+name);
+                var name=originalName.split('.').slice(0, -1).join('.');
+                $('#dform').find('input[name="todo"]').val('update');
+                $('#dform').find('input[name="image_name"]').val(name);
+                $('#dform').find('input[name="hidden_name"]').val(originalName);
+                dialog.open();
+            
+            });
+
+            //form submit now
+            $('#dform').submit(function(e){
+                //console.log('prevent');
+                e.preventDefault();
+                $('#btnSave').prop('disabled', true);
+                $('#btnSave').text("Please wait...");
+
+                var ajaxData = new FormData();
+                $.each($('#dform').find('input,textarea,select'), function(){
+
+                        var name = $(this).attr("name");
+                        var nvalue = $(this).val();
+                        var tagName=$(this).prop('tagName');
+                        var type=$(this).attr('type');
+
+                        if (typeof name != "undefined" && typeof nvalue != "undefined"){
+
+                            if (type=="text"){
+                                ajaxData.append(name, nvalue);
+
+                            }else if (type=="checkbox"){
+                                if($(this).is(':checked')){
+                                    nvalue=1;
+                                }else{
+                                    nvalue=0;
+                                }
+                                //console.log('chekbox: '+nvalue);
+                                ajaxData.append(name, nvalue);
+
+                            }else{
+                                //hidden
+                                ajaxData.append(name, nvalue);
+                            }
+                            
+                            //console.log(name+'-'+nvalue+'='+tagName);
+                            
+                        }
+
+                });
+
+                $.each($('#pfile')[0].files, function(i, file) {
+                   ajaxData.append('file-'+i, file);
+                });
+
+                //console.log(ajaxData);
+
+                $.ajax({
+                    async: true,
+                    type: "POST",
+                    dataType: "json",
+                    url: "/images",
+                    data: ajaxData, //$('#account_info').serialize(),
+                    //dataType: 'application/x-www-form-urlencoded', //multipart/form-data;
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(){
+                    },
+                    error: function(jqXHR, textStatus){
+                        console.log("failed with error: " + textStatus);
+                    }
+
+                 }).done(function(dres){
+
+                     //console.log(dres);
+                     if (dres.message.trim()=='OK'){
+                         location.reload();
+
+                     }else{
+                         var nmsg=dres.message.replace(/(.{48})/g, "$1<br>");
+                          $('#error_message').html(nmsg);
+                          $('#btnSave').prop('disabled', false);
+                          $('#btnSave').text("SAVE");
+                     }
+
+                });
+              
+                return false
+                //console.log("form submit");
+
+            });
+
+
+            //delForm submit now
+            $('#btnDelete').on('click', function(e){
+            
+                //console.log('prevent');$('#dform')
+               
+                e.preventDefault();
+                $('#btnDelete').prop('disabled', true);
+                $('#btnDelete').text("Please wait...");
+                var name=$('#dform').find('input[name="hidden_name"]').val();
+                var id=`image::${name}`;
+
+                $.ajax({
+                    async: true,
+                    type: "POST",
+                    url: "/delete",
+                    data: {"id": id, "name": name},
+                    success: function(){
+                    },
+                    error: function(jqXHR, textStatus){
+                        console.log("failed with error: " + textStatus);
+                    }
+
+                 }).done(function(dres){
+
+                     //console.log(dres);
+                     if (dres.trim()=='OK'){
+                         location.reload();
+                     }else{
+                         var nmsg=dres.replace(/(.{48})/g, "$1<br>");
+                          $('#error_message2').html(nmsg);
+                          $('#btnDelete').prop('disabled', false);
+                          $('#btnDelete').text("SAVE");
+                     }
+
+                });
+                return false
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+

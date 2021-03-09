@@ -1,0 +1,347 @@
+{{block "style" .}}
+
+<style>
+    h1
+    {
+        font-family: "archivo black",sans-serif;
+    }
+    .one
+    {
+        height: 18em;
+    }
+    .one .img::after
+    {
+        content: "";
+        height: 18em;
+        background-image: url(./resources/images/bag-n-brand.jpg);
+        background-position-y: 22%;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /* background-color: black; */
+        opacity: 0.5;
+        z-index: -1;
+    }
+    .one h1
+    {
+        
+        font-size: 88px;
+        letter-spacing: -0.1em;
+        margin: 0;
+        /* margin-top: -2em; */
+        text-align: center;
+        padding-top: 1.3em;
+        text-transform: uppercase;
+        
+
+    }
+    .two
+    {
+        padding: 5em;
+    }
+    .two h1
+    {
+        font-size: 23px;
+        letter-spacing: -0.09em;
+        padding: 1.5em;
+        text-align: center;
+
+    }
+    .two .form-container
+    {
+        border: 1px solid white;
+        width: 47%;
+        margin: 0 auto;
+        background-color: #fafafa;
+        color: black;
+    }
+    .form-container .img
+    {
+        height: 15em;
+        background-image: url(./resources/images/bag-n-brand.jpg);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    .form-container .location-intro
+    {
+        margin: 0em 2em;
+        margin-top: -3em;
+        padding: 2em;
+        background-color: white;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+    }
+    .form-container .location-intro img
+    {
+        width: 40%;
+    }
+    .form-container .location-intro h2
+    {
+        font-family: "hind siliguri", sans-serif;
+        font-weight: 500;
+        font-size: 29px;
+        color: rgba(0, 0, 0, 0.8);
+        margin-top: 0.8em;
+
+    }
+    .form-container .location-intro p
+    {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    .form-container .form
+    {
+        margin: 4em;
+    }
+    .form label
+    {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    .form label span.required
+    {
+        color: red;
+    }
+    .form label span
+    {
+        font-size: 16px;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button 
+    {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .form input
+    {
+        width: 100%;
+        margin: 1em 0em 2em 0em;
+        padding: 10px;
+        border-radius: 3px;
+        border: 2px solid;
+        border-color: rgba(92, 92, 92, 0.2);
+    }
+    .form input:hover
+    {
+        border-color: rgba(92, 92, 92, 0.4);
+
+    }
+    .form input:focus
+    {
+        
+        outline-color: rgba(38, 82, 255, 0.7);
+    }
+    .form input[type="checkbox"]
+    {
+        /* position: absolute;
+        left: 0; */
+        width: 3%;
+        
+        
+    }
+    /* .form input[type="checkbox"]:checked ~ input[type="checkbox"]
+    {
+        background-color: white;
+    } */
+    .form .hidden-form
+    {
+        display:none;
+    }
+    .two .form input[type="button"],
+    .two .report-form .submit
+    {
+        border: none;
+        border-radius: 6px;
+        width: 30%;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        background-color: rgba(38, 136, 255, 1);
+        color: white;
+        margin-bottom: 1.2em;
+        transition: 0.3s;
+    }
+    .two .form input[type="button"]:hover,
+    .two .report-form .submit:hover
+    {
+        background-color: rgba(38, 136, 255, 0.9);
+    }
+    .two .form input[type="button"]:focus,
+    .two .report-form .submit:focus
+    {
+        outline: none;
+    }
+    .form .report
+    {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.3);
+        margin: 0px;
+    }
+    .form .report span
+    {
+        text-decoration: underline;
+    }
+    
+    .report-form
+    {
+        border: 2px solid;
+        border-color: rgba(92, 92, 92, 0.7);
+        border-radius: 5px;
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3);
+        padding: 2em;
+        position: absolute;
+        display: none;
+        font-family: 'Segoe UI', sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+        width: 37.8%;
+        margin: 0em 2em;
+        background-color: white;
+        
+    }
+    .report-form h2,.report-form p
+    {
+        margin: 10px 0px;
+    }
+    .report-form .spam,
+    .report-form .other
+    {
+        height: 2em;
+    }
+    .report-form input[type="radio"]
+    {
+        width: auto;
+    }
+    .report-form textarea
+    {
+        width: 100%;
+        padding: 1em;
+        margin: 1em 0;
+        border-radius: 8px;
+        border: 2px solid;
+        border-color: rgba(92, 92, 92, 0.2);
+    }
+    .report-form textarea:focus
+    {
+        outline: none;
+        border-color: rgba(38, 82, 255, 0.7);
+        
+    }
+    .report-form textarea:placeholder-shown
+    {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 14px;
+    }
+    .report-form .btn
+    {
+        text-align: right;
+        /* float: right; */
+    }
+    .report-form .btn .submit,
+    .report-form .btn .cancel
+    {
+        width: 20%;
+        margin: 0; 
+        padding: 8px;
+    }
+    .report-form .btn .cancel
+    {
+        background-color: transparent;
+        color: rgba(0, 0, 0, 0.6);
+        border: none;
+    }
+    .report-form .btn .cancel:hover
+    {
+        background-color: transparent;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    .report-form .btn .cancel:focus
+    {
+        outline: none;
+    }
+</style>
+
+{{end}}
+
+     <!--<div class="container">-->
+
+        {{block "section" .}}
+
+            <section class="one">
+                <div class="img">
+                    <h1>Location</h1>
+                </div>
+                
+            </section>
+
+            <section class="two">
+                <h1>Enter your age and your zip code</h1>
+                <div class="form-container">
+                    <div class="img"></div>
+                    <div class="location-intro">
+                        <img src="./resources/images/bag-n-brand6.png" alt="">
+                        <h2>SHOP LOCATION</h2>
+                        <p>
+                            Enter your age and your zip code to learn 
+                            where you can purchase our product today.
+                        </p>
+
+                    </div>
+                    <div class="report-form-bg">
+                        <div class="report-form">
+                            <h2>Report a malicious form</h2>
+                            <p>Please briefly describe how this form is being misused</p>
+                            <div class="spam">
+                                <input type="radio" name="report" id="spam">
+                                <label for="spam">Spam, malware, or Phishing</label>
+                            </div>
+                            <div class="other">
+                                <input type="radio" name="report" id="other">
+                                <label for="other">Other(please explain)</label>
+                            </div>
+                            <textarea name="explain-report" id="explain-report" cols="30" rows="10" placeholder="Optionally, please briefly describe how this form is being misused."></textarea>
+                            <div class="btn">
+                                <input type="button" value="Cancel" class="cancel">
+                                <input type="button" value="Submit" class="submit">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form">
+                        
+                        <label for="name">Name <span class="required">*</span><br>
+                            <span>How would you like to be addressed?</span>
+                        </label>
+                        <input type="text" name="name" id="name" required>
+                        <label for="birth">BIRTH DAY <span class="required">*</span></label>
+                        <input type="date" name="birth" id="birth">
+                        <label for="zip">ZIP CODE <span class="required">*</span></label>
+                        <input type="number" name="zip" id="zip">
+                        <label for="shop-recommend">Recommend A Shop! <br>
+                            <span>Name the best vape/smoke shop in your area?</span>
+                        </label><br>
+                        <input type="checkbox" name="shop-recommend" id="shop-recommend">
+                        <div class="hidden-form">
+                            <label for="shop-name">Name Of Shop <span class="required">*</span><br>
+                                <span>What is the name of your favourite shop?</span>
+                            </label>
+                            <input type="text" name="shop-name" id="shop-name">
+                        </div><br>
+                        <a href="#">
+                            <input type="button" value="PUNCH ME!">
+                        </a>
+                        <p class="report">Never submit passwords through this form. <span>Report malicious form</span></p>
+                        
+                    </div>
+                </div>
+            </section>
+
+        {{end}}
+
+    <!--</div>-->

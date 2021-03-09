@@ -1,0 +1,955 @@
+{{block "link" .}}
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{{end}}
+
+{{block "style" .}}
+
+    <style>
+        @keyframes bounce-x {
+            0% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            10% {
+                transform: translate3d(-6px, 0, 0)
+            }
+
+            20% {
+                transform: translate3d(12px, 0, 0)
+            }
+
+            29% {
+                transform: translate3d(-12px, 0, 0)
+            }
+
+            38% {
+                transform: translate3d(11px, 0, 0)
+            }
+
+            47% {
+                transform: translate3d(-9px, 0, 0)
+            }
+
+            56% {
+                transform: translate3d(7px, 0, 0)
+            }
+
+            65% {
+                transform: translate3d(-5px, 0, 0)
+            }
+
+            74% {
+                transform: translate3d(3px, 0, 0)
+            }
+
+            83% {
+                transform: translate3d(-1px, 0, 0)
+            }
+
+            92% {
+                transform: translate3d(1px, 0, 0)
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0)
+            }
+        }
+        .ec-size .ec-store .form-control--bounce .form-control__button-text,.ec-size .ec-store .form-control--bounce .form-control__button-svg {
+            display: inline-block;
+            position: relative;
+            animation: bounce-x .8s ease forwards 0s
+        }
+
+        .form-control__loader {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            background-size: 40px 40px;
+            transition: opacity .2s linear .3s;
+            animation: progress-bar-stripes .5s linear infinite;
+            background-image: linear-gradient(
+            45deg
+            , rgba(18,18,18,0.06) 25%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 50%, rgba(18,18,18,0.06) 50%, rgba(18,18,18,0.06) 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06));
+        }
+        .ec-size .ec-store .form-control--button .form-control__loader {
+            transition: opacity .2s linear 0s;
+        }
+
+        .ec-size .ec-store .form-control {
+            border: none;
+            border-radius: 3px;
+            background-color: #121212;
+            color: #999;
+            font-size: inherit;
+            line-height: normal;
+            transition: background-color .15s ease-out 0s;
+        }
+
+         .btn-cancel{
+            color:yellow;
+            cursor: pointer;
+        }
+
+        .btn-cancel:hover{
+            color:red;
+            cursor: pointer;
+        }
+          
+            
+        
+    </style>
+
+    <style>
+        @font-face
+        {
+            src: url(./resources/fonts/proxima_ssv/ProximaNova-Regular.otf);
+            font-family: nova;
+        } 
+        p
+        {
+            font-family: nova;
+            /* letter-spacing: 0.03em; */
+        }
+        
+        .one
+        {
+            height: 25em;
+        }
+        .one p
+        {
+            padding-top: 120px;
+            text-align: center;
+        }
+        .one img
+        {
+            width: 42%;
+        }
+        .two
+        {
+            background-color: #cb1e0b;
+            padding: 7.5em;
+        }
+        .two>p
+        {
+            font-weight: 600;
+            font-size: 15px;
+            text-align: center;
+            letter-spacing: 0.03em;
+            margin: 1.5em auto;
+        }
+        .two p span
+        {
+            font-weight: 800;
+        }
+        .two a>img
+        {
+            width: 30px;
+            margin: 1em 0.5em;
+        }
+        .two .count span
+        {
+            padding: 3px 9px;
+            border-radius: 50px;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+            margin-left: -15px;
+            margin-top: -8px;
+            position: absolute;
+        }
+        .two .cards-wrapper
+        {
+            background-color: black;
+            padding: 10px;
+            padding-top: 0px;
+        }
+        .two .cards-wrapper .cart-describe
+        {
+            margin-bottom: 1em;
+        }
+        .two .cards-wrapper h1 
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .two .cards-wrapper .payment
+        {
+            margin-bottom: 2em;
+        }
+        
+        .two .part-icon
+        {
+            width: auto;
+            margin: 0px auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+            grid-gap: 2em;
+        }
+        .two .part-icon i
+        {
+            font-size: 24px;
+        }
+        .two img.icon
+        {
+            color: white;
+            width: 22px;
+        }
+        .two .part-icon p
+        {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    </style>
+
+    <style>
+        .two .cards-wrapper
+        {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas: 
+            "one two"
+            "three three";
+            grid-gap: 3em;
+        }
+        .cards-wrapper .cart-describe
+        {
+            grid-area: one;
+        }
+        .cards-wrapper .payment
+        {
+            grid-area: two;
+        }
+        .cards-wrapper .part-icon
+        {
+            grid-area: three;
+        }
+        .cards-wrapper .product
+        {
+            margin: 20px 0px;
+            display:grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 1em;
+        }
+        .cards-wrapper .product_image-wrap
+        {
+            width: 80px;
+            height: 100%;
+            /* background-image: url(./img/bag-n-brand-product/bag-n-brand\(59\).jpg); */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .cards-wrapper .product_image-wrap img
+        {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cards-wrapper .product-detail p
+        {   
+            padding: 3px 0px;
+        }
+        .product-detail>span
+        {
+            font-family: nova;
+        }
+        .product-detail select
+        {
+            color: white;
+            background-color: black;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+        .product-detail option:not(:checked)
+        {
+            background-color: white;
+            color: black;
+        }
+        .product-detail span,
+        .product-detail select
+        {
+            margin: 3px 0;
+        }
+        .cards-wrapper .product-price p
+        {
+            padding: 3px 0px;
+            text-align: right;
+        }
+        .cards-wrapper .total-price
+        {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 20px 0px;
+        }
+        .total-price .price 
+        {
+            float: right;
+        }
+        .cart-describe .promo
+        {
+            margin: 10px 0px 15px 0px;
+        }
+        .cart-describe .continue
+        {
+            margin: 15px 0px;
+        }
+        .cart-describe .continue a
+        {
+            color: rgba(255, 255, 255, 0.8);
+            transition: 0.2s;
+        }
+        .cart-describe .continue a:hover
+        {
+            color: rgba(255, 255, 255, 1);
+
+        }
+        .payment input[type="text"]
+        {
+            width: 100%;
+            margin: 20px 0px;
+            padding: 15px 10px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid;
+            border-color: rgba(255, 255, 255, 0.8);
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .payment input[type="text"]:hover,
+        .payment input[type="text"]:focus
+        {
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .payment input[type="checkbox"]
+        {
+            margin: 10px 5px 10px 0px;
+        }
+        .payment label
+        {
+            font-family: nova;
+        }
+        .payment .checkout
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+            margin: 15px 0px;
+            align-items: center;
+            
+        }
+        .checkout input[type="button"]
+        {
+            font-family: nova;
+            font-size: 18px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 4px;
+            padding: 13px;
+            transition: 0.3s;
+        }
+        .checkout input[type="button"]:hover
+        {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .payment .encrypted
+        {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 0.7em;
+            align-items: center;
+        }
+        .encrypted p
+        {
+            font-size: 14px;
+        }
+        i.fa-paypal
+        {
+            color: #0307ff;
+        }
+        .payment .paypal-check
+        {
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffc421;
+            padding: 12px;
+            font-size: clamp(14px, 1.28vw, 1.28vw);
+            font-style: italic;
+            font-weight: 900;
+            width: 12em;
+            margin: 5px 0;
+        }
+        .payment .paypal-credit
+        {
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            font-size: clamp(14px, 1.28vw, 1.28vw);
+            font-style: italic;
+            font-weight: 900;
+            background-color: #1f2187;
+            color: white;
+            width: 12em;
+            margin: 5px 0;
+        }
+        .payment .next-step
+        {
+            margin: 10px 0;
+            font-size: clamp(16px, 1.45vw, 1.45vw);
+            font-weight: 700;
+        }
+        .payment .pay-info,
+        .payment .order-confirm
+        {
+            margin: 5px 0;
+        }
+
+    .payment
+    {
+        margin-top:3em;
+        margin-bottom: 2em;
+        margin-left:3em;
+    }
+    .two .cards-wrapper p.center,
+    .two .cards-wrapper .btn-center
+    {
+        padding: 10px;
+    }
+    .two .cards-wrapper .btn-center input
+    {
+        font-family: nova;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 10px 30px;
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 3px;
+        transition: 0.3s;
+       
+    }
+    .two .cards-wrapper .btn-center input:hover
+    {
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    </style>
+
+    <!-- terms & condition modal -->
+    <style>
+        .terms-modal-bg
+        {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            padding-bottom: 5em;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-family: nova !important;
+            z-index: 9999;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            display: none;
+        }
+        .modal-terms
+        {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 1);
+            padding: 20px clamp(12px, 2.1vw, 2.1vw);
+            transition: 0.3s;
+            overflow-y: scroll;
+        }
+        .modal-terms .modal-cancel-btn
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px;
+        }
+        .modal-terms .content-link
+        {
+            margin-bottom: 16px;
+        }
+        .modal-terms .content-link span
+        {
+            font-size: 14px;        
+            padding-right: 1em;
+        }
+        .terms-modal-bg h1
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        .terms-modal-bg h2,
+        .terms-modal-bg h3,
+        .terms-modal-bg h4,
+        .terms-modal-bg h5
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+        .terms-modal-bg p, .terms-modal-bg ul,.terms-modal-bg strong
+        {
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.4em;
+        }
+        .terms-modal-bg a
+        {
+            text-decoration: none;
+            color: white;
+        }
+        .terms-modal-bg ul
+        {
+            padding-left: 1.5em;
+        }
+        .terms-modal-bg ul li
+        {
+            margin-bottom: 4px;
+        }
+        .modal-terms .content-btn
+        {
+            margin-bottom: 2em;
+        }
+        .modal-terms .content-btn button
+        {
+            border: none;
+            outline: none;
+            padding: 8px 12px;
+            width: 6vw;
+            border-radius: 3px;
+            margin-left: 5px;
+
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: nova;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .modal-terms .content-btn button:hover
+        {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .content-wrapper div
+        {
+            margin-bottom: 2.5em;
+        }
+    </style>
+
+{{end}}
+
+     <!--<div class="container">-->
+
+        {{block "section" .}}
+
+        {{ $qtySlc := .MaxQty}}
+        {{ $cartCount := .CartCount}}
+
+            <section class="one">
+                <p><img src="./resources/images/bag-n-brand5.png" alt=""></p>
+            </section>
+            
+            <section class="two">
+                <p>STRANDBRANDS™️ <span>Updated Every Sunday.</span></p>
+                <a href="/shop" style="color: white;" >
+                    <p class="count" style="margin: 30px 0;">
+                        <svg class="icon-shopping-bag" width="36" height="30" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg" >
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M7 7h22v18a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V7z" stroke="currentColor" stroke-width="2"></path>
+                                <path d="M13 10V6c0-2.993 2.009-5 5-5s5 2.026 5 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <!-- <circle class="cart-not-empty" cx="18" cy="18" r="4" fill="currentColor"></circle> -->
+                            </g>
+                        </svg><span>{{.TotalQty}}</span>
+                    </p>
+                    
+                    <!-- <img src="./icon/square-shopping-bag-with-handle.png" alt="" > -->
+                </a>
+                <div class="cards-wrapper">
+                    <div class="cart-describe">
+                        <h1>Shopping cart</h1>
+                        <p><a href="/shop">Store</a> &nbsp;/ &nbsp;Shopping cart</p>
+
+                        {{range $i, $rMap := .ShoppingList}}
+                         {{$itemImage := index $rMap "item_image"}}
+                         {{$itemUrl := index $rMap "item_url"}}
+                         {{$itemName := index $rMap "item_name"}}
+                         {{$price := index $rMap "price"}}
+                         {{$quantity := index $rMap "quantity"}}
+                         {{$itemID := index $rMap "item_id"}}
+                         {{$trxid := index $rMap "trxid"}}
+                        <div class="product">
+                            <div class="product-img product_image-wrap">
+                                <img src="{{$itemImage}}" alt="{{$itemUrl}}">
+                            </div>
+
+                            <div class="product-detail">
+                                <p>{{$itemName}}</p>
+                                <!-- <p>Qty: 1 <i class="fas fa-chevron-down"></i></p> -->
+                                <span>Qty :</span>
+                                <select name="qty" id="qty">
+                                    {{range $qty := $qtySlc}}
+                                     <option value="{{$qty}}" {{if compare $quantity $qty}}selected{{end}}>{{$qty}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+
+                            <div class="product-price">
+                                <p class="btn-cancel" data-trxid="{{$trxid}}" data-id="{{$itemID}}">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                                            <path d="M.5.5l11 11M.5 11.5l11-11"></path>
+                                        </g>
+                                    </svg>
+                                </p>
+                                <p>${{toRound $price}}</p>
+                            </div>
+                        </div>
+                        {{end}}
+
+                        
+                        {{if gt $cartCount 0}}
+                        <hr style="background-color: rgba(255, 255, 255, 0.5);  width: 100%; border: 0; height: 0.2px; ">
+                        <p class="total-price"><span class="total">TOTAL</span><span class="price">${{toRound .TotalPrice}}</span></p>
+                        <p class="promo">
+                            Have a promo coupon or gift card?<br>
+                            Redeem your code
+                        </p>
+                        <p class="continue">Looking for more? <a href="/shop">Continue shopping</a></p>
+                        {{end}}
+                    </div>
+
+                    {{if eq $cartCount 0}}
+                    <div class="payment">
+                        <p class="center">Your shopping cart is empty</p>
+                        <p class="btn-center"><a href="/shop"><input type="button" value="Browse Store"></a></p>
+                    </div>
+                    {{end}}
+
+                    {{if gt $cartCount 0}}
+                    <div class="payment">
+                        <h1>Checkout</h1>
+                        <p>
+                            Enter your email address. This address will be 
+                            used to send you order status updates.
+                        </p>
+                        <input id="myInput" type="text" name="email" placeholder="Your email address">
+                        <input type="checkbox" name="terms" id="terms">
+                        <label for="terms">I agree with <span class="terms-modal">Terms & Conditions</span></label><br>
+                        <input type="checkbox" name="updated" id="updated">
+                        <label for="updated">Keep me up to date on new and exclusive offers</label>
+                        <div class="checkout form-control form-control--bounce">
+                            <!--<input type="button" value="Checkout">-->
+                            <button class="form-control__button" type="button">
+                                <div class="form-control__loader"></div>
+                                <span class="form-control__button-text">Checkout</span>
+                            </button>
+
+                            <div class="encrypted">
+                                <svg width="18" height="23" viewBox="0 0 18 23" xmlns="http://www.w3.org/2000/svg" style="color: rgba(255, 255, 255, 0.5);">
+                                    <g fill="currentColor" fill-rule="evenodd">
+                                        <path d="M15 9h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2h1V6a6 6 0 1 1 12 0v3zm-2 0V6a4 4 0 1 0-8 0v3h8zM2 10a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1H2z" fill-rule="nonzero">
+
+                                        </path>
+                                        <path d="M8 16.732a2 2 0 1 1 2 0V18a1 1 0 0 1-2 0v-1.268z"></path>
+                                    </g>
+
+                                </svg>
+                                <p>All data is transmitted encrypted via a secure TLS connection</p>
+                            </div>
+                        </div>
+                        <a href="#"><button class="paypal-check">
+                                <i class="fab fa-paypal"></i>
+                                <span class="pay" style="color: #0307ff; ">Pay</span ><span class="pal" style="color: #47a3ff;">Pal</span>
+                                <span style="font-style: normal; font-weight: 400; font-size: clamp(12px, 1.1vw, 1.1vw);">Checkout</span> 
+                            </button>
+                        </a><br>
+                        <a href="#"><button class="paypal-credit">
+                                <i class="fab fa-paypal" style="color: white;"></i>
+                                PayPal CREDIT
+                            </button>
+                        </a>
+
+                            <p class="next-step">Next steps</p>
+                            <hr style="background-color: rgba(255, 255, 255, 0.5);  width: 100%; border: 0; height: 0.2px; ">
+                            <p class="pay-info">Payment information</p>
+                            <p class="pay-info">Choose a payment method and enter your payment details.</p>
+                            <br>
+                            <p class="order-confirm">Order confirmation</p>
+                            <p class="order-confirm">Place your order and receive a confirmation email</p>
+                        
+                        <!-- <p class="center">Your shopping cart is empty</p>
+                        <p class="btn-center"><a href="./shop.html"><input type="button" value="Browse Store"></a></p> -->
+                    </div>
+                    {{end}}
+
+                    <div class="part-icon">
+                        <div class="icon icon-fav">
+                            <a href="/favourite" style="color: white;">
+                                <span>
+                                    <svg width="18" height="20" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 16c-.16 0-.32-.063-.442-.188L2.29 9.543C2.21 9.47 0 7.375 0 4.875 0 1.823 1.798 0 4.8 0 6.56 0 8.207 1.438 9 2.25 9.794 1.437 11.44 0 13.2 0 16.2 0 18 1.823 18 4.875c0 2.5-2.21 4.594-2.3 4.688l-6.258 6.25c-.12.124-.28.187-.442.187zm5.98-7.132c.105-.103.215-.216.356-.375.235-.264.467-.56.684-.88.618-.914.98-1.85.98-2.738C17 2.373 15.647 1 13.2 1c-1.098 0-2.358.795-3.485 1.95L9 3.68l-.715-.73C7.158 1.794 5.898 1 4.8 1 2.354 1 1 2.373 1 4.875 1 6.4 2.043 7.967 2.997 8.835L9 14.84l5.98-5.972z"
+                                    fill="currentColor" fill-rule="nonzero"></path>
+                            
+                                </svg>
+                                </span>
+                            </a>
+                            <p>Favourites <span>(1)</span></p>
+                            
+                        </div>
+                        <div class="icon icon-kart">
+                            <a href="/cart" style="color: white;">
+                                <span>
+                                    <svg class="icon-shopping-bag" width="26" height="20" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg" style="margin-top: -2px; margin-bottom: 2px">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="M7 7h22v18a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V7z" 
+                                            stroke="currentColor" stroke-width="2"></path>
+                                            <path d="M13 10V6c0-2.993 2.009-5 5-5s5 2.026 5 5v4" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <!-- <circle class="cart-not-empty" cx="18" cy="18" r="4" fill="currentColor"></circle> -->
+                                        </g>
+                                    </svg>
+                                </span>
+                                <!-- <img src="./icon/square-shopping-bag-with-handle.png" alt="" > -->
+                            </a>
+                            <p>Shopping Bag <span>(1)</span></p>
+        
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            
+        {{end}}
+
+    <!--</div>-->
+
+        {{block "terms" .}}
+
+            <div id="termsWindow" class="third-modal-bg terms-modal-bg">
+                <div class="third-modal modal-terms">
+                    <p class="btn modal-cancel-btn">
+                        <svg width="16" height="16" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                                <path d="M.5.5l11 11M.5 11.5l11-11"></path>
+                            </g>
+                        </svg>
+                    </p>
+                    <div class="content-link">
+                        <span id="aboutus">About Us</span> 
+                        <span id="shippingInfo">Shipping & Payment Info</span>
+                        <span id="returnPolicy">Return Policy</span> 
+                        <span id="termsCond">Terms and Conditions</span>
+                        <span id="privacy">Privacy Policy</span>
+                    </div>
+
+
+                    <div class="content-wrapper">
+
+                        <div id="aboutusText" class="aboutus" style="display: none;">    
+                            <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">About Us</h1></div>
+                            <div class="ec-page-body"><div><p><strong>BAG-N-BRAND.COM</strong></p><p>We provide business services for retailers who need to source products, customize them, and produce products that they can sell. Our companies mission is focused on developing retailers product offering with high quality on brand options for their traffic. <br></p><p>Bag-N-Brand.com was founded by Ashley J WC, an entrepreneur with a vision for empowering underdeveloped communities with the tools that they need to join the world of e-commerce.</p><p>Our products are developed with producers who meet our quality standards and who deal directly with our members.</p><p><br></p><p>Contact us: <strong>legal@bag-n-brand.com</strong></p></div></div>
+                        </div>
+                        
+                        <div id="shippingInfoText" class="shippinginfo" style="display: none;">
+                            <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">Shipping &amp; Payment Info</h1></div>
+                            <div class="ec-page-body"><div><p>Shipping is included in all of our price offerings. We ship to the <strong>United States &amp; Canada</strong>. Please see our <strong>Returns &amp; Refunds</strong> policy for more information about returning goods. The order processing for this site will take place via our payment partners.</p><p><br></p><p>Contact Information:</p><p><strong>Finance@bag-n-brand.com </strong></p></div></div>
+                        </div>
+
+                        <div id="returnPolicyText" class="returnpolicy" style="display: none;">
+                            <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">Return Policy</h1></div>
+                            <div class="ec-page-body"><div><p>Return &amp; Refund Policy</p><div><p>Updated at 2020-12-22</p></div><p><br><br><br></p><h1>Definitions and key terms</h1><p>To help explain things as clearly as possible in this Return &amp; Refund Policy, every time any of these terms are referenced, are strictly defined as:</p><ul><li>Company: when this policy mentions “Company,” “we,” “us,” or “our,” it refers to BAG-N-BRAND.COM, that is responsible for your information under this Return &amp; Refund Policy.</li><li>Customer: refers to the company, organization or person that signs up to use the BAG-N-BRAND.COM Service to manage the relationships with your consumers or service users.</li><li>Device: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit BAG-N-BRAND.COM and use the services.</li><li>Service: refers to the service provided by BAG-N-BRAND.COM as described in the relative terms (if available) and on this platform.</li><li>Website: BAG-N-BRAND.COM’s site, which can be accessed via this URL: <a href="http://www.bag-n-brand.com/">www.bag-n-brand.com</a></li><li>You: a person or entity that is registered with BAG-N-BRAND.COM to use the Services.</li></ul><h1>Return &amp; Refund Policy</h1><p>Thanks for shopping at BAG-N-BRAND.COM. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you’re exploring, evaluating, and purchasing our products.</p><p>As with any shopping experience, there are terms and conditions that apply to transactions at BAG-N-BRAND.COM. We’ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at BAG-N-BRAND.COM, you agree to the terms set forth below along with BAG-N-BRAND.COM’s Privacy Policy.</p><p>If there’s something wrong with the product/service you bought, or if you are not happy with it, you have 1 month to issue a refund and return your product/service.</p><p>If you would like to return a product, the only way would be if you follow the next guidelines:</p><h1>Refunds</h1><p>We at BAG-N-BRAND.COM commit ourselves to serving our customers with the best products. Every single product that you choose is thoroughly inspected, checked for defects and packaged with utmost care. We do this to ensure that you fall in love with our products.</p><p>Sadly, there are times when we may not have the product(s) that you choose in stock, or may face some issues with our inventory and quality check. In such cases, we may have to cancel your order. You will be intimated about it in advance so that you don't have to worry unnecessarily about your order. If you have purchased via Online payment (not Cash on Delivery), then you will be refunded once our team confirms your request.</p><p>We carry out thorough quality check before processing the ordered item. We take utmost care while packing the product. At the same time we ensure that the packing is good such that the items won’t get damaged during transit. Please note that BAG-N-BRAND.COM is not liable for damages that are caused to the items during transit or transportation.</p><p>We will revise your returned product as soon as we receive it and if it follows the guidelines addressed above, we will proceed to issue a refund of your purchase. Your refund may take a couple of days to process but you will be notified when you receive your money.</p><p><strong>PRINT NOW PAY LATER REFUND OUTLINE</strong></p><div><ul><li><strong>How It Works:</strong></li></ul></div><div><p>* Business clients approved for the program reserve the rights to products &amp; services.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Once approved the client must <span class="complexword" style="background-color: initial;">purchase</span> on credit the Print Now Pay Later Membership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Credit <span class="passivevoice" style="background-color: initial;">is extended</span> via our banking partner.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Member accounts <span class="complexword" style="background-color: initial;">retain</span> staff throughout the lifetime of their partnership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Business request can come 24/7 with agents in both the US &amp; ASIA.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Custom Packaging projects can <span class="passivevoice" style="background-color: initial;">be assembled</span> in hours.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Research &amp; Sourcing projects can <span class="passivevoice" style="background-color: initial;">be activated</span> in a matter of minutes.</p><p style="margin-left: 20px;"><span></span>* Transparency on the cost of services is always at the forefront of our operation. Services conducted without knowledge and approval from the client will not <span class="passivevoice" style="background-color: initial;">be charged</span>. [All service request can <span class="passivevoice" style="background-color: initial;">be confirmed</span> via text, app, email]</p></div><div style="margin-left: 20px;"><div style="margin-left: 20px;">* Clients who don't use the total amount of credit will receive a check for the remaining.<br></div></div><div style="margin-left: 20px;"><div style="margin-left: 20px;">* Clients who wish to refund inventory should email: <strong>finance@bag-n-brand.com | Subject: Account Credit</strong><span></span></div></div><div><div><br></div></div><div><div>- More Questions Contact: <strong>Finance@bag-n-brand.com </strong>for more questions. </div></div><p><br></p><h1>Shipping</h1><p>BAG-N-BRAND.COM is not responsible for return shipping costs. Every shipping has to be paid by the customer, even if the item had free shipping in the first place, the customer has to pay for the shipping in return.</p><h1>Your Consent</h1><p>By using our website/app, registering an account, or making a purchase, you hereby consent to our Return &amp; Refund Policy and agree to its terms.</p><h1>Changes To Our Return &amp; Refund Policy</h1><p>Should we update, amend or make any changes to this document so that they accurately reflect our Service and policies. Unless otherwise required by law, those changes will be prominently posted here. Then, if you continue to use the Service, you will be bound by the updated Return &amp; Refund Policy. If you do not want to agree to this or any updated Return &amp; Refund Policy, you can delete your account.</p><h1>Contact Us</h1><p>If, for any reason, You are not completely satisfied with any good or service that we provide, don't hesitate to contact us and we will discuss any of the issues you are going through with our product.</p><ul><li>Via Email: Legal@bag-n-brand.com</li><li>Via Phone Number: 4405619809</li></ul></div></div>
+                        </div>
+                        
+                        <div id="termsCondText" class="termscondition" style="display: block;">
+                            <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">Terms and conditions</h1></div>
+                            <div class="ec-page-body"><div><p><strong>Terms and Conditions</strong><br></p><p>Welcome to BAG-N-BRAND!</p><p>These terms and conditions outline the rules and regulations for the use of COWA ENTERTAINMENT LLC's Website, located at BAG-N-BRAND.COM.</p><p>By accessing this website we assume you accept these terms and conditions. Do not continue to use BAG-N-BRAND if you do not agree to take all of the terms and conditions stated on this page.</p><p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p><h3>Cookies</h3><p>We employ the use of cookies. By accessing BAG-N-BRAND, you agreed to use cookies in agreement with the COWA ENTERTAINMENT LLC's Privacy Policy.</p><p>Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p><h3>License</h3><p>Unless otherwise stated, COWA ENTERTAINMENT LLC and/or its licensors own the intellectual property rights for all material on BAG-N-BRAND. All intellectual property rights are reserved. You may access this from BAG-N-BRAND for your own personal use subjected to restrictions set in these terms and conditions.</p><p>You must not:</p><ul><li>Republish material from BAG-N-BRAND</li><li>Sell, rent or sub-license material from BAG-N-BRAND</li><li>Reproduce, duplicate or copy material from BAG-N-BRAND</li><li>Redistribute content from BAG-N-BRAND</li></ul><p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href="https://www.termsandconditionsgenerator.com/">Terms And Conditions Generator</a> and the <a href="https://www.generateprivacypolicy.com/">Privacy Policy Generator</a>.</p><p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. COWA ENTERTAINMENT LLC does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of COWA ENTERTAINMENT LLC,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, COWA ENTERTAINMENT LLC shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p><p>COWA ENTERTAINMENT LLC reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p><p>You warrant and represent that:</p><ul><li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li><li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li><li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li><li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li></ul><p>You hereby grant COWA ENTERTAINMENT LLC a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p><h3>Hyperlinking to our Content</h3><p>The following organizations may link to our Website without prior written approval:</p><ul><li>Government agencies;</li><li>Search engines;</li><li>News organizations;</li><li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li><li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li></ul><p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p><p>We may consider and approve other link requests from the following types of organizations:</p><ul><li>commonly-known consumer and/or business information sources;</li><li>dot.com community sites;</li><li>associations or other groups representing charities;</li><li>online directory distributors;</li><li>internet portals;</li><li>accounting, law and consulting firms; and</li><li>educational institutions and trade associations.</li></ul><p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of COWA ENTERTAINMENT LLC; and (d) the link is in the context of general resource information.</p><p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p><p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to COWA ENTERTAINMENT LLC. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p><p>Approved organizations may hyperlink to our Website as follows:</p><ul><li>By use of our corporate name; or</li><li>By use of the uniform resource locator being linked to; or</li><li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li></ul><p>No use of COWA ENTERTAINMENT LLC's logo or other artwork will be allowed for linking absent a trademark license agreement.</p><h3>iFrames</h3><p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p><h3>Content Liability</h3><p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p><h3>Your Privacy</h3><p>Please read Privacy Policy</p><h3>Reservation of Rights</h3><p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p><h3>Removal of links from our website</h3><p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p><p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p><h3>Disclaimer</h3><p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p><ul><li>limit or exclude our or your liability for death or personal injury;</li><li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li><li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li><li>exclude any of our or your liabilities that may not be excluded under applicable law.</li></ul><p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p><p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.<br></p><p><br></p><p><br></p><p><br></p><p style="text-align: center;"><strong><u>BAG-N-BRAND.COM A COWA ENTERTAINMENT LLC COMPANY</u></strong><strong><u></u></strong><br></p></div></div>
+                        </div>
+
+                        <div id="privacyText" class="privacypolicy" style="display: none;">
+                            <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">Privacy Policy</h1></div>
+                            <div class="ec-page-body"><div><div><h1>Privacy Policy</h1><p>Updated at 2020-12-22</p></div><p><br><br><br></p><p>BAG-N-BRAND (“we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by BAG-N-BRAND.</p><p>This Privacy Policy applies to our website, and its associated subdomains (collectively, our “Service”) alongside our application, BAG-N-BRAND. By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy and our Terms of Service.</p>
+                                <h1>Definitions and key terms</h1><p>To help explain things as clearly as possible in this Privacy Policy, every time any of these terms are referenced, are strictly defined as:</p><ul><li>Cookie: small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, remember information about you such as your language preference or login information.</li><li>Company: when this policy mentions “Company,” “we,” “us,” or “our,” it refers to COWA ENTERTAINMENT LLC, (509 Gentry Cir E, Cleveland, Ohio), that is responsible for your information under this Privacy Policy.</li><li>Country: where BAG-N-BRAND or the owners/founders of BAG-N-BRAND are based, in this case is United States</li><li>Customer: refers to the company, organization or person that signs up to use the BAG-N-BRAND Service to manage the relationships with your consumers or service users.</li><li>Device: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit BAG-N-BRAND and use the services.</li><li>IP address: Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet.</li><li>Personnel: refers to those individuals who are employed by BAG-N-BRAND or are under contract to perform a service on behalf of one of the parties.</li><li>Personal Data: any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person.</li><li>Service: refers to the service provided by BAG-N-BRAND as described in the relative terms (if available) and on this platform.</li><li>Third-party service: refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you.</li><li>Website: BAG-N-BRAND’s site, which can be accessed via this URL: <a href="http://www.bag-n-brand.com">www.bag-n-brand.com</a></li><li>You: a person or entity that is registered with BAG-N-BRAND to use the Services.</li></ul>
+                                <h1>What Information Do We Collect?</h1><p>We collect information from you when you visit our website/app, register on our site, place an order, subscribe to our newsletter, respond to a survey or fill out a form.</p><ul><li>Name / Username</li><li>Phone Numbers</li><li>Email Addresses</li><li>Debit/credit card numbers</li><li>Age</li><li>Password</li></ul>
+                                <h1>When does BAG-N-BRAND use end user information from third parties?</h1><p>BAG-N-BRAND will collect End User Data necessary to provide the BAG-N-BRAND services to our customers. End users may voluntarily provide us with information they have made available on social media websites. If you provide us with any such information, we may collect publicly available information from the social media websites you have indicated. You can control how much of your information social media websites make public by visiting these websites and changing your privacy settings.</p>
+                                <h1>When does BAG-N-BRAND use customer information from third parties?</h1><p>We receive some information from the third parties when you contact us. For example, when you submit your email address to us to show interest in becoming a BAG-N-BRAND customer, we receive information from a third party that provides automated fraud detection services to BAG-N-BRAND. We also occasionally collect information that is made publicly available on social media websites. You can control how much of your information social media websites make public by visiting these websites and changing your privacy settings.</p>
+                                <h1>Do we share the information we collect with third parties?</h1><p>We may share the information that we collect, both personal and non-personal, with third parties such as advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you. We may also share it with our current and future affiliated companies and business partners, and if we are involved in a merger, asset sale or other business reorganization, we may also share or transfer your personal and non-personal information to our successors-in-interest.</p><p>We may engage trusted third party service providers to perform functions and provide services to us, such as hosting and maintaining our servers and the website/app, database storage and management, e-mail management, storage marketing, credit card processing, customer service and fulfilling orders for products and services you may purchase through the website/app. We will likely share your personal information, and possibly some non-personal information, with these third parties to enable them to perform these services for us and for you.</p><p>We may share portions of our log file data, including IP addresses, for analytics purposes with third parties such as web analytics partners, application developers, and ad networks. If your IP address is shared, it may be used to estimate general location and other technographics such as connection speed, whether you have visited the website/app in a shared location, and type of the device used to visit the website/app. They may aggregate information about our advertising and what you see on the website/app and then provide auditing, research and reporting for us and our advertisers.</p><p>We may also disclose personal and non-personal information about you to government or law enforcement officials or private parties as we, in our sole discretion, believe necessary or appropriate in order to respond to claims, legal process (including subpoenas), to protect our rights and interests or those of a third party, the safety of the public or any person, to prevent or stop any illegal, unethical, or legally actionable activity, or to otherwise comply with applicable court orders, laws, rules and regulations.</p>
+                                <h1>Where and when is information collected from customers and end users?</h1><p>BAG-N-BRAND will collect personal information that you submit to us. We may also receive personal information about you from third parties as described above.</p>
+                                <h1>How Do We Use The Information We Collect?</h1><p>Any of the information we collect from you may be used in one of the following ways:</p><ul><li>To personalize your experience (your information helps us to better respond to your individual needs)</li><li>To improve our website/app (we continually strive to improve our website/app offerings based on the information and feedback we receive from you)</li><li>To improve customer service (your information helps us to more effectively respond to your customer service requests and support needs)</li><li>To process transactions</li><li>To administer a contest, promotion, survey or other site feature</li><li>To send periodic emails</li></ul>
+                                <h1>How Do We Use Your Email Address?</h1><p>By submitting your email address on this website/app, you agree to receive emails from us. You can cancel your participation in any of these email lists at any time by clicking on the opt-out link or other unsubscribe option that is included in the respective email. We only send emails to people who have authorized us to contact them, either directly, or through a third party. We do not send unsolicited commercial emails, because we hate spam as much as you do. By submitting your email address, you also agree to allow us to use your email address for customer audience targeting on sites like Facebook, where we display custom advertising to specific people who have opted-in to receive communications from us. Email addresses submitted only through the order processing page will be used for the sole purpose of sending you information and updates pertaining to your order. If, however, you have provided the same email to us through another method, we may use it for any of the purposes stated in this Policy. Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
+                                <h1>How Long Do We Keep Your Information?</h1><p>We keep your information only so long as we need it to provide BAG-N-BRAND to you and fulfill the purposes described in this policy. This is also the case for anyone that we share your information with and who carries out services on our behalf. When we no longer need to use your information and there is no need for us to keep it to comply with our legal or regulatory obligations, we’ll either remove it from our systems or depersonalize it so that we can't identify you.</p>
+                                <h1>How Do We Protect Your Information?</h1><p>We implement a variety of security measures to maintain the safety of your personal information when you place an order or enter, submit, or access your personal information. We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our Payment gateway providers database only to be accessible by those authorized with special access rights to such systems, and are required to keep the information confidential. After a transaction, your private information (credit cards, social security numbers, financials, etc.) is never kept on file. We cannot, however, ensure or warrant the absolute security of any information you transmit to BAG-N-BRAND or guarantee that your information on the Service may not be accessed, disclosed, altered, or destroyed by a breach of any of our physical, technical, or managerial safeguards.</p>
+                                <h1>Could my information be transferred to other countries?</h1><p>BAG-N-BRAND is incorporated in United States. Information collected via our website, through direct interactions with you, or from use of our help services may be transferred from time to time to our offices or personnel, or to third parties, located throughout the world, and may be viewed and hosted anywhere in the world, including countries that may not have laws of general applicability regulating the use and transfer of such data. To the fullest extent allowed by applicable law, by using any of the above, you voluntarily consent to the trans-border transfer and hosting of such information.</p>
+                                <h1>Is the information collected through the BAG-N-BRAND Service secure?</h1><p>We take precautions to protect the security of your information. We have physical, electronic, and managerial procedures to help safeguard, prevent unauthorized access, maintain data security, and correctly use your information. However, neither people nor security systems are foolproof, including encryption systems. In addition, people can commit intentional crimes, make mistakes or fail to follow policies. Therefore, while we use reasonable efforts to protect your personal information, we cannot guarantee its absolute security. If applicable law imposes any non-disclaimable duty to protect your personal information, you agree that intentional misconduct will be the standards used to measure our compliance with that duty.</p>
+                                <h1>Can I update or correct my information?</h1><p>The rights you have to request updates or corrections to the information BAG-N-BRAND collects depend on your relationship with BAG-N-BRAND. Personnel may update or correct their information as detailed in our internal company employment policies.</p><p>Customers have the right to request the restriction of certain uses and disclosures of personally identifiable information as follows. You can contact us in order to (1) update or correct your personally identifiable information, (2) change your preferences with respect to communications and other information you receive from us, or (3) delete the personally identifiable information maintained about you on our systems (subject to the following paragraph), by cancelling your account. Such updates, corrections, changes and deletions will have no effect on other information that we maintain, or information that we have provided to third parties in accordance with this Privacy Policy prior to such update, correction, change or deletion. To protect your privacy and security, we may take reasonable steps (such as requesting a unique password) to verify your identity before granting you profile access or making corrections. You are responsible for maintaining the secrecy of your unique password and account information at all times.</p><p>You should be aware that it is not technologically possible to remove each and every record of the information you have provided to us from our system. The need to back up our systems to protect information from inadvertent loss means that a copy of your information may exist in a non-erasable form that will be difficult or impossible for us to locate. Promptly after receiving your request, all personal information stored in databases we actively use, and other readily searchable media will be updated, corrected, changed or deleted, as appropriate, as soon as and to the extent reasonably and technically practicable.</p><p>If you are an end user and wish to update, delete, or receive any information we have about you, you may do so by contacting the organization of which you are a customer.</p>
+                                <h1>Personnel</h1><p>If you are a BAG-N-BRAND worker or applicant, we collect information you voluntarily provide to us. We use the information collected for Human Resources purposes in order to administer benefits to workers and screen applicants.</p><p>You may contact us in order to (1) update or correct your information, (2) change your preferences with respect to communications and other information you receive from us, or (3) receive a record of the information we have relating to you. Such updates, corrections, changes and deletions will have no effect on other information that we maintain, or information that we have provided to third parties in accordance with this Privacy Policy prior to such update, correction, change or deletion.</p>
+                                <h1>Sale of Business</h1><p>We reserve the right to transfer information to a third party in the event of a sale, merger or other transfer of all or substantially all of the assets of BAG-N-BRAND or any of its Corporate Affiliates (as defined herein), or that portion of BAG-N-BRAND or any of its Corporate Affiliates to which the Service relates, or in the event that we discontinue our business or file a petition or have filed against us a petition in bankruptcy, reorganization or similar proceeding, provided that the third party agrees to adhere to the terms of this Privacy Policy.</p>
+                                <h1>Affiliates</h1><p>We may disclose information (including personal information) about you to our Corporate Affiliates. For purposes of this Privacy Policy, "Corporate Affiliate" means any person or entity which directly or indirectly controls, is controlled by or is under common control with BAG-N-BRAND, whether by ownership or otherwise. Any information relating to you that we provide to our Corporate Affiliates will be treated by those Corporate Affiliates in accordance with the terms of this Privacy Policy.</p>
+                                <h1>Governing Law</h1><p>This Privacy Policy is governed by the laws of United States without regard to its conflict of laws provision. You consent to the exclusive jurisdiction of the courts in connection with any action or dispute arising between the parties under or in connection with this Privacy Policy except for those individuals who may have rights to make claims under Privacy Shield, or the Swiss-US framework.</p><p>The laws of United States, excluding its conflicts of law rules, shall govern this Agreement and your use of the website/app. Your use of the website/app may also be subject to other local, state, national, or international laws.</p><p>By using BAG-N-BRAND or contacting us directly, you signify your acceptance of this Privacy Policy. If you do not agree to this Privacy Policy, you should not engage with our website, or use our services. Continued use of the website, direct engagement with us, or following the posting of changes to this Privacy Policy that do not significantly affect the use or disclosure of your personal information will mean that you accept those changes.</p>
+                                <h1>Your Consent</h1><p>We've updated our Privacy Policy to provide you with complete transparency into what is being set when you visit our site and how it's being used. By using our BAG-N-BRAND, registering an account, or making a purchase, you hereby consent to our Privacy Policy and agree to its terms.</p>
+                                <h1>Links to Other Websites</h1><p>This Privacy Policy applies only to the Services. The Services may contain links to other websites not operated or controlled by BAG-N-BRAND. We are not responsible for the content, accuracy or opinions expressed in such websites, and such websites are not investigated, monitored or checked for accuracy or completeness by us. Please remember that when you use a link to go from the Services to another website, our Privacy Policy is no longer in effect. Your browsing and interaction on any other website, including those that have a link on our platform, is subject to that website’s own rules and policies. Such third parties may use their own cookies or other methods to collect information about you.</p>
+                                <h1>Advertising</h1><p>This website/app may contain third party advertisements and links to third party sites. BAG-N-BRAND does not make any representation as to the accuracy or suitability of any of the information contained in those advertisements or sites and does not accept any responsibility or liability for the conduct or content of those advertisements and sites and the offerings made by the third parties.</p><p>Advertising keeps BAG-N-BRAND and many of the websites and services you use free of charge. We work hard to make sure that ads are safe, unobtrusive, and as relevant as possible.</p><p>Third party advertisements and links to other sites where goods or services are advertised are not endorsements or recommendations by BAG-N-BRAND of the third party sites, goods or services. BAG-N-BRAND takes no responsibility for the content of any of the ads, promises made, or the quality/reliability of the products or services offered in all advertisements.</p>
+                                <h1>Cookies for Advertising</h1><p>These cookies collect information over time about your online activity on the website/app and other online services to make online advertisements more relevant and effective to you. This is known as interest-based advertising. They also perform functions like preventing the same ad from continuously reappearing and ensuring that ads are properly displayed for advertisers. Without cookies, it’s really hard for an advertiser to reach its audience, or to know how many ads were shown and how many clicks they received.</p>
+                                <h1>Cookies</h1><p>BAG-N-BRAND uses "Cookies" to identify the areas of our website that you have visited. A Cookie is a small piece of data stored on your computer or mobile device by your web browser. We use Cookies to enhance the performance and functionality of our website/app but are non-essential to their use. However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the website/app as we would not be able to remember that you had logged in previously. Most web browsers can be set to disable the use of Cookies. However, if you disable Cookies, you may not be able to access functionality on our website correctly or at all. We never place Personally Identifiable Information in Cookies.</p>
+                                <h1>Blocking and disabling cookies and similar technologies</h1><p>Wherever you're located you may also set your browser to block cookies and similar technologies, but this action may block our essential cookies and prevent our website from functioning properly, and you may not be able to fully utilize all of its features and services. You should also be aware that you may also lose some saved information (e.g. saved login details, site preferences) if you block cookies on your browser. Different browsers make different controls available to you. Disabling a cookie or category of cookie does not delete the cookie from your browser, you will need to do this yourself from within your browser, you should visit your browser's help menu for more information.</p>
+                                <h1>Remarketing Services</h1><p>We use remarketing services. What Is Remarketing? In digital marketing, remarketing (or retargeting) is the practice of serving ads across the internet to people who have already visited your website. It allows your company to seem like they're “following” people around the internet by serving ads on the websites and platforms they use most.</p>
+                                <h1>Payment Details</h1><p>In respect to any credit card or other payment processing details you have provided us, we commit that this confidential information will be stored in the most secure manner possible.</p>
+                                <h1>Kids' Privacy</h1><p>We do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.</p>
+                                <h1>Changes To Our Privacy Policy</h1><p>We may change our Service and policies, and we may need to make changes to this Privacy Policy so that they accurately reflect our Service and policies. Unless otherwise required by law, we will notify you (for example, through our Service) before we make changes to this Privacy Policy and give you an opportunity to review them before they go into effect. Then, if you continue to use the Service, you will be bound by the updated Privacy Policy. If you do not want to agree to this or any updated Privacy Policy, you can delete your account.</p>
+                                <h1>Third-Party Services</h1><p>We may display, include or make available third-party content (including data, information, applications and other products services) or provide links to third-party websites or services ("Third- Party Services").</p><p>You acknowledge and agree that BAG-N-BRAND shall not be responsible for any Third-Party Services, including their accuracy, completeness, timeliness, validity, copyright compliance, legality, decency, quality or any other aspect thereof. BAG-N-BRAND does not assume and shall not have any liability or responsibility to you or any other person or entity for any Third-Party Services.</p><p>Third-Party Services and links thereto are provided solely as a convenience to you and you access and use them entirely at your own risk and subject to such third parties' terms and conditions.</p>
+                                <h1>Facebook Pixel</h1><p>Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising by understanding the actions people take on your website. You can use the pixel to: Make sure your ads are shown to the right people. Facebook pixel may collect information from your device when you use the service. Facebook pixel collects information that is held in accordance with its Privacy Policy</p>
+                                <h1>Tracking Technologies</h1><ul><br><li>Google Maps API<br><br>Google Maps API is a robust tool that can be used to create a custom map, a searchable map, check-in functions, display live data synching with location, plan routes, or create a mashup just to name a few.Google Maps API may collect information from You and from Your Device for security purposes.Google Maps API collects information that is held in accordance with its Privacy Policy</li><li>Cookies<br><br>We use Cookies to enhance the performance and functionality of our but are non-essential to their use. However, without these cookies, certain functionality like videos may become unavailable or you would be required to enter your login details every time you visit the as we would not be able to remember that you had logged in previously.</li></ul>
+                                <h1>Information about General Data Protection Regulation (GDPR)</h1><p>We may be collecting and using information from you if you are from the European Economic Area (EEA), and in this section of our Privacy Policy we are going to explain exactly how and why is this data collected, and how we maintain this data under protection from being replicated or used in the wrong way.</p>
+                                <h1>What is GDPR?</h1><p>GDPR is an EU-wide privacy and data protection law that regulates how EU residents' data is protected by companies and enhances the control the EU residents have, over their personal data.</p><p>The GDPR is relevant to any globally operating company and not just the EU-based businesses and EU residents. Our customers’ data is important irrespective of where they are located, which is why we have implemented GDPR controls as our baseline standard for all our operations worldwide.</p>
+                                <h1>What is personal data?</h1><p>Any data that relates to an identifiable or identified individual. GDPR covers a broad spectrum of information that could be used on its own, or in combination with other pieces of information, to identify a person. Personal data extends beyond a person’s name or email address. Some examples include financial information, political opinions, genetic data, biometric data, IP addresses, physical address, sexual orientation, and ethnicity.</p><p>The Data Protection Principles include requirements such as:</p><ul><li>Personal data collected must be processed in a fair, legal, and transparent way and should only be used in a way that a person would reasonably expect.</li><li>Personal data should only be collected to fulfil a specific purpose and it should only be used for that purpose. Organizations must specify why they need the personal data when they collect it.</li><li>Personal data should be held no longer than necessary to fulfil its purpose.</li><li>People covered by the GDPR have the right to access their own personal data. They can also request a copy of their data, and that their data be updated, deleted, restricted, or moved to another organization.</li></ul>
+                                <h1>Why is GDPR important?</h1><p>GDPR adds some new requirements regarding how companies should protect individuals' personal data that they collect and process. It also raises the stakes for compliance by increasing enforcement and imposing greater fines for breach. Beyond these facts it's simply the right thing to do. At Help Scout we strongly believe that your data privacy is very important and we already have solid security and privacy practices in place that go beyond the requirements of this new regulation.</p>
+                                <h1>Individual Data Subject's Rights - Data Access, Portability and Deletion</h1><p>We are committed to helping our customers meet the data subject rights requirements of GDPR. BAG-N-BRAND processes or stores all personal data in fully vetted, DPA compliant vendors. We do store all conversation and personal data for up to 6 years unless your account is deleted. In which case, we dispose of all data in accordance with our Terms of Service and Privacy Policy, but we will not hold it longer than 60 days.</p><p>We are aware that if you are working with EU customers, you need to be able to provide them with the ability to access, update, retrieve and remove personal data. We got you! We've been set up as self service from the start and have always given you access to your data and your customers data. Our customer support team is here for you to answer any questions you might have about working with the API.</p>
+                                <h1>California Residents</h1><p>The California Consumer Privacy Act (CCPA) requires us to disclose categories of Personal Information we collect and how we use it, the categories of sources from whom we collect Personal Information, and the third parties with whom we share it, which we have explained above.</p><p>We are also required to communicate information about rights California residents have under California law. You may exercise the following rights:</p><ul><li>Right to Know and Access. You may submit a verifiable request for information regarding the: (1) categories of Personal Information we collect, use, or share; (2) purposes for which categories of Personal Information are collected or used by us; (3) categories of sources from which we collect Personal Information; and (4) specific pieces of Personal Information we have collected about you.</li><li>Right to Equal Service. We will not discriminate against you if you exercise your privacy rights.</li><li>Right to Delete. You may submit a verifiable request to close your account and we will delete Personal Information about you that we have collected.</li><li>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li></ul><p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p><p>We do not sell the Personal Information of our users.</p><p>For more information about these rights, please contact us.</p>
+                                <h1>California Online Privacy Protection Act (CalOPPA)</h1><p>CalOPPA requires us to disclose categories of Personal Information we collect and how we use it, the categories of sources from whom we collect Personal Information, and the third parties with whom we share it, which we have explained above.</p><p>CalOPPA users have the following rights:</p><ul><li>Right to Know and Access. You may submit a verifiable request for information regarding the: (1) categories of Personal Information we collect, use, or share; (2) purposes for which categories of Personal Information are collected or used by us; (3) categories of sources from which we collect Personal Information; and (4) specific pieces of Personal Information we have collected about you.</li><li>Right to Equal Service. We will not discriminate against you if you exercise your privacy rights.</li><li>Right to Delete. You may submit a verifiable request to close your account and we will delete Personal Information about you that we have collected.</li><li>Right to request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li></ul><p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p><p>We do not sell the Personal Information of our users.</p><p>For more information about these rights, please contact us.</p>
+                                <h1>Contact Us</h1><p>Don't hesitate to contact us if you have any questions.</p><ul><li>Via Email: Legal@bag-n-brand.com</li><li>Via Phone Number: 4405619809</li></ul></div></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="content-btn">
+                        <button class="accept">Accept All</button>
+                        <button class="decline">Decline</button>
+                        <button class="print">Print</button>
+                    </div>
+                </div>
+            </div>
+
+        {{end}}
+
+
+{{block "script" .}}
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+           // $('body > div.container > section.two > div > div.payment > div').addClass("form-control--bounce");
+           //body > div.third-modal-bg.terms-modal-bg > div > p
+
+           $('.btn-cancel').on("click", function(e){
+           
+                //alert(e.target);
+                var itemID=$(this).attr('data-id');
+                var trxID=$(this).attr('data-trxid');
+                alert(trxID);
+
+                $.ajax({
+                    dataType: "json",
+                    async: true,
+                    url: '/cart',
+                    type:'POST',
+                    dataType: 'json',
+                    data: {"item": itemID,"trxid": trxID, "todo": 'delete'},
+                    error: function(err){
+                        alert('ERROR>'+err);
+                        console.log(err);
+                    } 
+
+                    }).done(function(data){
+
+                        console.log(data);
+                        //updateCart(data);
+                        if (data.error=="0"){
+                         location.href=data.next_url;
+                        }
+
+                });
+
+           });
+
+           $('.modal-cancel-btn').on('click', function(){
+           
+             //alert();
+             $('#termsWindow').hide();
+
+           });
+           
+           $('#aboutus').on('click', function(){
+                $('#aboutusText').show();
+
+                $('#shippingInfoText').hide();
+                $('#returnPolicyText').hide();
+                $('#termsCondText').hide();
+                $('#privacyText').hide();
+           });
+
+           $('#shippingInfo').on('click', function(){
+
+                $('#aboutusText').hide();
+                $('#shippingInfoText').show();
+                $('#returnPolicyText').hide();
+                $('#termsCondText').hide();
+                $('#privacyText').hide();
+
+           });
+
+           $('#returnPolicy').on('click', function(){
+
+                $('#aboutusText').hide();
+                $('#shippingInfoText').hide();
+                $('#returnPolicyText').show();
+                $('#termsCondText').hide();
+                $('#privacyText').hide();
+           });
+
+           $('#termsCond').on('click', function(){
+                $('#aboutusText').hide();
+                $('#shippingInfoText').hide();
+                $('#returnPolicyText').hide();
+                $('#termsCondText').show();
+                $('#privacyText').hide();
+           });
+
+           $('#privacy').on('click', function(){
+                $('#aboutusText').hide();
+                $('#shippingInfoText').hide();
+                $('#returnPolicyText').hide();
+                $('#termsCondText').hide();
+                $('#privacyText').show();
+           });
+
+
+        });
+
+
+        var input = document.getElementById("myInput");
+
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function(event) {
+
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            //document.getElementById("myBtn").click();
+            //alert('hello');
+            //$('body > div.container > section.two > div > div.payment > div').addClass("form-control--bounce");
+        }
+        });
+    </script>
+
+{{end}}

@@ -1,0 +1,712 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    margin: 0px;
+    background-color: black;
+    color: white;
+}
+.btn 
+{
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px ;
+}
+a
+{
+    text-decoration: none;
+}
+a.btn
+{
+    color: black;
+    text-transform: uppercase;
+    padding: 18px 28px;
+    background-color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+a.btn:hover
+{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+@font-face
+{
+    src: url(./resources/fonts/proxima_ssv/ProximaNova-Regular.otf);
+    font-family: nova;
+}
+header
+{
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.9fr 2.5fr 1fr;
+    grid-template-areas: 
+    ". logo btn";
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    transition: top 0.3s;
+    transition-delay: 0.2s;
+}
+header .part-one
+{
+    grid-area: logo;
+    margin: auto 0%;
+}
+.header-title-logo img
+{
+    width: 30%;
+    min-width: 6em;
+    height: auto; 
+    
+}
+header .part-two
+{
+    grid-area: btn;
+    margin: auto 0%;
+}
+header .part-two .btn-container
+{
+    display: none;
+}
+header .part-two a
+{
+    font-family: "archivo black", sans-serif;
+    letter-spacing: 0.05em;
+    padding: 13px 24px;
+}
+
+footer .footer-title-logo img
+{
+    width: 15%;
+    height: auto;
+    margin: 40px 0px;
+    
+}
+
+footer .contact a
+{
+    color: white;
+    text-decoration: underline;
+}
+footer .contact p
+{
+    font-family: "archivo", sans-serif;
+    font-size: 12px;
+    margin-bottom: 25px;
+    padding: 0 20px;
+}
+footer .contact p:last-child
+{
+    font-weight: 600;
+    margin-bottom: 70px;
+}
+
+
+
+.login-modal-bg
+{
+    
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding-bottom: 5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* display: grid;
+    justify-content: center;
+    align-content: center; */
+    font-family: 'Segoe UI', sans-serif ;
+    display: none;
+    z-index: 9999;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.signup-modal-bg
+{
+    
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding-bottom: 5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* display: grid;
+    justify-content: center;
+    align-content: center; */
+    font-family: 'Segoe UI', sans-serif;
+    display: none;
+    z-index: 9999;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.modal
+{
+    background-color: white;
+    width: 26em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 3em;
+    border-radius: 4px;
+    
+}
+
+.modal .part-one
+{
+    text-align: center;
+}
+.modal .part-one h1
+{
+    color: black;
+    font-size: 26px;
+    margin: 13px 0px;
+}
+.modal .part-one img
+{
+    width: 34%;
+    margin-top: 1.5em;
+}
+.modal .part-two
+{
+    background-color: rgba(250, 250, 250, 0.4);
+    padding: 1.5em 0.5em;
+    box-shadow: 0px 0px 5px 1px #f0f0f0 inset;
+}
+.modal input
+{
+    font-family: 'Segoe UI', sans-serif;
+    width: 80%;
+    margin: 0px 8%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 1.2em;
+    padding-right: 0px;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    background-color: #fafafa;
+    box-shadow: 0px 0px 4px 1px #f0f0f0 inset;
+    transition: 0.3s;
+}
+
+.modal input:hover
+{
+    background-color: white;
+    box-shadow: 0px 0px 4px 1px #f0f0f0;
+}
+
+
+.modal input:focus
+{
+    outline: none;
+    box-shadow: 0px 0px 4px 1px #f0f0f0;
+}
+
+.modal input[type="button"]
+{
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: none;
+    padding: 1em 0px;
+    border-radius: 4px;
+    color: white;
+    background-color: red;
+    width: 84%;
+}
+
+
+.modal .part-two p.reset
+{
+    font-size: 12px;
+    font-weight: 700;
+    color: red;
+    text-align: right;
+    margin: 10px 8%;
+    text-align: right;
+}
+
+.modal .part-two p.reset a
+{
+    
+    font-size: 12px;
+    color: red;
+    
+}
+
+.modal .part-two p.terms
+{
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    color: #7a7a7a;
+}
+
+.modal .part-two p.terms a
+{
+    font-size: 10px;
+    color: red;
+    text-decoration: underline dotted;
+}
+
+
+
+.modal label
+{
+    font-size: 13px;
+    font-weight: 700; 
+    color: black;
+    width: 90%;
+    margin: 0px 8%;
+    margin-top: 20px;
+    padding: 0px 2px ;
+    
+}
+
+
+
+.modal-bg a
+{
+    text-transform: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    width: 15%;
+    margin: 0px auto;
+    color: #7a7a7a;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+.modal-bg a span
+{
+    color: red;
+}
+
+
+.second-modal-bg
+{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding-bottom: 5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    font-family: 'Segoe UI', sans-serif !important;
+    z-index: 9999;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+
+.second-modal
+{
+    background-color: #fafafa;
+    width: 31em;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 3em;
+    padding: 3em;
+    border-radius: 4px;
+}
+.second-modal p
+{
+    
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+.second-modal p.step 
+{
+    font-size: 13px;
+    font-weight: 400;
+    padding-bottom: 10px;
+}
+.second-modal p.describe
+{
+    font-size: 14px;
+    padding: 10px 10% 30px 10%;
+}
+.second-modal h1
+{
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-size: 25px;
+}
+.second-modal label
+{
+    color: rgba(0, 0, 0, 0.8);
+}
+.second-modal label
+{
+    font-size: 14px;
+    font-weight: 700; 
+    color: rgba(0, 0, 0, 0.8);
+    width: 90%;
+    margin-top: 20px;
+    padding: 0px 2px;
+}
+.second-modal input
+{
+    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+    /* margin: 0px 8%; */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 1.5em 1.2em;
+    padding-right: 0px;
+    border: 1px solid;
+
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    /* background-color: #fafafa; */
+    box-shadow: 0px 0px 4px 1px #f0f0f0;
+    transition: 0.3s;
+}
+.second-modal input:hover
+{
+    background-color: white;
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+
+}
+.second-modal input:focus
+{
+    outline: none;
+    /* outline: 1px solid;
+    outline-color: rgba(0, 102, 255, 0.5); */
+    box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    /* border-color: royalblue; */
+    border-color: rgba(36, 156, 255, 0.8);
+}
+.second-modal #one-time-pass
+{
+    font-size: 22px;
+    padding: 0.75em 0.6em;
+    letter-spacing: 8px;
+
+}
+.second-modal input[type="button"]
+{
+    box-shadow: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 1em;
+    background-color: red;
+}
+.second-modal .set-reset-code,
+.second-modal .get-reset-code
+{
+    padding-top: 10px;
+    margin-bottom: -15px;
+}
+.second-modal .get-reset-code a,
+.second-modal .set-reset-code a
+{
+    font-size: 14px;
+    color: red;
+}
+
+.modal .reset a,
+.second-modal .set-reset-code a,
+.second-modal .get-reset-code a
+{
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.secure-checkout-modal p
+{
+    text-align: unset;
+}
+.secure-checkout-modal strong
+{
+    color: rgba(0, 0, 0, 1);
+}
+.secure-checkout-modal 
+{
+    padding: unset;
+    padding-bottom: 2em;
+}
+.secure-checkout-modal .secure 
+{
+    padding: 1em 2em;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: 0 2px 3px 0px #f0f0f0;
+    margin-bottom: 25px;
+}
+.secure-checkout-modal .wrapper
+{
+    display: grid;
+    background-color: white;
+    box-shadow: -1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 5px 2em;
+    padding: 15px;
+}
+.secure-checkout-modal .custom-pakage-wrapper
+{
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+}
+.secure-checkout-modal .img-logo
+{
+    width: 80px;
+    height: 15px;
+    background-image: url(../images/bag-n-brand6.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    align-self: center;
+}
+.secure-checkout-modal .subtotal-wrapper,
+.secure-checkout-modal .total-wrapper
+{
+    grid-template-columns: auto auto;
+}
+.subtotal-wrapper .price,
+.total-wrapper .price
+{
+    justify-self: right;
+    
+}
+.secure-checkout-modal button
+{
+    
+    margin: 2em 2em 15px 2em;
+    width: 87%;
+    background-color: red;
+    color: white;
+}
+.secure-checkout-modal p.terms
+{
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+.secure-checkout-modal p.terms a
+{
+    font-size: 10px;
+    color: red;
+    text-decoration: underline dotted;
+}
+
+/* responsive btn */
+header .part-two .btn-container
+    {
+        display: none;
+
+    }
+    .btn-container .bar1,
+    .btn-container .bar2
+    {
+        width: 35px;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin: 11px 0;
+        transition: 0.3s;
+    }
+    .change .bar1
+    {
+        -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+        transform: rotate(135deg) translate(15px, 6px);
+    }
+    .change .bar2
+    {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(-135deg) translate(13px, -6px);
+    }
+    .my-nav
+    {
+        
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 9990;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 1);
+        transition: 0.3s;
+        overflow-y: hidden;
+    }
+    
+    .my-nav .btn-login
+    {
+        position: absolute;
+        bottom: 3em;
+        left: 41%;
+        font-family: "archivo black", sans-serif !important;
+        letter-spacing: 0.05em;
+        padding: 13px 66px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 6px;
+    }
+    .my-nav .btn-login p
+    {
+        font-family: "archivo black", sans-serif !important;
+        text-align: center;
+    }
+    .open-nav-modal
+    {
+        
+        height: 100%;
+        transition: 0.3s;
+    }
+
+
+
+@media only screen and (max-width: 1025px) and (min-width: 760px){
+    header
+    {
+        padding: 0em 5vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "logo btn";
+    }
+    header .part-one
+    {
+        grid-area: logo;
+        margin: auto 0;
+    }
+    header .part-two
+    {
+        grid-area: btn;
+        justify-self: right;
+    }
+    header .part-two .btn-login
+    {
+        display: none;
+    }
+    header .part-two .btn-container
+    {
+        display: block;
+    }
+    .modal
+    {
+        width: 25em;
+    }
+    .second-modal
+    {
+        width: 30em;
+    }
+    /* .btn-container .bar1,
+    .btn-container .bar2
+    {
+        width: 35px;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin: 11px 0;
+        transition: 0.3s;
+    } */
+    /* .change .bar1
+    {
+        -webkit-transform: rotate(-45deg) translate(-8px, 8px);
+        transform: rotate(135deg) translate(15px, 6px);
+    }
+    .change .bar2
+    {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(-135deg) translate(13px, -6px);
+    } */
+    /* .my-nav
+    {
+        
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 9990;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 1);
+        transition: 0.3s;
+        overflow-y: hidden;
+    }
+    
+    .my-nav .btn-login
+    {
+        position: absolute;
+        bottom: 3em;
+        left: 41%;
+        font-family: "archivo black", sans-serif;
+        letter-spacing: 0.05em;
+        padding: 13px 66px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 6px;
+    }
+    .close
+    {
+        
+        height: 100%;
+        transition: 0.3s;
+    } */
+}
+
+@media only screen and (max-width: 750px) {
+    header
+    {
+        padding: 0em 5vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "logo btn";
+    }
+    header .part-one
+    {
+        grid-area: logo;
+        margin: auto 0;
+    }
+    header .part-two
+    {
+        grid-area: btn;
+        justify-self: right;
+    }
+    header .part-two .btn-login
+    {
+        display: none;
+    }
+    header .part-two .btn-container
+    {
+        display: block;
+    }
+    .modal
+    {
+        width: clamp(240px, 50vw, 50vw);
+    }
+    .second-modal
+    {
+        width: clamp(275px, 60vw, 60vw);
+    }
+    .my-nav .btn-login
+    {
+        left: 35vw;
+    }
+
+}
+@media only screen and (max-width: 400px)
+{
+    .my-nav .btn-login
+    {
+        left: 25vw;
+    }
+}

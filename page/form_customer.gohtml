@@ -1,0 +1,921 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+
+   .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .demo-width-class {
+        width: 100%;
+    }
+
+    .mdc-text-field{
+        width: 100%;
+    }
+
+    .table_top_toolbar {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        justify-content: space-between;
+       
+    }
+
+    .doc_title{
+         flex: 1 1 55%;
+         padding: 1em;
+         font-weight:500;
+         font-size:1.2rem;
+    }
+
+    .doc_action{
+        flex: 0 0 45%;
+        text-align:right;
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mdc-menu-width{
+        width: 200px;
+    }
+    
+    .mdc-select__menu{
+        height:120px;
+    }
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+    }
+
+    [data-tab-content] {
+        display: none;
+    }
+
+    .actives[data-tab-content] {
+        display: block;
+    }
+
+    .tabs {
+        display: flex;
+        /*justify-content: space-around;*/
+        list-style-type: none;
+        margin:0;
+        padding:0;
+        border-bottom: 1px solid #e0e0e0;
+        
+    }
+
+    .mr-6, .mx-6 {
+        margin-right: .75rem !important;
+    }
+
+    .tab {
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .tab.active{
+     /* background-color: #ccc;*/
+        color: #555;
+        padding-bottom: 9px !important;
+        border-bottom: 3px solid #555;
+    }
+
+    .tab:hover{
+        background-color: #aaa;
+    }
+
+    .tab-content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .mdc-data-table{
+      background-color:transparent;
+      width:100%;
+    }
+    /*https://www.youtube.com/watch?v=5L6h_MrNvsk&t=72s*/
+    /*https://github.com/WebDevSimplified/HTML-CSS-JS-Tabs*/
+
+   .margin-right{
+     margin-top: 12px;
+     margin-right: 10px;
+    }
+
+    .mdc-data-table__table{
+         margin-top:10px;
+    }
+
+    .mdc-data-table__table thead{
+        color: #3b3b3b;
+        background-color: #f6f6f6;
+        border-color: #ddd;
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin-top:200px;
+    }
+    
+    .mdc-text-field:not(.mdc-text-field--disabled) {
+        background-color: #fff; /* #f5f5f5 */
+    }
+
+    .form_wrapper{
+        margin: 15px;
+        background-color: #FAFAFA;
+    }
+
+    .cform{
+        margin-top:10px;
+    }
+
+    .cform td{
+        padding:10px;
+    }
+
+    .form_left{
+        flex: 1 1 65%;
+        margin:10px;
+    }
+
+    .form_right{
+        flex: 0 0 35%;
+        text-align:right;
+        margin:10px;
+    }
+
+    .form-title {
+        font-family: Roboto, sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-size: .75rem;
+        font-weight: 400;
+        letter-spacing: .1666666667em;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .mdc-card-form{
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .dummy_tab{
+       display:block;
+       background: transparent;
+       margin-bottom:10px;
+    }
+
+
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        margin:1rem;
+    }
+
+    .double-column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 25em;
+        margin:1rem 1rem 1rem 0;
+    }
+
+    .right_wrapper{
+        margin:10px;
+        width: 100%;
+        height: 100%;
+        
+    }
+
+    .photo{
+        width: 90%;
+        margin:10px;
+        border: 1px solid #dee2e6 !important;
+        
+    }
+    .photo .title{
+        margin: .625rem !important;
+    }
+
+    .mb-10{
+        margin-bottom: 1.25rem !important;
+    }
+
+    .upload_wrapper {
+        display: "block";
+        position: relative;
+        width:200px;
+        height: 200px;
+        background:transparent;
+        margin: auto;
+        width:112px;
+        height:130px;
+    }
+
+    .box-icon{
+        display:'block';
+        position: absolute;
+        /*border:1px solid red;*/
+        margin: 0;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        
+    }
+
+    div.upload_wrapper > div.box-icon >i{
+     opacity:0.2;
+    }
+
+    .box-file{
+        position: absolute;
+        border:1px solid green;
+        opacity:0;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        z-index:1;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .big-font{
+     font-size: 7em;
+    }
+
+    .filestyle{
+        cursor: pointer;
+        width:112px;
+        height: 112px;
+    }
+
+    .filestyle:hover{
+       color:red;
+       background:red;
+    }
+
+    .img_output{
+        display:none;
+        position: relative;
+        padding:0;
+        text-align: center;
+    }
+
+    #output_image{
+        max-width:380px;
+    }
+
+    .closeBtn{
+     margin:0;
+     color:#FF002E;
+     font-size: 30px;
+     position: absolute;
+     z-index: 1;
+     right: 40px;
+    }
+
+    .closeBtn:hover, .closeBtn:focus{
+     color: #b00020;
+     text-decoration:none;
+     cursor: pointer;
+    }
+
+    #output{
+        color:#b00020;
+        margin-left: 2rem;
+    }
+
+    @media screen and (min-width: 800px) {
+
+        .column {
+            flex: 1
+        }
+        .double-column {
+            flex: 2
+        }
+
+    }
+
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link href="resources/css/select2.min.css" rel="stylesheet"/>
+    <link href="resources/css/custom-select2.css" rel="stylesheet">
+
+{{end}}
+
+{{define "content"}}
+
+
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+        <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
+
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                role="status"
+                aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Retry</span>
+            </button>
+            <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="output"></div>
+
+    <section id="dlist">
+
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+               <div class="mdc-layout-grid__cell--span-12">
+
+
+             
+                    <div class="mdc-data-table">
+
+                        <div class="table_top_toolbar">
+                            <div class="doc_title">
+                                New Customer
+                            </div>
+
+                            <div class="doc_action"> 
+
+
+                                <a href="/contacts/customer" class="mdc-button mdc-button--outlined margin-right">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">Cancel</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">cancel_presentation</i>
+                                </a>
+
+                                <button id="btnSave" href="/contacts/customer/add" class="mdc-button mdc-button--raised margin-right">
+                                    <div class="mdc-button__ripple"></div>
+                                    <span class="mdc-button__label">Save</span>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">done</i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="dummy_tab">
+                         
+                            <ul class="tabs">
+                                <li class="tab mr-6 active"><a data-tab-id="#customer" href="/contacts/customer">Customers</a></li>
+                                <li class="tab mr-6"><a data-tab-id="#supplier" href="/contacts/supplier">Suppliers</a></li>
+                                <li class="tab mr-6"><a data-tab-id="#employee" href="/contacts/employee">Employees</a></li>
+                                <li class="tab mr-6"><a data-tab-id="#other" href="/contacts/other">Others</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div id="customer" data-tab-content class="active">
+                                    <h1>Customer</h1>
+                                    <p>My home</p>
+                                </div>
+
+                                <div id="supplier" data-tab-content>
+                                    <h1>Supplier</h1>
+                                    <p>Supplier home</p>
+                                </div>
+
+                                <div id="employee" data-tab-content>
+                                    <h1>Employee</h1>
+                                    <p>employee home</p>
+                                </div>
+
+                                <div id="other" data-tab-content>
+                                    <h1>Other</h1>
+                                    <p>other data</p>
+                                </div>
+                            
+                            </div>
+
+                        </div><!-----end of dummy----->
+
+
+
+                       <form id="fcustomer">
+                        <div class="form_wrapper">
+
+                           <div class="row">
+
+                                <div class="double-column">
+                                    <div class="mdc-card mdc-card--outlined mdc-card-form mdc-elevation--z4">
+                                        
+                                        <table class="cform">
+                                            
+                                            <tr>
+                                            <td colspan="3"><span class="form-title">Login Information</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="username" value="mostain" class="mdc-text-field__input" required>
+                                                        <label class="mdc-floating-label">Username</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="password" name="password" value="test123@" class="mdc-text-field__input" required>
+                                                        <label class="mdc-floating-label">Password</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="email" name="email" value="admin@mateors.com" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Email</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="mobile" value="01768760886" class="mdc-text-field__input" required>
+                                                        <label class="mdc-floating-label">Mobile</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <select id="custype" class="selectLine" name="access_name" required>
+                                                        <option value=""></option>
+                                                        <option value="Reseller" selected>Reseller</option>
+                                                        <option value="Salespoint">Salespoint</option>
+                                                    </select>
+                                                </td>
+
+                                                <td>
+                                                    <select id="rateplan" class="selectRateplan" name="rateplan_id" required>
+                                                        <option value=""></option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <div class="mdc-card mdc-card--outlined">
+
+                                        <div class="right_wrapper">
+                                            <div class="photo">
+
+                                            <div class="title">Photo</div>
+
+                                            <div id="imgPreview" class="img_output">
+                                                    <span class="closeBtn">&times;</span>
+                                                    <img id="output_image" />
+                                            </div>
+
+                                            <div id="uploadSection" class="upload_wrapper">
+                                                    <div class="box-icon">
+                                                        <i id="fakeBtn" class="material-icons big-font">account_circle</i>
+                                                    </div>
+
+                                                    <div class="box-file">
+                                                        <input type="file" accept="image/*" id="photo" class="filestyle" name="photo">
+                                                    </div>
+                                            </div> 
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                           </div> 
+
+                           <div class="row">
+
+                                <div class="double-column">
+                                    <div class="mdc-card mdc-card--outlined mdc-card-form mdc-elevation--z4">
+                                        
+                                        <table class="cform">
+                                            
+                                            <tr>
+                                            <td colspan="3"><span class="form-title">Contact Information</span></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="first_name" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">First Name</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="last_name" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Last Name</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="business_name" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Business Name</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="division" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Division/State</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="district" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">District/City</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="police_station" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Police Station</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="zip" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Pstal/Zip code</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="address1" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Address 1</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="mdc-text-field">
+                                                        <input type="text" name="address2" class="mdc-text-field__input">
+                                                        <label class="mdc-floating-label">Address 2</label>
+                                                        <div class="mdc-line-ripple"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+
+                                    </div>
+                                </div>
+
+
+
+                           </div> 
+
+                            
+                            
+                        </div><!-----form wrapper end here-------->
+                       </form> 
+
+                        
+
+
+                    </div>
+
+               </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script>
+
+        //for (key in mdc) {
+           // console.log(key);
+        //}
+
+       // const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+        //const dialog2 = mdc.dialog.MDCDialog.attachTo(document.querySelector('#dialog2'));
+       //  const dialog3 = mdc.dialog.MDCDialog.attachTo(document.querySelector('#search'));
+
+        var linearProgress=document.querySelector('.mdc-linear-progress');
+        var lProgress=mdc.linearProgress.MDCLinearProgress.attachTo(linearProgress);
+        lProgress.close();
+
+        var snackbarClass=document.querySelector('.mdc-snackbar');
+        const snackbar = mdc.snackbar.MDCSnackbar.attachTo(snackbarClass);
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+        textFieldElements.forEach((textFieldEl) => {
+
+            //console.log(textFieldEl);
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+
+
+        $(document).ready(function() {
+
+
+            var fileToRead = document.getElementById("photo");
+            var fileToWrite = document.getElementById("output_image");
+            var imgPreview = document.getElementById("imgPreview");
+            var imgUploadSection = document.getElementById("uploadSection");
+            var fakeBtn = document.getElementById("fakeBtn");
+            fileToRead.addEventListener("mouseover", function(e){
+
+             fakeBtn.style.opacity = "1";
+             fakeBtn.style.color = "#6200ee";
+             console.log("mouseover");
+            
+            });
+
+            $('.selectLine').select2({
+                placeholder :'Customer Type*',
+                width: '100%',
+                allowClear: true,
+                tags: true
+            });
+
+            fileToRead.addEventListener("mouseout", function(e){
+
+             fakeBtn.style.opacity = "0.2";
+             fakeBtn.style.color = "";
+             console.log("mouseout");
+            
+            });
+
+            fileToRead.addEventListener("change", function(e){
+
+                var files=fileToRead.files[0];
+                console.log(files.name);
+                console.log(files.type);
+                console.log(files.size);
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    //$('#output_image').attr('src', e.target.result);
+                    //console.log(e.target.result);
+                    fileToWrite.src=e.target.result;
+                    imgPreview.style.display="block";
+                    imgUploadSection.style.display='none';
+                }
+
+                reader.readAsDataURL(files);
+            
+            });
+
+            var closeBtn=document.getElementsByClassName("closeBtn")[0];
+            closeBtn.addEventListener("click", function(e){
+
+                console.log('close...');
+                imgPreview.style.display="none";
+                imgUploadSection.style.display='block';
+                fileToRead.value="";
+                fileToWrite.src="";
+            
+            });
+
+
+            //var obj ={};
+            var cAray =[];
+            $('.selectRateplan').select2({
+                placeholder :'Rate plan *',
+                width: '100%',
+                allowClear:true
+            });
+
+
+            //populate rateplan
+            var dOption="<option value=''></option>";
+            $.ajax({
+                async: true,
+                type: "POST",
+                dataType: "json",
+                url: "/api",
+                data: {"info": "rateplan", "field_key":"status", "field_val": "1"},
+                error: function(){
+                }
+
+            }).done(function(dres){
+
+                var length=dres.length
+                for(var i=0; i<length; i++){
+                    var value= dres[i].aid;
+                    var text= dres[i].name;
+                    
+                    var selected="";
+             
+                    dOption += `<option value="${value}" ${selected}>${text}</option>`;
+                }
+                $('.selectRateplan').empty().append(dOption);
+            }); 
+
+
+            //form submit now
+            $('#btnSave').on('click', function(e){
+
+                var requiredElements=document.getElementById("fcustomer").querySelectorAll("[required]");
+                var outputDiv = document.getElementById("output");
+                var errors=[];
+
+                var s = "";
+                for (var i = 0; i < requiredElements.length; i++){
+                    var e = requiredElements[i];
+                    //console.log(`${e.name}*${e.value.length}`);
+                    if (e.value.length==0){
+                        //s += e.name + ": " + (e.value.length ? "Filled" : "Not Filled") + "<br>";
+                        s += `${e.name} is required<br>`;
+                        errors.push(e.name);
+                    }
+                }
+                //console.log(errors);
+                outputDiv.innerHTML = s;
+
+                if (errors.length==0)
+                {
+                    $('#btnSave').prop('disabled', true);
+                    //console.log($('#fcustomer').find('input,textarea,select'));
+                    lProgress.open();
+                    lProgress.progress=1;
+                    lProgress.determinate=false;
+
+                    var ajaxData = new FormData();
+                    $.each($('#fcustomer').find('input,textarea,select'), function(e){
+
+                            //console.log('hello....');
+
+                            var name = $(this).attr("name");
+                            var nvalue = $(this).val();
+                            var tagName=$(this).prop('tagName');
+                            var type=$(this).attr('type');
+
+                            if (typeof name != "undefined" && typeof nvalue != "undefined"){
+
+                                if (type=="text"){
+                                    ajaxData.append(name, nvalue);
+
+                                }else if (type=="checkbox"){
+                                    if($(this).is(':checked')){
+                                        nvalue=1;
+                                    }else{
+                                        nvalue=0;
+                                    }
+                                    //console.log('chekbox: '+nvalue);
+                                    ajaxData.append(name, nvalue);
+
+                                }else{
+                                    //hidden
+                                    ajaxData.append(name, nvalue);
+                                }
+                                console.log(name+'-'+nvalue+'='+tagName);
+                            }
+
+                    });
+
+                    $.each($('#photo')[0].files, function(i, file) {
+                    console.log(file); 
+                    ajaxData.append('file-'+i, file);
+                    });
+
+                    $.ajax({
+                        //dataType: "json",
+                        async: true,
+                        type: "POST",
+                        url: "/contacts/customer/add",
+                        data: ajaxData, //$('#account_info').serialize(),
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success: function(){
+                        },
+                        error: function(jqXHR, textStatus){
+                            console.log("failed with error: " + textStatus);
+                        }
+
+                    }).done(function(dres){
+
+                        console.log(dres);
+                        if (dres.error=='0'){
+
+                            var nextPage=dres.next_url.trim();
+                            if (dres.error=="0" && nextPage!=""){
+                                setTimeout(() => {
+                                   location.href = nextPage;
+                                } , 3000);
+                            }
+
+                        }else{
+                            outputDiv.innerHTML = dres.message;
+                        }
+
+                            snackbar.timeoutMs=5000;
+                            snackbar.labelText=dres.message;
+                            snackbar.actionButtonText="OKAY";
+                            snackbar.open();
+
+                            lProgress.progress=1;
+                            lProgress.determinate=true;
+                            lProgress.close();
+
+                            $('#btnSave').prop('disabled', false);
+
+                    });
+
+                        //console.log(ajaxData);
+                    return false
+
+                }
+
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}

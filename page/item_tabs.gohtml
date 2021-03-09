@@ -1,0 +1,617 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .demo-width-class {
+        width: 100%;
+    }
+
+    .mdc-text-field{
+        width:100%;
+    }
+
+    .table_top_toolbar {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        justify-content: space-between;
+        background-color: #FAFAFA;
+    }
+
+
+    .doc_title{
+         flex: 1 1 55%;
+         padding: 1em;
+         font-weight:500;
+         font-size:1.2rem;
+    }
+    .doc_action{
+        flex: 0 0 45%;
+        text-align:right;
+    }
+
+
+    .pageination{
+        display: flex;
+        border-top: 1px solid #e0e0e0;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .page_info{
+        display: flex;
+        padding: 1em;
+    }
+
+    .rows_per_page{
+        display: flex;
+        padding: 1em;
+        align-items: center;
+    }
+
+    .page_data_info{
+        display: flex;
+        padding: 1em;
+        align-items: center;
+    }
+
+    .left_right_nav{
+        display: flex;
+        text-align: right;
+
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mdc-menu-width{
+        width: 200px;
+    }
+    
+    #error_message{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    #error_message2{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    .mdc-select__menu{
+        height:120px;
+
+    }
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .mdc-data-table{
+      
+    }
+
+    .hide{
+     display: none;
+    }
+    html, body, #root-container {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="resources/css/custom-select2.css">
+
+    <link rel="stylesheet" href="resources/css/tabs_styles.css">
+
+{{end}}
+
+{{define "content"}}
+    
+
+    <section id="dlist">
+
+        <div id="root-container">
+            <div class="component-demo component-demo--open">
+                <div class="component-demo__content">
+
+                    <div class="component-demo__app-bar">
+
+                        <div class="component-demo__tab-section">
+                            <!---->
+                            <div class="mdc-tab-bar" role="tablist">
+                                <div class="mdc-tab-scroller">
+                                    <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                    <div class="mdc-tab-scroller__scroll-content">
+                                        <!---->
+                                        <button role="tab" class="mdc-tab component-demo__tab mdc-tab--active" aria-selected="true" tabindex="0" id="goog_1537503299-0">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Fixed<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:40px; --mdc-ripple-fg-scale:2.32959; --mdc-ripple-fg-translate-start:32.6px, 12.2px; --mdc-ripple-fg-translate-end:13.9688px, 4px;"></span>
+                                        </button>
+                                        <!---->
+                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="goog_1537503299-1">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Scrollable<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                        </button>
+                                        <!---->
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                        </div>
+
+                        <!---->
+                        <button data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__config-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Open configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                            tune
+                        </button>
+                        <!---->
+                    </div>
+
+
+                    <div class="component-demo__stage-content">
+                        
+                        <!---->
+                        <div class="stage-transition-container-variant stage-transition-container-variant--show">
+                        
+                            <!----><!---->
+
+                            <div class="mdc-tab-bar" role="tablist">
+                                <div class="mdc-tab-scroller">
+                                    <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                    <div class="mdc-tab-scroller__scroll-content">
+                                        <!---->
+                                        <button role="tab" class="mdc-tab mdc-tab--active" aria-selected="true" tabindex="0" id="goog_1537503296-FIXED-0">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab One<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:131px; --mdc-ripple-fg-scale:1.78861; --mdc-ripple-fg-translate-start:79.9px, -45.7px; --mdc-ripple-fg-translate-end:44.0563px, -41.5px;"></span>
+                                        </button>
+                                        <!---->
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-FIXED-1">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Two<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:133px; --mdc-ripple-fg-scale:1.78422; --mdc-ripple-fg-translate-start:42.9875px, -45.1px; --mdc-ripple-fg-translate-end:44.5875px, -42.5px;"></span>
+                                        </button>
+                                        <!---->
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-FIXED-2">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Three<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:142px; --mdc-ripple-fg-scale:1.77401; --mdc-ripple-fg-translate-start:70.7125px, -46.4px; --mdc-ripple-fg-translate-end:47.55px, -47px;"></span>
+                                        </button>
+                                        <!---->
+
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!----><!---->
+
+
+                        </div>
+                        <!---->
+
+                        <div class="stage-transition-container-variant">
+
+                            <!----><!---->
+                            <div class="mdc-tab-bar" role="tablist">
+                                <div class="mdc-tab-scroller">
+                                    <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                    <div class="mdc-tab-scroller__scroll-content">
+                                        
+                                        <!---->
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-0">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab One<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content
+                                                    mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:68px; --mdc-ripple-fg-scale:1.96049; --mdc-ripple-fg-translate-start:41px, 7.40001px; --mdc-ripple-fg-translate-end:22.7938px, -10px;"></span>
+                                        </button>
+                                        <!---->
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-1">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Two<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:69px; --mdc-ripple-fg-scale:2.13161; --mdc-ripple-fg-translate-start:27.7125px, 18.1px; --mdc-ripple-fg-translate-end:23.825px, 1.5px;"></span>
+                                        </button>
+                                        <!---->
+
+                                        <button role="tab" class="mdc-tab mdc-tab--active" aria-selected="true" tabindex="0" id="goog_1537503296-SCROLLABLE-2">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Three<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:78px; --mdc-ripple-fg-scale:2.05111; --mdc-ripple-fg-translate-start:44.1625px, 13.6px; --mdc-ripple-fg-translate-end:26.7875px, -3px;"></span>
+                                        </button>
+
+                                        <!---->
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-3">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Four<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                        </button>
+                                        <!---->
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-4">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Five<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:69px; --mdc-ripple-fg-scale:1.96349; --mdc-ripple-fg-translate-start:54.55px, -10.7px; --mdc-ripple-fg-translate-end:23.4688px, -10.5px;"></span>
+                                        </button>
+                                        <!---->
+                                        
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-5">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Six<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:64px; --mdc-ripple-fg-scale:1.99506; --mdc-ripple-fg-translate-start:20.3125px, -7.39999px; --mdc-ripple-fg-translate-end:21.725px, -8px;"></span>
+                                        </button>
+
+                                        <!---->
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-6">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Seven<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                        </button>
+
+                                        <!---->
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-7">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Eight<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                        </button>
+
+                                        <!---->
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-8">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Nine<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                        </button>
+                                        <!---->
+
+
+                                        <button role="tab" class="mdc-tab" aria-selected="false" tabindex="-1" id="goog_1537503296-SCROLLABLE-9">
+                                            <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"><!---->Tab Ten<!----></span>
+                                            </span>
+                                            
+                                            <span class="mdc-tab-indicator">
+                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                            </span>
+                                        
+                                            <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                        </button>
+                                        <!---->
+
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!----><!---->
+
+                        </div>
+                        <!---->
+                        
+                    </div>
+
+
+                    <div class="component-demo__config-panel">
+
+                        <div class="component-demo__panel-header">
+                            <span class="component-demo__panel-header-label">Configuration</span>
+                            <!---->
+                            <button data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__panel-header-close mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Close configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                close
+                            </button>
+                            <!---->
+                        </div>
+                        
+                        <div class="tabs-options">
+                            <span class="tabs-options__label">Options</span>
+                            <div class="tabs-options__checkbox"><!---->
+                                    <div class="mdc-form-field ">
+                                        <div class="mdc-checkbox mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded mdc-checkbox--disabled" data-checked="" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;" data-disabled="">
+                                        <input type="checkbox" class="mdc-checkbox__native-control" id="goog_1537503297" disabled="">
+                                        <div class="mdc-checkbox__background">
+                                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                            </svg>
+                                            <div class="mdc-checkbox__mixedmark"></div>
+                                        </div>
+                                        <div class="mdc-checkbox__ripple"></div>
+                                        </div>
+                                        <label for="goog_1537503297"><!---->Text label<!----></label>
+                                    </div>
+                            </div>
+
+                            <span class="tabs-options__label">Icons</span>
+                            <div class="tabs-options__radio">
+                            
+                                <!----><!----><!---->
+                            
+                                <div class="mdc-form-field">
+                                        <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;" data-checked="">
+                                            <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-0" name="tabs-icon-style">
+                                            <div class="mdc-radio__background">
+                                                <div class="mdc-radio__outer-circle"></div>
+                                                <div class="mdc-radio__inner-circle"></div>
+                                            </div>
+                                            <div class="mdc-radio__ripple"></div>
+                                        </div>
+                                        <label for="goog_1537503298-0"><!---->None<!----></label>
+                                </div>
+                        
+                                <!---->
+                                <div class="mdc-form-field">
+                                    <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;">
+                                    <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-1" name="tabs-icon-style">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label for="goog_1537503298-1"><!---->Leading icon<!----></label>
+                                </div>
+                                
+                                <!---->
+                                <div class="mdc-form-field">
+                                    <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;">
+                                    <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-2" name="tabs-icon-style">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                    </div>
+                                    <label for="goog_1537503298-2"><!---->Top icon<!----></label>
+                                </div>
+
+                                <!----><!----><!---->
+                            </div>
+
+                        </div>
+                
+                    </div>
+
+
+                    <div class="component-demo__config-panel-scrim"></div>
+                    
+
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    
+    <script>
+
+        //for (key in mdc) {
+           // console.log(key);
+        //}
+
+        var mdcTab=document.querySelector('.mdc-tab-bar');
+        const tabBar = mdc.tabBar.MDCTabBar.attachTo(mdcTab);
+        //console.log(tabBar);
+        //console.log(tabBar.tabList_);
+        //console.log(tabBar.foundation_);
+
+        tabBar.listen('MDCTabBar:activated', function(e){
+
+            var index=e.detail.index;
+            console.log(e.detail.index);
+            tabBar.activateTab(index);
+            tabBar.scrollIntoView(index);
+
+            //var len=$('.stage-transition-container-variant').length; 
+            //console.log(len);
+            //attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+
+        $('#root-container > div > div > div.component-demo__stage-content > div').each(function(idx,elm){
+          //console.log(index,element);
+          
+          if (index==idx){
+            $(elm).attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+          }else{
+            $(elm).attr("class", "stage-transition-container-variant");
+          }
+
+        });
+        //divv.eq(2).css({'background-color':'#343434'})
+        //console.log(divv.html());
+        //divv.attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+        //console.log();
+
+        });
+
+        //const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+       // textFieldElements.forEach((textFieldEl) => {
+            //mdc.textField.MDCTextField.attachTo(textFieldEl);
+       // });
+
+        //const perPageMenu = mdc.menu.MDCMenu.attachTo(document.querySelector('#perPageMenu'));
+
+        $(document).ready(function() {
+
+
+            //var obj ={};
+            var cAray =[];
+
+            $('.selectTags').select2({
+                placeholder :'Tags *',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectAvailability').select2({
+                placeholder :'Availability *',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectOption').select2({
+                width: '100%',
+                allowClear: false
+            });
+
+            $('.mdc-tab').on('click', function(e){
+
+                var index=$(this).index();
+                //console.log('....');
+                //alert(index);
+                //tabBar.activateTab(index);
+                //tabBar.scrollIntoView(index);
+
+            });
+
+            console.log($('.stage-transition-container-variant'));
+           
+
+            $(".mdc-icon-button").on('click', function(e){
+                
+                //console.log('mdc-icon-button');
+                var btnName=$(this).text().trim();
+                //alert(btnName);
+
+                if (btnName=="tune"){
+                    $('.component-demo').toggleClass("component-demo--open");
+
+                }else if(btnName=="close"){
+                    $('.component-demo').toggleClass("component-demo--open");
+                }
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+

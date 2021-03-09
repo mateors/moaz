@@ -1,0 +1,1935 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+    .imgWrapper{
+        display: flex;
+        border-bottom: 0px solid #e0e0e0;
+        align-items: flex-start;
+        padding:5px;
+        margin:10px;
+    }
+    .image_wrapper{
+        position: relative;
+        width: 120px;
+        border:1px solid #e0e0e0;
+        flex-wrap:wrap;
+    }
+    .imgContainer{
+        position: relative; 
+        width: 100px;
+        height: auto;
+        font-size:12px;
+        margin-top:10px;
+        margin-left:10px;
+        margin-right:10px;
+        margin-bottom:30px;
+        word-wrap: break-word;
+        vertical-align: middle;
+    }
+
+    .simgw{
+     display: block;
+     background:#F2F2F2;
+     width: 100px;
+     height: 90px;
+    }
+
+    .image{
+        width: 100px;
+        height: 90px;
+        /*object-fit: cover;*/
+        vertical-align: middle;
+    }
+
+    .overlay {
+        position: absolute; 
+        bottom: 0; 
+        background: rgb(0, 0, 0);
+        background: rgba(74,75,255,0.49); /* Black see-through */
+        color: #f1f1f1; 
+        width: 100%;
+        height:100%;
+        transition: .5s ease;
+        opacity:0;
+        color: white;
+        font-size: 12px;
+        padding: 0px;
+        text-align: center;
+        line-height: 80px;
+        cursor: pointer;
+    }
+
+    .imgContainer:hover .overlay {
+        opacity: 1;
+    }
+
+    .fwebsiteimgs {
+        width:100%;
+        margin-top:1rem;
+        padding-left: 1rem;
+        display: flex;
+    }
+
+    .mytable{
+        width:100%;
+    }
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .demo-width-class {
+        width: 100%;
+    }
+
+    .mdc-text-field{
+        width:100%;
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mdc-menu-width{
+        width: 200px;
+    }
+    
+    #error_message{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    #error_message2{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    .mdc-select__menu{
+        height:120px;
+    }
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .mdc-data-table{
+      
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .my-card {
+        padding:1rem;
+        background-color:transparent;
+    }
+
+    .mdc-typography--headline6 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: .0125em;
+    }
+    .mdc-typography--headline5, .mdc-typography--headline6 {
+        font-family: Roboto,sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        line-height: 2rem;
+        text-decoration: inherit;
+        text-transform: inherit;
+    }
+
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+
+    .demo-titleS {
+        border-bottom: 1px solid rgba(0,0,0,.87);
+    }
+
+    .tabContent{
+        margin-top:0.5rem;
+    }
+
+    .container {
+        position: relative;
+        padding: 0px;
+        margin:0px;
+    }
+
+    .stage-transition-container-variant:nth-of-type(2) {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .stage-transition-container-variant:nth-of-type(2) .mdc-tab-scroller__scroll-content {
+        padding: 0px;
+    }
+
+    .row{
+        margin-bottom:1rem;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .mdc-data-table__header-cell, .mio-cc-table.mdc-data-table thead tr td {
+        color: #616161;
+        background-color: #fafafa;
+        font-weight: 400;
+    }
+
+
+    .mdc-data-table__cell, .mio-cc-table.mdc-data-table tbody tr td {
+        color: #424242;
+    }
+
+    .attribute{
+        margin-top:1rem;
+        padding-left: 1rem;
+        display: flex;
+    }
+    .mdc-data-table {
+        margin: 0.90rem;
+        width:90%;
+    }
+    .attrbtn{
+        height: 56px;
+        width: 120px;
+    }
+    #output{
+        color:#b00020;
+        margin-left: 2rem;
+    }
+
+    .mdcbtnw{
+    }
+
+    /* .daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
+        min-width: 0px;
+    } */
+
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link href="resources/css/select2.min.css" rel="stylesheet"/>
+    <link href="resources/css/custom-select2.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/tabs_styles.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+{{end}}
+
+{{define "content"}}
+    
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+        <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
+
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                role="status"
+                aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Retry</span>
+            </button>
+            <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="output"></div>
+
+    <section id="dlist">
+
+        {{$itmMap := .ItemInfo}}
+        {{$wimgs := .WebImgs}}
+
+        <!--<h2 class="demo-title mdc-typography--headline6">Item</h2>-->
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+
+                    <div class="mdc-card">
+                    
+                        <div class="mdc-card__primary-actions" tabindex="0">
+                            
+                            <!--<div class="profile-title-area">
+                                <h2 class="profile_title">REGISTER NEW MEMBER</h2>
+                                <h3 class="profile_blockno">Please Consider with one of the following ID</h3>
+                            </div>-->
+
+                            <div class="tab_container">
+                                
+                                <!-----START------>
+                                <div id="root-container">
+                                    <div class="component-demo">
+                                        <div class="component-demo__content">
+
+                                            <div class="component-demo__app-bar">
+
+                                                <div class="component-demo__tab-section">
+                                                    <!---->
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                    <button role="tab" class="mdc-tab component-demo__tab mdc-tab--active" aria-selected="true" tabindex="0" id="tab1">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Item Info</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:40px; --mdc-ripple-fg-scale:2.32959; --mdc-ripple-fg-translate-start:32.6px, 12.2px; --mdc-ripple-fg-translate-end:13.9688px, 4px;"></span>
+                                                                    </button>
+
+                                                                    <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab2">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Accounting</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                    </button>
+
+                                                                    <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab3">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Inventory</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                    </button>
+
+                                                                    <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab4">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Loyalty/Reward</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                    </button>
+
+                                                                    <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab5">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Attribute</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                    </button>
+
+                                                                    <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab6">
+                                                                        <span class="mdc-tab__content">
+                                                                        <span class="mdc-tab__text-label">Website</span>
+                                                                        </span>
+                                                                        
+                                                                        <span class="mdc-tab-indicator">
+                                                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                        </span>
+                                                                    
+                                                                        <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+
+                                                <!---->
+                                                <button id="btnPanelOpen" data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__config-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Open configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                                    tune
+                                                </button>
+                                                <!---->
+                                            </div>
+
+
+                                            <div class="component-demo__stage-content">
+                                                
+                                                <!---TAB1--->
+                                                <div class="stage-transition-container-variant stage-transition-container-variant--show container">
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                            <div class="mdc-tab-scroller__scroll-content">
+
+                                                                <div class="tabContent">
+                                                                    <table class="mytable">
+
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <div class="mdc-text-field">
+                                                                                     {{$itemName := index $itmMap "item_name"}} 
+                                                                                    <input type="text" name="item_name" value="{{$itemName}}" class="mdc-text-field__input" required>
+                                                                                    <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                        Item Name
+                                                                                    </label>
+                                                                                    <div class="mdc-line-ripple"></div>
+                                                                                </div>
+                                                                                {{$itemID := index $itmMap "aid"}} 
+                                                                                <input type="hidden" name="id" value="{{$itemID}}">
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="mdc-text-field">
+                                                                                    {{$itemCode := index $itmMap "item_code"}}
+                                                                                    <input type="text" name="item_code" value="{{$itemCode}}" class="mdc-text-field__input" readonly>
+                                                                                    <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                        Itemcode
+                                                                                    </label>
+                                                                                    <div class="mdc-line-ripple"></div>
+                                                                                </div>
+                                                                                <div class="mdc-text-field-helper-line">
+                                                                                    <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">Auto generated</div>
+                                                                                </div>
+                                                                            </td>
+
+                                                                            <td>
+                                                                                <div class="mdc-text-field">
+                                                                                    {{$barcode := index $itmMap "barcode"}}
+                                                                                    <input type="text" name="barcode" value="{{$barcode}}" class="mdc-text-field__input">
+                                                                                    <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                        Barcode
+                                                                                    </label>
+                                                                                    <div class="mdc-line-ripple"></div>
+                                                                                </div>
+                                                                                <div class="mdc-text-field-helper-line">
+                                                                                    <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">SKU = Stock Keeping Unit</div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+
+                                                                        <tr>
+                                                                        <td>
+                                                                            <select id="itemLine" class="selectLine" name="item_line" required>
+                                                                                {{$lineID := index $itmMap "line_id"}}
+                                                                                <option value=""></option>
+                                                                                {{range $i, $rMap := .ItemLineRows }}
+                                                                                 {{$aid := index $rMap "aid"}}
+                                                                                 <option value="{{$aid}}" {{if $lineID}}{{if eq $lineID $aid}}selected{{end}}{{end}}>{{index $rMap "name"}}</option>
+                                                                                {{end}}
+
+                                                                            </select>
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <select id="itemGroup" class="selectGroup" name="category_id" required>
+                                                                                {{$groupID := index $itmMap "group_id"}}
+                                                                                <option value=""></option>
+                                                                                {{range $i, $rMap := .ItemGroupRows }}
+                                                                                 {{$aid := index $rMap "aid"}}
+                                                                                 <option value="{{$aid}}" {{if eq $groupID $aid}}selected{{end}}>{{index $rMap "name"}}</option>
+                                                                                {{end}}
+                                                                            </select>
+                                                                        </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>
+                                                                                <select class="selectSupplier" name="supplier">
+                                                                                    {{$supplier := index $itmMap "supplier"}}
+                                                                                    <option value=""></option>
+                                                                                    {{range $i, $rMap := .SupplierRows }}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                        <option value="{{$aid}}" {{if (compare $supplier $aid)}}selected{{end}}>{{index $rMap "account_name"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+
+                                                                            <td>
+                                                                                <select class="selectTax" name="tax_id" required>
+                                                                                    {{$taxID := index $itmMap "tax_id"}}
+                                                                                    <option value=""></option>
+                                                                                    {{range $i, $rMap := .TaxRows}}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                     <option value="{{$aid}}" {{if (compare $taxID $aid)}}selected{{end}}>{{index $rMap "display_name"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+
+
+
+                                                                        <tr>
+                                                                        <td>
+                                                                        <div class="mdc-text-field">
+                                                                            {{$buy_price := index $itmMap "buy_price"}}
+                                                                            <input type="text" name="buy_price" value="{{$buy_price}}" class="mdc-text-field__input">
+                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                Buy Price
+                                                                            </label>
+                                                                            <div class="mdc-line-ripple"></div>
+                                                                        </div>
+                                                                        </td>
+
+                                                                        <td>
+                                                                        <div class="mdc-text-field">
+                                                                            {{$sale_price := index $itmMap "sale_price"}}
+                                                                            <input type="text" name="sale_price" value="{{$sale_price}}" class="mdc-text-field__input">
+                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                Sale Price
+                                                                            </label>
+                                                                            <div class="mdc-line-ripple"></div>
+                                                                        </div>
+                                                                        </td>
+                                                                        </tr>
+
+
+
+                                                                        <tr>
+                                                                        <td>
+                                                                            <div class="mdc-form-field">
+                                                                                <div class="mdc-checkbox" id="sts">
+                                                                                {{$status := index $itmMap "status"}}
+                                                                                <input type="checkbox" class="mdc-checkbox__native-control" name="status" {{if (compare $status 1)}}checked{{end}} />
+                                                                                <div class="mdc-checkbox__background">
+                                                                                    <svg class="mdc-checkbox__checkmark"
+                                                                                        viewBox="0 0 24 24">
+                                                                                    <path class="mdc-checkbox__checkmark-path"
+                                                                                            fill="none"
+                                                                                            d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                    </svg>
+                                                                                    <div class="mdc-checkbox__mixedmark"></div>
+                                                                                </div>
+                                                                                <div class="mdc-checkbox__ripple"></div>
+                                                                                </div>
+                                                                                <label for="checkbox-1">Active</label>
+                                                                            </div>
+                                                                        </td>
+                                                                        
+                                                                        <td>&nbsp;</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!---TAB2--->
+                                                <div class="stage-transition-container-variant">
+
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                            <div class="mdc-tab-scroller__scroll-content">
+                                                                
+                                                                <div class="tabContent">
+                                                                    <table class="mytable">
+
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <select class="selectAsset" name="asset_account">
+                                                                                    <option value=""></option>
+                                                                                    {{$assetAc := index $itmMap "asset_account"}}
+                                                                                    {{range $i, $rMap := .AccountRows }}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                        <option value="{{$aid}}" {{if (compare $assetAc $aid)}}selected{{end}}>{{index $rMap "name"}}-{{index $rMap "code"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <select class="selectCOGS" name="cogs_account">
+                                                                                    {{$cogsAc := index $itmMap "cogs_account"}}
+                                                                                    <option value=""></option>
+                                                                                    {{range $i, $rMap := .AccountRows }}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                        <option value="{{$aid}}" {{if (compare $cogsAc $aid)}}selected{{end}}>{{index $rMap "name"}}-{{index $rMap "code"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <select class="selectSales" name="sales_account">
+                                                                                    {{$salesAc := index $itmMap "sales_account"}}
+                                                                                    <option value=""></option>
+                                                                                    {{range $i, $rMap := .AccountRows }}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                        <option value="{{$aid}}" {{if (compare $salesAc $aid)}}selected{{end}}>{{index $rMap "name"}}-{{index $rMap "code"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <select class="selectEquity" name="opening_balance_equity_account">
+                                                                                    {{$openingBalEqAc := index $itmMap "opening_balance_equity_account"}}
+                                                                                    <option value=""></option>
+                                                                                    {{range $i, $rMap := .AccountRows }}
+                                                                                    {{$aid := index $rMap "aid"}}
+                                                                                        <option value="{{$aid}}" {{if (compare $openingBalEqAc $aid)}}selected{{end}}>{{index $rMap "name"}}-{{index $rMap "code"}}</option>
+                                                                                    {{end}}
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                
+
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <!---TAB3--->
+                                                <div class="stage-transition-container-variant">
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                
+                                                                <div class="tabContent">
+                                                                        <table class="mytable">
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <select class="selectUOM" name="uom">
+                                                                                        {{$uom := index $itmMap "uom"}}
+                                                                                        <option value=""></option>
+                                                                                        {{range $i, $rMap := .UOMRows}}
+                                                                                        {{$aid := index $rMap "aid"}}
+                                                                                         <option value="{{$aid}}" {{if (compare $uom $aid)}}selected{{end}}>{{index $rMap "unit_name"}}</option>
+                                                                                        {{end}}
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select class="selectTracking" name="tracking">
+                                                                                        {{$tracking := index $itmMap "tracking"}}
+                                                                                        {{if eq .Todo "insert"}}
+                                                                                            <option value=""></option>
+                                                                                            <option value="no_tracking" selected>No Tracking {{.Todo}}</option>
+                                                                                            <option value="unique_serial">Using Unique Serial</option>
+                                                                                            <option value="lot_number">Using Lot Number</option>
+                                                                                        {{else}}
+                                                                                            <option value=""></option>
+                                                                                            <option value="no_tracking" {{if (compare $tracking "no_tracking")}}selected{{end}}>No Tracking {{.Todo}}</option>
+                                                                                            <option value="unique_serial" {{if (compare $tracking "unique_serial")}}selected{{end}}>Using Unique Serial</option>
+                                                                                            <option value="lot_number" {{if (compare $tracking "lot_number")}}selected{{end}}>Using Lot Number</option>
+                                                                                        {{end}}
+                                                                                    </select>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <select class="selectType" name="item_type">
+                                                                                        {{$itemType := index $itmMap "item_type"}}
+                                                                                        {{if eq .Todo "insert"}}
+                                                                                            <option value=""></option>
+                                                                                            <option value="consumable" selected>Consumable</option>
+                                                                                            <option value="stockable">Stockable</option>
+                                                                                            <option value="service">Service</option>
+                                                                                            <option value="raw_material">Raw Material</option>
+                                                                                        {{else}}
+                                                                                            <option value="consumable" {{if (compare $itemType "consumable")}}selected{{end}}>Consumable</option>
+                                                                                            <option value="stockable" {{if (compare $itemType "stockable")}}selected{{end}}>Stockable</option>
+                                                                                            <option value="service" {{if (compare $itemType "service")}}selected{{end}}>Service</option>
+                                                                                            <option value="raw_material" {{if (compare $itemType "raw_material")}}selected{{end}}>Raw Material</option>
+                                                                                        {{end}}
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                         {{$reorderLevel := index $itmMap "reorder_level"}}
+                                                                                        <input type="text" name="reorder_level" value="{{$reorderLevel}}" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label">
+                                                                                            Reorder Level
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                         {{$reorderQty := index $itmMap "reorder_qty"}}
+                                                                                        <input type="text" name="reorder_qty" value="{{$reorderQty}}" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label">
+                                                                                            Reorder Quantity
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                             {{$batch := index $itmMap "batch"}}
+                                                                                            <input type="text" name="batch" value="{{$batch}}" class="mdc-text-field__input">
+                                                                                            <label class="mdc-floating-label">
+                                                                                               Batch/Lot No
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                             {{$expireDate := index $itmMap "expire_date"}}
+                                                                                            <input type="text" id="expire_date" name="expire_date" value="{{$expireDate}}" class="mdc-text-field__input" readonly>
+                                                                                            <label class="mdc-floating-label">
+                                                                                                Expiry Date
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                        </table>
+                                                                </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!---TAB4--->
+                                                <div class="stage-transition-container-variant">
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                    
+                                                                    <div class="tabContent">
+                                                                        <table class="mytable">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select class="selectField" name="reward_field">
+                                                                                        {{$rField := .RewardField}}
+                                                                                        {{if eq .Todo "insert"}}
+                                                                                            <option value=""></option>
+                                                                                            <option value="qty" selected>Quantity</option>
+                                                                                            <option value="spent">Amount / Spent</option>
+                                                                                        {{else}}
+                                                                                            <option value=""></option>
+                                                                                            <option value="qty" {{if eq $rField "qty"}}selected{{end}}>Quantity</option>
+                                                                                            <option value="spent" {{if eq $rField "spent"}}selected{{end}}>Amount / Spent</option>
+                                                                                        {{end}}
+                                                                                        
+                                                                                    </select>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                         {{$rValue := .RewardValue}}
+                                                                                        <input type="text" name="reward_value" value="{{$rValue}}" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Value
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+
+                                                                                    
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                         {{$rPoint := .RewardPoint}}
+                                                                                        <input type="text" name="reward_point" value="{{$rPoint}}" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Points
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td colspan="3">
+                                                                                    {{if eq .Todo "insert"}}
+                                                                                        10 points for every 1 pcs purchase<br>
+                                                                                        5 points for every Tk. 100 spent<br>
+                                                                                    {{else}}
+                                                                                        {{.RewardNote}}<br>
+                                                                                    {{end}}
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!---TAB5--->
+                                                <div class="stage-transition-container-variant">
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                    
+                                                                    <div class="attribute">
+                                                                        
+                                                                        <table class="mytable">
+                                                                            <tr>
+                                                                                <td>
+                                                                                    {{$itemID := index $itmMap "aid"}}
+                                                                                    <select id="attrKey" class="selectAttr">
+                                                                                        <option value=""></option>
+                                                                                        {{range $i, $rMap := .AttributeRows }}
+                                                                                        {{$aid := index $rMap "aid"}}
+                                                                                         <option value="{{$aid}}">{{index $rMap "attribute_key"}}</option>
+                                                                                        {{end}}
+                                                                                    </select>
+                                                                                    <input type="hidden" id="atodo" value="insert">
+                                                                                    <input type="hidden" id="iavid" value="">
+                                                                                    <input type="hidden" id="itmid" value="{{$itemID}}">
+                                                                                </td>
+                                                                            </tr>   
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                        <input type="text" id="attrValue" value="" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Value
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select id="attrStatus" class="selectStatus">
+                                                                                        <option value="" selected></option>
+                                                                                        <option value="1">Active</option>
+                                                                                        <option value="0">Inactive</option>
+                                                                                    </select>
+                                                                                    <button class="mdc-button mdc-button--outlined attrbtn" id="btnAttrSave">
+                                                                                        <div class="mdc-button__ripple"></div>
+                                                                                        <i class="material-icons mdc-button__icon material-icons-outlined" aria-hidden="true">edit_attributes</i>
+                                                                                        <span class="mdc-button__label" id="attrbtnText">Add</span>
+                                                                                    </button>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                        </table>
+                                                                        
+
+                                                                        <div class="mdc-data-table">
+
+                                                                            <table id="attrList" class="mdc-data-table__table">
+                                                                                <thead>
+                                                                                    <tr class="mdc-data-table__header-row">
+                                                                                        <th class="mdc-data-table__header-cell">Attribute</th>
+                                                                                        <th class="mdc-data-table__header-cell">Value</th>
+                                                                                        <th class="mdc-data-table__header-cell">Status</th>
+                                                                                        <th class="mdc-data-table__header-cell">&nbsp;</th>
+                                                                                    </tr>
+                                                                                </thead>
+
+                                                                                <tbody id="attrList" class="mdc-data-table__content">
+
+                                                                                    {{if eq .AttrValLength 0}}
+                                                                                    <tr class="mdc-data-table__row">
+                                                                                        <td colspan="4" class="mdc-data-table__cell">
+                                                                                            {{if eq .Todo "update"}}No record found{{else}}Attribute can be added while updating.{{end}}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    {{else}}
+
+                                                                                        {{range $i,$vMap:= .AttrValRows}}
+                                                                                           
+                                                                                            <tr class="mdc-data-table__row">
+                                                                                                {{ $aid:= index $vMap "aid"}}
+                                                                                                {{ $kid:= index $vMap "attribute_id"}}
+                                                                                                {{ $avl:= index $vMap "attribute_value"}}
+                                                                                                {{ $ats:= index $vMap "status"}}
+                                                                                                <td class="mdc-data-table__cell">{{index $vMap "attribute_key"}}<input type="hidden" name="iavid" value="{{$aid}}"><input type="hidden" name="attribute_key" value="{{$kid}}"></td>
+                                                                                                <td class="mdc-data-table__cell">{{index $vMap "attribute_value"}}<input type="hidden" name="attribute_value" value="{{$avl}}"></td>
+                                                                                                <td class="mdc-data-table__cell">{{if eq (index $vMap "status") 1.}}Active{{else}}Inactive{{end}}<input type="hidden" name="attribute_status" value="{{$ats}}"></td>
+                                                                                                <td class="mdc-data-table__cell"><button data-id="{{$aid}}" class="mdc-icon-button material-icons">delete</button></td>
+                                                                                            </tr>
+
+                                                                                        {{end}}
+
+                                                                                    {{end}}
+
+                                                                                </tbody>
+                                                                            </table>
+
+                                                                        </div>
+                                                                        
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!---TAB6 WEBSITE--->
+                                                <div class="stage-transition-container-variant">
+                                                    <div class="mdc-tab-bar" role="tablist">
+                                                        <div class="mdc-tab-scroller">
+                                                            <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                    
+                                                                    
+
+                                                                        <div class="fwebsiteimgs">
+                                                                                <table class="mytable">
+
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="mdc-text-field">
+                                                                                                {{$description := index $itmMap "item_description"}}
+                                                                                                <input type="text" name="item_description" value="{{$description}}" class="mdc-text-field__input">
+                                                                                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                    Item Description
+                                                                                                </label>
+                                                                                                <div class="mdc-line-ripple"></div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="mdc-text-field mdc-text-field--no-label">
+                                                                                                {{$img := index $itmMap "item_image"}}
+                                                                                                <input type="file" id="pfile" name="item_image" class="mdc-text-field__input" {{if eq .Todo "update"}}disabled{{end}}>
+                                                                                                <div class="mdc-line-ripple"></div>
+                                                                                            </div>
+                                                                                            <div class="mdc-text-field-helper-line">
+                                                                                                <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">Product image: width x height = 268 x 201 {{if eq .Todo "update"}}<a href="./{{$img}}" target="_blank">image</a>{{end}}</div>
+                                                                                            </div>
+                                                                                        </td>
+
+                                                                                        <td>
+                                                                                            <div class="mdc-text-field">
+                                                                                                {{$itemURL := index $itmMap "item_url"}}
+                                                                                                <input type="text" name="item_url" value="{{$itemURL}}" class="mdc-text-field__input" readonly>
+                                                                                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                    Item URL
+                                                                                                </label>
+                                                                                                <div class="mdc-line-ripple"></div>
+                                                                                            </div>
+                                                                                            <div class="mdc-text-field-helper-line">
+                                                                                                <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">URL route for website</div>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+
+
+
+                                                                                    <tr>
+                                                                                    <td>
+                                                                                        Display:
+                                                                                        {{$display_sales := index $itmMap "display_sales"}}
+                                                                                        {{$display_purchase := index $itmMap "display_purchase"}}
+                                                                                        {{$publish_on_web := index $itmMap "publish_on_web"}}
+
+                                                                                    <div>
+                                                                                        <div class="mdc-form-field">
+                                                                                            <div class="mdc-checkbox" id="onsales">
+                                                                                                <input type="checkbox" class="mdc-checkbox__native-control" name="display_sales" {{if (compare $display_sales 1)}}checked{{end}} />
+                                                                                                <div class="mdc-checkbox__background">
+                                                                                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                    </svg>
+                                                                                                    <div class="mdc-checkbox__mixedmark"></div>
+                                                                                                </div>
+                                                                                                <div class="mdc-checkbox__ripple"></div>
+                                                                                            </div>
+                                                                                            <label for="checkbox-1">On Sales</label>
+                                                                                        </div>
+                                                                                    </div>  
+
+                                                                                    <div>
+                                                                                        <div class="mdc-form-field">
+                                                                                            <div class="mdc-checkbox" id="onpurchase">
+                                                                                                <input type="checkbox" class="mdc-checkbox__native-control" name="display_purchase" {{if (compare $display_purchase 1)}}checked{{end}} />
+                                                                                                <div class="mdc-checkbox__background">
+                                                                                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                    </svg>
+                                                                                                    <div class="mdc-checkbox__mixedmark"></div>
+                                                                                                </div>
+                                                                                                <div class="mdc-checkbox__ripple"></div>
+                                                                                            </div>
+                                                                                            <label for="checkbox-1">On Purchase</label>
+                                                                                        </div>
+                                                                                    </div>  
+
+                                                                                    <div>
+                                                                                        <div class="mdc-form-field">
+                                                                                            <div class="mdc-checkbox" id="onwebsite">
+                                                                                                <input type="checkbox" class="mdc-checkbox__native-control" name="publish_on_web" {{if (compare $publish_on_web 1)}}checked{{end}} />
+                                                                                                <div class="mdc-checkbox__background">
+                                                                                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                    </svg>
+                                                                                                    <div class="mdc-checkbox__mixedmark"></div>
+                                                                                                </div>
+                                                                                                <div class="mdc-checkbox__ripple"></div>
+                                                                                            </div>
+                                                                                            <label for="checkbox-1">Publish On Website</label>
+                                                                                        </div>
+                                                                                    </div>  
+
+
+                                                                                    </td>
+                                                                                    
+                                                                                    <td>&nbsp;</td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            
+                                                                                <div class="mdc-data-table">
+
+                                                                                    <div class="imgWrapper">
+
+                                                                                       {{range $i, $rMap := $wimgs}}
+                                                                                        {{$aid := index $rMap "aid"}}
+                                                                                        {{$file_location := index $rMap "file_location"}}
+
+                                                                                        <div class="image_wrapper">
+                                                                                            <div class="imgContainer">
+                                                                                                <div class="simgw"><img width="100px" src="{{$file_location}}" alt="Avatar" class="image"><a href="{{$file_location}}" target="_blank">{{toFilename $file_location}}</a></div>
+                                                                                                <div class="overlay" data-id="{{$aid}}" data-name="{{$file_location}}" data-action="update">EDIT</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        {{end}}
+
+                                                                                        <div class="image_wrapper">
+                                                                                            <div class="imgContainer disabled">
+                                                                                                <div class="simgw"><img width="100px" src="./resources/img/add-24px.svg" alt="upload" class="image">&nbsp;</div>
+                                                                                                <div class="overlay" data-action="add">Upload</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                        </div>
+                                                                   
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+
+
+                                            <!-------config panel removed--->
+                                            <div class="component-demo__config-panel">
+
+                                                <div class="component-demo__panel-header">
+                                                    <span class="component-demo__panel-header-label">Help</span>
+                                                    <button id="btnPanelClose" data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__panel-header-close mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Close configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                                        close
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="tabs-options">
+                                                    <span class="tabs-options__label">
+                                                         Before Adding Item you must have the following entries
+                                                         <ul>
+                                                           <li>Taxcode</li>
+                                                           <li>Item Department</li>
+                                                           <li>Item Line</li>
+                                                           <li>Item Group</li>
+                                                           <li>Supplier (optional)</li>
+                                                         </ul>
+
+                                                        If you still need any assistance please watch <a href="#">youtube</a><br /><br />
+                                                        for more video tutorial subscribe to our #masteracademy youtube channel
+                                                    </span>
+
+                                                </div>
+                                        
+                                            </div>
+
+                                            <div class="component-demo__config-panel-scrim"></div>
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!------END------->
+                                
+                            </div>
+
+                            
+
+                        </div><!---primary actions-->
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                                <button class="mdc-button mdc-button--raised mdcbtnw" id="btnSave">
+                                    <div class="mdc-button__ripple"></div>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">done</i>
+                                    <span class="mdc-button__label">Save</span>
+                                </button>
+                                <input type="hidden" id="todo" name="todo" value="{{.Todo}}">
+                            </div>
+                            <div class="mdc-card__action-icons"><a href="/item" class="mdc-icon-button material-icons">arrow_back</a></div>
+                        </div>
+
+                    </div><!---my card---->
+
+
+                </div>
+            </div> 
+        </div> 
+
+ 
+    </section>
+
+
+    <section id="modal_1">
+       <form id="dform" method="post" autocomplete='off'>
+        <input type="hidden" name="todo" value="insert">
+
+        <div class="mdc-dialog"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__container">
+            <div class="mdc-dialog__surface">
+                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                <h2 class="mdc-dialog__title" id="my-dialog-title">Image</h2>
+                <span id="error_message"></span>
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                
+                
+                <table class="mytable">
+
+                    <tr>
+                      <td>
+                        <div class="mdc-text-field mdc-text-field--no-label">
+                            <input type="file" id="ffile" name="img" accept="image/*" class="mdc-text-field__input" aria-label="Product image">
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                        <input type="hidden" name="item_name" value="{{$itemName}}" class="mdc-text-field__input">
+                        <input type="hidden" name="owner_table" value="item" class="mdc-text-field__input">
+                        <input type="text" name="item_id" value="{{$itemID}}" class="mdc-text-field__input" readonly>
+                        <input type="text" name="id" value="" class="mdc-text-field__input" readonly>
+                        <input type="text" name="image_name" value="" class="mdc-text-field__input" readonly>
+                        <input type="text" name="action" value="" class="mdc-text-field__input" readonly>
+                      </td>
+                    </tr>
+
+                </table>
+
+                    
+                </div>
+                <footer class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                    <span class="mdc-button__label">Close</span>
+                </button>
+
+                <button id="btnDelete" type="button" class="mdc-button">
+                    <span class="mdc-button__label">Delete</span>
+                </button>
+
+                <button id="btnSave" type="submit" class="mdc-button">
+                    <span class="mdc-button__label">Save</span>
+                </button>
+
+                </footer>
+            </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+      </form>  
+    </section>
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <script>
+
+        //for (key in mdc) {
+           // console.log(key);
+        //}
+        const dialog = mdc.dialog.MDCDialog.attachTo(document.querySelector('.mdc-dialog'));
+        var linearProgress=document.querySelector('.mdc-linear-progress');
+        var lProgress=mdc.linearProgress.MDCLinearProgress.attachTo(linearProgress);
+        //console.log(lProgress);
+
+        var snackbarClass=document.querySelector('.mdc-snackbar');
+        const snackbar = mdc.snackbar.MDCSnackbar.attachTo(snackbarClass);
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+            textFieldElements.forEach((textFieldEl) => {
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+        var mdcTab=document.querySelector('.mdc-tab-bar');
+        const tabBar = mdc.tabBar.MDCTabBar.attachTo(mdcTab);
+        //console.log(tabBar);
+        //console.log(tabBar.tabList_);
+        //console.log(tabBar.foundation_);
+
+        tabBar.listen('MDCTabBar:activated', function(e){
+
+            var index=e.detail.index;
+            //console.log(e.detail.index);
+            tabBar.activateTab(index);
+            tabBar.scrollIntoView(index);
+
+            //var len=$('.stage-transition-container-variant').length; 
+            //console.log(len);
+            //attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+
+        $('#root-container > div > div > div.component-demo__stage-content > div').each(function(idx,elm){
+          //console.log(index,element);
+          
+          if (index==idx){
+            $(elm).attr("class", "stage-transition-container-variant stage-transition-container-variant--show container");
+          }else{
+            $(elm).attr("class", "stage-transition-container-variant");
+          }
+
+        });
+        //divv.eq(2).css({'background-color':'#343434'})
+        //console.log(divv.html());
+        //divv.attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+        //console.log();
+
+        });
+
+        //const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+       // textFieldElements.forEach((textFieldEl) => {
+            //mdc.textField.MDCTextField.attachTo(textFieldEl);
+       // });
+
+        //const perPageMenu = mdc.menu.MDCMenu.attachTo(document.querySelector('#perPageMenu'));
+
+        $(document).ready(function(e) {
+
+            $('.overlay').on('click', function(e){
+                
+                var actionName=$(this).attr('data-action');
+                var id=$(this).attr('data-id');
+                var imgName=$(this).attr('data-name');
+                //alert('update click'+name);
+                //var name=originalName.split('.').slice(0, -1).join('.');
+                $('#dform').find('input[name="todo"]').val('imgforweb');
+                $('#dform').find('input[name="image_name"]').val(imgName);
+                $('#dform').find('input[name="id"]').val(id);
+                $('#dform').find('input[name="action"]').val(actionName);
+                dialog.open();
+            
+            });
+
+            //form submit now
+            $('#dform').submit(function(e){
+                //console.log('prevent');
+                e.preventDefault();
+                $('#btnSave').prop('disabled', true);
+                $('#btnSave').text("Please wait...");
+
+                var ajaxData = new FormData();
+                $.each($('#dform').find('input,textarea,select'), function(){
+
+                        var name = $(this).attr("name");
+                        var nvalue = $(this).val();
+                        var tagName=$(this).prop('tagName');
+                        var type=$(this).attr('type');
+
+                        if (typeof name != "undefined" && typeof nvalue != "undefined"){
+
+                            if (type=="text"){
+                                ajaxData.append(name, nvalue);
+
+                            }else if (type=="checkbox"){
+                                if($(this).is(':checked')){
+                                    nvalue=1;
+                                }else{
+                                    nvalue=0;
+                                }
+                                //console.log('chekbox: '+nvalue);
+                                ajaxData.append(name, nvalue);
+
+                            }else{
+                                //hidden
+                                ajaxData.append(name, nvalue);
+                            }
+                            
+                            //console.log(name+'-'+nvalue+'='+tagName);
+                            
+                        }
+
+                });
+
+                $.each($('#ffile')[0].files, function(i, file) {
+                   ajaxData.append('file-'+i, file);
+                });
+
+                //console.log(ajaxData);
+
+                $.ajax({
+                    async: true,
+                    type: "POST",
+                    dataType: "json",
+                    url: "/item",
+                    data: ajaxData, //$('#account_info').serialize(),
+                    //dataType: 'application/x-www-form-urlencoded', //multipart/form-data;
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(){
+                    },
+                    error: function(jqXHR, textStatus){
+                        console.log("failed with error: " + textStatus);
+                    }
+
+                 }).done(function(dres){
+
+                     console.log(dres);
+                     if (dres.message.trim()=='OK'){
+                         location.reload();
+
+                     }else{
+                         var nmsg=dres.message.replace(/(.{48})/g, "$1<br>");
+                          $('#error_message').html(nmsg);
+                          $('#btnSave').prop('disabled', false);
+                          $('#btnSave').text("SAVE");
+                     }
+
+                });
+              
+                return false
+                //console.log("form submit");
+
+            });
+
+            lProgress.close();
+            //var obj ={};
+            var cAray =[];
+
+            $('#expire_date').daterangepicker({
+                autoApply: true,
+                singleDatePicker: true,
+                showDropdowns: true,
+                //startDate: false,
+                minYear: 2010,
+                "drops": "down",
+                timePicker: false,
+                locale: {format: 'YYYY-MM-DD' },
+                maxYear: parseInt(moment().format('YYYY'),10)
+            });
+
+
+            $('.selectAsset').select2({
+                placeholder :'Asset account',
+                width: '350px',
+                allowClear: true
+            });
+
+            $('.selectCOGS').select2({
+                placeholder :'Cost of Goods Sold account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectSales').select2({
+                placeholder :'Sales account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectEquity').select2({
+                placeholder :'Opening Balance Equity account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectLine').select2({
+                placeholder :'Item Line *',
+                width: '100%',
+                allowClear: true,
+                tags: true
+            });
+
+            $('.selectGroup').select2({
+                placeholder :'Item Group *',
+                width: '100%',
+                allowClear: true,
+                tags: true
+            });
+
+            $('.selectSupplier').select2({
+                placeholder :'Supplier ...',
+                width: '214px',
+                allowClear: true,
+                tags: true
+            });
+
+            $('.selectField').select2({
+                placeholder :'Reward Field',
+                width: '300px',
+                allowClear: true
+            });
+
+            $('.selectTracking').select2({
+                placeholder :'Tracking by',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectType').select2({
+                placeholder :'Item Type',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectTax').select2({
+                placeholder :'Tax / Vat *',
+                width: '100%',
+                allowClear: true,
+                tags: true
+            });
+
+            $('.selectUOM').select2({
+                placeholder :'Unit of Measure',
+                width: '100%',
+                allowClear: true,
+                tags: true
+            });  
+
+            $('.selectStatus').select2({
+                placeholder :'Status',
+                width: '170px',
+                allowClear: true
+            }); 
+
+            $('.selectAttr').select2({
+                placeholder :'Attribute Name',
+                width: '300px',
+                allowClear: true,
+                tags: true
+            }); 
+            
+            $('#itemLine').on("change", function(e){
+
+              var itemLine=$(this).val();
+              //alert(itemLine);
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/api",
+                        data: {"info": 'item_group', "item_line": itemLine},
+                        success: function(){
+                        },
+                        error: function(){
+                        }
+
+                    }).done(function(dres){
+
+                        //alert(dres);
+                        //console.log(dres);
+                        var itemOption="<option value=''></option>";
+                        for(var i=0; i<dres.length; i++){
+                            //console.log(dres[i].name);
+                            itemOption += `<option value="${dres[i].aid}">${dres[i].name}</option>`;
+                        }
+                        $('#itemGroup').empty().append(itemOption);
+                        $('#itemGroup').select2('focus');
+                        //$('#itemGroup').select2('open');
+
+                    });
+
+
+            
+            });
+
+            $('.mdc-tab').on('click', function(e){
+                e.preventDefault();
+                var index=$(this).index();
+                //tabBar.activateTab(index);
+                //tabBar.scrollIntoView(index);
+                return false;
+            });
+
+            $('#attrList > tbody').on("click", ".mdc-data-table__cell", function(e){
+
+              e.preventDefault();
+              $curr=$(this).closest("td");
+              var index=$(this).closest("tr").index();
+              var currentRow=$(this).closest("tr"); 
+
+              //var indx=Number(index);
+              var attrKey=currentRow.find("td:eq(0)").text();
+              var attrKeyID=currentRow.find("td:eq(0)").find('input[name="attribute_key"]').val();
+              var iavID=currentRow.find("td:eq(0)").find('input[name="iavid"]').val();
+              //console.log(attrKeyID+'-'+attrKey);
+
+              var attrVal=currentRow.find("td:eq(1)").text();
+              var attrSts=currentRow.find("td:eq(2)").text();
+              var attrStsID=currentRow.find("td:eq(2)").find('input[name="attribute_status"]').val();
+              //$(this).closest('tr').find('td:eq(1)').text();
+              //alert(`${index}-${attr}`);
+
+              $('#attrKey').val(attrKeyID).trigger('change');
+              $('#attrValue').val(attrVal);
+              $('#attrStatus').val(attrStsID).trigger('change');
+              $('#iavid').val(iavID);
+              $('#atodo').val('update');
+              $('#attrbtnText').text("Update");
+
+            
+            });
+
+            var todo=$('#todo').val();
+            //alert(todo);
+            if (todo=="insert"){
+                $('#btnAttrSave').attr("disabled", true);
+                $('#attrValue').attr("disabled", true);
+                $('#expire_date').val('');
+
+            }else if(todo=="update"){
+                $('#btnAttrSave').attr("disabled", false);
+                $('#attrValue').attr("disabled", false);
+
+            }
+
+            $('#attrKey').on("change", function(e){
+
+                $('#atodo').val('insert');
+                $('#iavid').val('');
+                $('#attrbtnText').text("Add");
+
+            });
+
+            var counter = 0;
+            var attrList=[];
+            //ADD TABLE ROW
+            $('#btnAttrSave').on('click', function(e){
+
+                lProgress.progress=1;
+                lProgress.determinate=false;
+                lProgress.open();
+                //e.preventDefault();
+                $('#attrbtnText').text("Wait...");
+                $('#btnAttrSave').attr("disabled", true);
+                
+
+                var itmid=$('#itmid').val();
+                var iavid=$('#iavid').val();
+                var atodo=$('#atodo').val();
+                var attrKeyV=$('#attrKey').val();
+                var attrKeyT=$('#attrKey option:selected').text();
+                var attrValue=$('#attrValue').val();
+                var attrStatusV=$('#attrStatus').val();
+                var attrStatusT=$('#attrStatus option:selected').text();
+                //console.log(`${attrKeyV}-${attrValue}-${attrStatusV}`);
+
+                //attrList.push(attrKeyT);
+                //console.clear();
+                //console.log(attrList);
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/item",
+                        data: {"todo": 'attribute', "action": atodo, "id": iavid, "item_id": itmid, "attribute_key": attrKeyV, "attribute_value": attrValue,"attribute_status": attrStatusV},
+                        success: function(){
+                        },
+                        error: function(jqXHR, textStatus){
+                            console.log("failed with error: " + textStatus);
+                        }
+
+                    }).done(function(dres){
+
+
+                        $.ajax({
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            url: "/api",
+                            data: {"info": 'attribute_list', "item_id": itmid},
+                            success: function(){
+                            },
+                            error: function(){
+                            }
+
+                        }).done(function(dres){
+
+                            //alert(dres);
+                            //console.log(dres);
+                            var iOption="<option value=''></option>";
+                            for(var i=0; i<dres.length; i++){
+                                //console.log(dres[i].name);
+                                iOption += `<option value="${dres[i].aid}">${dres[i].attribute_key}</option>`;
+                            }
+                            $('#attrKey').empty().append(iOption);
+
+                        });
+
+                        //generate table rows
+                        $.ajax({
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            url: "/api",
+                            data: {"info": 'item_attribute_list', "item_id": itmid},
+                            success: function(){
+                            },
+                            error: function(){
+                            }
+
+                        }).done(function(dres){
+
+                            //alert(dres);
+                            //console.log(dres);
+                            //var iOption="<option value=''></option>";
+                            $("#attrList > tbody").empty();
+                            
+                            for(var i=0; i<dres.length; i++){
+                              
+                                var newRow = $("<tr class=\"mdc-data-table__row\">");
+                                var cols = "";
+
+                                var aid=dres[i].aid;
+                                var kid=dres[i].attribute_id;
+                                var key=dres[i].attribute_key;
+                                var val=dres[i].attribute_value;
+                                var sts=dres[i].status;
+                                var status="";
+
+                                if (sts==0){status="Inactive";}
+                                if (sts==1){status="Active";}
+
+                                cols += `<td class="mdc-data-table__cell">${key} <input type="hidden" name="iavid" value="${aid}"><input type="hidden" name="attribute_key" value="${kid}"></td>`;
+                                cols += `<td class="mdc-data-table__cell">${val} <input type="hidden" name="attribute_value" value="${val}"></td>`;
+                                cols += `<td class="mdc-data-table__cell">${status} <input type="hidden" name="attribute_status" value="${sts}"></td>`;
+                                cols += `<td class="mdc-data-table__cell"><button data-id="${aid}" class="mdc-icon-button material-icons">delete</button></td>`;
+                                newRow.append(cols);
+                                $("#attrList > tbody").append(newRow);
+                            }
+                            
+                            lProgress.progress=0;
+                            lProgress.determinate=false;
+                            lProgress.close();
+
+                        });
+
+                        //console.log(dres);
+                        //alert(dres);
+                        snackbar.timeoutMs=5000;
+                        snackbar.labelText=dres.message;
+                        snackbar.actionButtonText="OKAY";
+                        snackbar.open();
+
+                        $('#atodo').val('insert');
+                        $('#btnAttrSave').attr("disabled", false);
+                        $('#attrbtnText').text("Add");
+
+                    });
+
+
+                    //counter = $('#attrList > tbody > tr').length - 0;
+                    //var newRow = $("<tr class=\"mdc-data-table__row\">");
+                    //var cols = "";
+                    //var selid="itemid"+counter;
+                    
+                    //cols += `<td class="mdc-data-table__cell">${attrKeyT} <input type="hidden" name="iavid" value="${iavid}"><input type="hidden" name="attribute_key" value="${attrKeyV}"></td>`;
+                    //cols += `<td class="mdc-data-table__cell">${attrValue} <input type="hidden" name="attribute_value" value="${attrValue}"></td>`;
+                    //cols += `<td class="mdc-data-table__cell">${attrStatusT} <input type="hidden" name="attribute_status" value="${attrStatusV}"></td>`;
+                    //cols += `<td class="mdc-data-table__cell"><button data-id="#" class="mdc-icon-button material-icons">delete</button></td>`;
+                    
+                    //newRow.append(cols);
+                    //$("#attrList > tbody").append(newRow);
+                    //counter++;
+                    $('#attrKey').val('').trigger("change");
+                    $('#attrValue').val('');
+                    $('#attrStatus').val('').trigger("change");
+
+                return false;
+
+            });
+
+            //DELETE table row
+            $("#attrList > tbody").on('click', ".mdc-icon-button", function(e){
+
+                //e.preventDefault();
+                //console.log(cAray);
+                $('#attrbtnText').text("Wait...");
+                $('#btnAttrSave').attr("disabled", true);
+                var id=$(this).attr('data-id');
+                //alert(id);
+                $curr=$(this).closest("tr");
+
+                var btnName=$(this).text().trim();
+                if(btnName=="delete"){
+
+                        $.ajax({
+                            async: true,
+                            type: "POST",
+                            dataType: "json",
+                            url: "/item",
+                            data: {"todo": 'attribute', "action": 'delete', "id": id},
+                            success: function(){
+                            },
+                            error: function(){
+                            }
+
+                        }).done(function(dres){
+
+                            //alert(dres);
+                            //console.log(dres);
+                            //var cnt = $('#attrList > tbody > tr').length - 0;
+                            $('#attrKey').val('').trigger("change");
+                            $('#attrValue').val('');
+                            $('#attrStatus').val('').trigger("change");
+
+                            $('#atodo').val('insert');
+                            $('#btnAttrSave').attr("disabled", false);
+                            $('#attrbtnText').text("Add");
+
+                            $curr.remove();
+
+                        });
+                }
+                return false;
+            });
+
+            $("#btnPanelOpen, #btnPanelClose").on('click', function(e){
+            
+                e.preventDefault();
+                $('.component-demo').toggleClass("component-demo--open");
+                var btnName=$(this).text().trim();
+                //alert(btnName);
+                if (btnName=="tune"){
+                    //$('.component-demo').toggleClass("component-demo--open");
+                }else if(btnName=="close"){
+                    //$('.component-demo').toggleClass("component-demo--open");
+
+                }
+                return false;
+            });
+
+            $('#btnSave').on("click", function(e){
+            
+                var requiredElements=document.getElementById("root-container").querySelectorAll("[required]");
+                var outputDiv = document.getElementById("output");
+                var errors=[];
+
+                var s = "";
+                for (var i = 0; i < requiredElements.length; i++){
+                    var e = requiredElements[i];
+                    //console.log(`${e.name}*${e.value.length}`);
+                    if (e.value.length==0){
+                        //s += e.name + ": " + (e.value.length ? "Filled" : "Not Filled") + "<br>";
+                        s += `${e.name} is required<br>`;
+                        errors.push(e.name);
+                    }
+                }
+
+                //console.log(errors);
+                outputDiv.innerHTML = s;
+                //e.preventDefault();
+                //alert();
+                if (errors.length==0)
+                {
+                    lProgress.open();
+                    lProgress.progress=1;
+                    lProgress.determinate=false;
+                    //$('#cardForm')
+                    var ajaxData = new FormData();
+                    $.each($('#root-container').find('input,textarea,select'), function(){
+
+                        var name = $(this).attr("name");
+                        var nvalue = $(this).val();
+                        var tagName=$(this).prop('tagName');
+                        var type=$(this).attr('type');
+
+                        if (typeof name != "undefined" && typeof nvalue != "undefined"){
+
+                            if (type=="text"){
+                                ajaxData.append(name, nvalue);
+
+                            }else if (type=="checkbox"){
+                                if($(this).is(':checked')){
+                                    nvalue=1;
+                                }else{
+                                    nvalue=0;
+                                }
+                                //console.log('chekbox: '+nvalue);
+                                ajaxData.append(name, nvalue);
+
+                            }else{
+                                //hidden
+                                ajaxData.append(name, nvalue);
+                            }
+                            //console.log(name+'-'+nvalue+'='+tagName);
+                        }
+
+                    });
+
+                    $("#root-container").find("input[type=file]").each(function(index, field){
+
+                        const file = field.files[0];
+                        //console.log(field.files);
+                        var name = $(this).attr("name");
+                        if (typeof name != "undefined"){
+                            ajaxData.append(name, file);
+                            //var fname=field.files[0].name;
+                            //var fsize=field.files[0].size;
+                            //console.log(fname+'->'+fsize);
+                        }
+
+                    });
+
+                    var todo=$('#todo').val();
+                    //alert(todo);
+                    ajaxData.append('todo', todo);
+                    //console.log(ajaxData);
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType:"json",
+                        url: "/item",
+                        data: ajaxData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        success: function(){
+                        },
+                        error: function(jqXHR, textStatus){
+                            console.log("failed with error: " + textStatus);
+                        }
+
+                    }).done(function(dres){
+
+                        //console.log(dres);
+                        snackbar.timeoutMs=5000;
+                        snackbar.labelText=dres.message;
+                        snackbar.actionButtonText="OKAY";
+                        snackbar.open();
+
+                        lProgress.progress=1;
+                        lProgress.determinate=true;
+                        lProgress.close();
+                        var nextPage=dres.next_url.trim();
+                        if (dres.error=="0" && nextPage!=""){
+
+                            setTimeout(() => {
+                                //console.log("one");
+                                location.href = nextPage;
+
+                            } , 3000);
+                            //console.log("two");
+                        }
+
+                    });
+
+                }
+
+                return false;
+
+            });
+
+            
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+

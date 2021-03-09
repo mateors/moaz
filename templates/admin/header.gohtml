@@ -1,0 +1,185 @@
+{{define "header"}}
+
+    <header class="mdc-top-app-bar app-bar mdc-elevation--z4" id="app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <span class="mdc-top-app-bar__title">{{.CompanyName}}</span>
+            </section>
+
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                
+                
+                <button id="appBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Print this page" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">a</button>
+                    
+                    <div class="toolbar mdc-menu-surface--anchor">
+                        <div id="appMenu" class="mdc-menu mdc-menu-surface app-surface gb_H gb_F gb_X">
+                        
+                            <ul class="mdc-list gb_J gb_A" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                                
+                            {{if eq .LoginType "SUPERADMINS"}}
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="/webmenu" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('resources/img/account_tree.svg')"></span>
+                                    <span class="gb_t">Web Menu</span>
+                                </a>
+                                </li>
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="/top_category" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('resources/img/top_category.svg')"></span>
+                                    <span class="gb_t">Top Category</span>
+                                </a>
+                                </li>
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="/slider" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('vdata/img/amp_stories-24px.svg')"></span>
+                                    <span class="gb_t">Hero Slider</span>
+                                </a>
+                                </li>
+
+                                
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="#" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('resources/img/group_work-24px.svg')"></span>
+                                    <span class="gb_t">Service 4</span>
+                                </a>
+                                </li>
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="#" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('resources/img/eco-24px.svg')"></span>
+                                    <span class="gb_t">Service 5</span>
+                                </a>
+                                </li>
+
+
+                                <li class="mdc-list-item gb_k" role="menuitem">
+                                <a href="#" class="gb_f">
+                                    <div class="gb_w"></div>
+                                    <div class="gb_x"></div>
+                                    <div class="gb_y"></div>
+                                    <div class="gb_z"></div>
+                                    <span class="gb_s" style="background-image:url('resources/img/shopping_cart-24px.svg')"></span>
+                                    <span class="gb_t">Service 6</span>
+                                </a>
+                                </li>
+                                {{end}}
+                            
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                <button id="noticeBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Download" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">announcement</button>
+                
+                    <div class="toolbar mdc-menu-surface--anchor">
+                    <div id="noticeMenu" class="mdc-menu mdc-menu-surface notice-surface">
+                        <ul id="listTWO_LINE" class="mdc-list mdc-list--two-line mdc-list--avatar-list">
+
+
+                            <li class="mdc-list-item mdc-ripple-upgraded" tabindex="-1">
+                                
+                                <span class="mdc-list-item__graphic material-icons" aria-hidden="true">
+                                <!----><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><g fill="none" fill-rule="evenodd"><path d="M20 0C8.96 0 0 8.96 0 20s8.96 20 20 20 20-8.96 20-20S31.04 0 20 0z" fill="#9e9e9e" fill-rule="nonzero"></path><path d="M20 17.727c2.767 0 5-2.233 5-5s-2.233-5-5-5-5 2.233-5 5 2.233 5 5 5zm0 2.954c-6.11 0-10.908 2.954-10.908 5.681A13.018 13.018 0 0 0 20 32.271c4.552 0 8.598-2.354 10.908-5.909 0-2.727-4.798-5.68-10.908-5.68z" fill="#ececec" fill-rule="nonzero"></path><path d="M0 0h40v40H0z"></path></g></svg>
+                                <!---->
+                                </span>
+                                
+                                <span class="mdc-list-item__text">
+                                <span class="mdc-list-item__primary-text">
+                                    No message found
+                                </span>
+                                <span class="mdc-list-item__secondary-text">
+                                    00 00 0000</span>
+                                </span>
+                                
+                            </li>
+
+                        </ul>
+                    </div>
+                    </div>
+
+
+
+                
+ 
+                
+                <button id="profileBtn" class="mdc-icon-button material-icons mdc-top-app-bar__action-item mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" aria-label="Logout" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">account_circle</button>
+
+                
+                    <div class="toolbar mdc-menu-surface--anchor">
+                    <div id="profileMenu" class="mdc-menu mdc-menu-surface profile-surface">
+
+
+                        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        
+                        <a href="/dashboard">
+                            <li class="mdc-list-item" role="menuitem">
+                             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                             <span class="mdc-list-item__text">Dashboard</span>
+                            </a>
+                            </li>
+                        </a>
+
+
+                       {{if eq .LoginType "SUPERADMIN"}} 
+                        <a href="/profile">  
+                            <li class="mdc-list-item" role="menuitem">
+                              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
+                              <span class="mdc-list-item__text">Profile Info</span>
+                            </li>
+                        </a>
+                        {{end}}
+
+                        <a href="/changepass">  
+                            <li class="mdc-list-item" role="menuitem">
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">lock</i>
+                                <span class="mdc-list-item__text">Change Password</span>
+                            </li>
+                        </a>
+
+                        <a href="/logout">
+                            <li class="mdc-list-item" role="menuitem">
+                             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">exit_to_app</i>
+                             <span class="mdc-list-item__text">Logout</span>
+                            </li>
+                        </a>
+
+                        </ul>
+
+                    </div>
+                    </div>
+
+
+
+
+            </section>
+            
+        </div>
+    </header>
+
+{{end}}

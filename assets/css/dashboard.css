@@ -1,0 +1,136 @@
+.codelab-card {
+    display: flex;
+    -ms-flex: 1 0 330px;
+    -ms-flex-direction: column;
+    -webkit-flex: 1 0 330px;
+    -webkit-flex-direction: column;
+    background-color: #F4E8FF;
+    border-bottom: 2px solid transparent;
+    border-radius: 3px;
+    box-shadow: 0 1px rgba(0,0,0,.15);
+    flex: 1 0 330px;
+    flex-direction: column;
+    margin: 0 16px 16px 0;
+    max-width: 330px;
+    position: relative;
+  }
+  
+  .codelab-card.category-ads{
+    border-bottom-color: #4285f4;
+  }
+  
+  .codelab-card.bottom_color{
+    border-bottom-color: #4285f4;
+  }
+  
+  .codelab-card.sto{
+    border-bottom-color: #60f442;
+  }
+  
+  .codelab-card.grc{
+    border-bottom-color: #6d0a6d;
+  }
+  
+  .codelab-card.yearly_percentage{
+    border-bottom-color: #075826;
+  }
+  
+  .codelab-card {
+    border-bottom-color: #4285f4;
+  }
+
+
+  #cards, .codelab-card {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .codelab-card .description {
+    -ms-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+    -webkit-font-smoothing: antialiased;
+    color: #212121;
+    flex: 1 0 auto;
+    padding: 16px 16px 0;
+  }
+  
+  .codelab-card .card-duration {
+    color: #aaa;
+    font-size: 11px;
+    mix-blend-mode: normal;
+    padding: 0 16px;
+  }
+  
+  a {
+    color: currentcolor;
+    text-decoration: none;
+  }
+  .card-footer {
+    -ms-flex-align: center;
+    -ms-flex-pack: justify;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    border-top: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+  }
+  .hardware-icon {
+    display: none;
+  }
+  .card-footer .category-icon {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    background-size: 32px;
+    height: 42px;
+    width: 42px;
+  }
+  
+  .ads-icon {
+    background-image: url(/google-ads.svg);
+  }
+  
+  .account_balance {
+    font-size: 2rem;
+    color: rgb(84, 59, 141);
+  }
+  
+  .yearly_color {
+    font-size: 2rem;
+    color: #075826;
+  }
+  
+  .money_color {
+    color: #4285f4;
+  }
+  
+  
+  
+  .paper-button-0[animated] {
+    transition: box-shadow .28s cubic-bezier(.4,0,.2,1);
+  }
+  
+  .card-footer paper-button {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-family: Roboto,Noto,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .01em;
+    line-height: 1;
+    padding: 13px 25px;
+    text-transform: uppercase;
+    text-transform: none;
+  }
+  
+  .about-bg, .ads-bg, .android-wear-bg, .assistant-bg, .big-query-bg, .bigquery-bg, .blockly-bg, .chrome-bg, .cloud-about-bg, .cloud-app-engine-bg, .cloud-appengine-bg, .cloud-bg, .cloud-big-query-bg, .cloud-bigquery-bg, .cloud-build-bg, .cloud-cloud-tools-bg, .cloud-compute-bg, .cloud-compute-engine-bg, .cloud-data-bg, .cloud-data-lab-bg, .cloud-datalab-bg, .cloud-general-bg, .cloud-iam-bg, .cloud-iot-bg, .cloud-iot-core-bg, .cloud-key-management-service-bg, .cloud-kms-bg, .cloud-machine-learning-bg, .cloud-ml-bg, .cloud-monitor-bg, .cloud-monitoring-bg, .cloud-network-bg, .cloud-networking-bg, .cloud-other-bg, .cloud-others-bg, .cloud-platform-bg, .cloud-run-bg, .cloud-security-bg, .cloud-security-command-center-bg, .cloud-sql-bg, .cloud-tools-bg, .cloud-web-bg, .docs-bg, .drive-bg, .google-chrome-bg, .googlechrome-bg, .iot-bg, .iot-core-bg, .search-bg, .wear-bg, .wear-os-bg, .web-bg {
+    background-color: #4285f4;
+  }
+  
+  .paper-button-0, .paper-menu-button-0 {
+    border-radius: 3px!important;
+  }  

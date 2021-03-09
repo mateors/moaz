@@ -1,0 +1,276 @@
+{{define "link"}} 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+    <link rel="stylesheet" href="resources/css/dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+{{end}}
+
+
+{{define "title"}}{{.Title}}{{end}}
+
+
+{{define "style"}}
+    <style>
+
+        .my-card {
+            padding:1rem;
+        }
+
+        .profile-title-area{
+            background-color:transparent;
+            padding-top:1rem;
+            padding-left:1rem;
+            padding-right:1rem;
+            padding-bottom:0rem;
+        }
+
+        .profile_title{
+            font-family: Roboto,sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom:0px;
+        }
+
+        .profile_blockno{
+            font-family: Roboto,sans-serif;
+            font-size: .875rem;
+            font-weight: 400;
+            letter-spacing: .0071428571em;
+            margin-top:0px;
+            color:#8C8C8C;
+            
+            
+        }
+        .profile_info{
+            padding:1rem;
+            font-family: Roboto,sans-serif;
+            font-weight: 400;
+            font-size: .875rem;
+            letter-spacing: .0178571429em;
+            line-height: 1.25rem;
+            background-color:transparent;
+        }
+
+        .row{
+            
+            margin-bottom:1rem;
+        }
+
+        .cwidth{
+            width:100%;
+            
+        }
+
+        .field_label {
+            float: left;
+            width: 6rem;
+            font-weight:500;
+        }
+        .field_value {
+            float: left;
+            font-weight:400;
+        }
+
+        .hide{
+            display:none;
+        }
+
+    </style>
+{{end}}
+
+{{define "content"}}
+
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate hide" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+        <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
+    
+    <section id="dashboard">
+
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+
+                <div class="mdc-layout-grid__cell--span-4">
+                 
+                 <div class="mdc-card my-cards">
+
+                    <div class="mdc-card__primary-actions" tabindex="0">
+                        
+                        <div class="profile-title-area">
+                            <h2 class="profile_title">CHANGE YOUR PASSWORD</h2>
+                            <h3 class="profile_blockno">Enter your current password first then new password</h3>
+                        </div>
+
+                        <div class="profile_info">
+
+                            <div class="mdc-form-field row">
+                                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+                                <input type="password" id="current_pass" name="current_pass" class="mdc-text-field__input" required>
+                                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">remove_red_eye</i>
+                                <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                    <label for="current_pass" class="mdc-floating-label">Current Password</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="mdc-form-field row">
+                                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+                                <input type="password" id="new_pass" name="new_pass" class="mdc-text-field__input" required minlength=8>
+                                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">remove_red_eye</i>
+                                <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                    <label for="new_pass" class="mdc-floating-label">New Password</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="mdc-form-field row">
+                                <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+                                <input type="password" id="confirm_newpass" name="confirm_newpass" class="mdc-text-field__input" required minlength=8>
+                                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">remove_red_eye</i>
+                                <div class="mdc-notched-outline">
+                                    <div class="mdc-notched-outline__leading"></div>
+                                    <div class="mdc-notched-outline__notch">
+                                    <label for="confirm_newpass" class="mdc-floating-label">Confirm New Password</label>
+                                    </div>
+                                    <div class="mdc-notched-outline__trailing"></div>
+                                </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div><!---primary actions-->
+
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button" id="btnChange">
+                                <div class="mdc-button__ripple"></div>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">done</i>
+                                <span class="mdc-button__label">Change</span>
+                            </button>
+                        </div>
+                        <div class="mdc-card__action-icons"></div>
+                    </div>
+
+                 </div><!---my card---->
+
+                </div><!----cell--span---->
+
+            </div>
+        </div>
+
+    </section>
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+
+    <script>
+
+        for (key in mdc) {
+          // console.log(key);
+        }
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+            textFieldElements.forEach((textFieldEl) => {
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+        $(document).ready(function() {
+
+            var progress=document.querySelector('.mdc-linear-progress');
+            mdc.linearProgress.MDCLinearProgress.attachTo(progress);
+
+            $('.material-icons').on('click', function(){
+
+                var iconName=$(this).text();
+                if (iconName == "remove_red_eye"){
+                    //alert(iconName);
+                    $curr=$(this).parent().find('input');
+                    var ctype=$curr.attr('type');
+                    if (ctype=='text'){ ctype="password"; }
+                    else if (ctype=='password'){ ctype="text"; }else{ }
+                    $curr.attr('type', ctype);
+                }
+
+            });
+
+            $('#btnChange').on('click', function(){
+
+                
+                var current_pass=$('#current_pass').val();
+                var new_pass=$('#new_pass').val();
+                var confirm_newpass=$('#confirm_newpass').val();
+                var npl=new_pass.length;
+                var cpl=confirm_newpass.length;
+
+                if(new_pass==confirm_newpass && cpl>=8){
+                    //alert('valid');
+                    $('#btnChange').attr("disabled", true);
+                    $('.mdc-linear-progress').removeClass("hide");
+
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/changepass",
+                        data: {"todo": 'changepass', "current_pass": current_pass, "new_pass": new_pass, "confirm_newpass": confirm_newpass},
+                        error: function(err){
+                            console.log(err);
+                        }
+
+                    }).done(function(dres){
+
+                        //console.log(dres.message);
+                        if (dres.message=='OK'){
+                            location.href="/login";
+                        }else{
+                            $('#btnChange').attr("disabled", false);
+                             $('.mdc-linear-progress').addClass("hide");
+                        }
+                    });
+
+                }else{
+
+                    $('#confirm_newpass').attr('invalid', true);
+                }
+
+                return false;
+
+            });
+
+        });
+
+    </script>
+
+{{end}}

@@ -1,0 +1,234 @@
+{{define "drawer"}}
+    
+    {{if eq .LoginType "ADMIN"}}
+        
+        <section id="drawer">
+            <aside class="mdc-drawer mdc-drawer--modal">
+                <div class="mdc-drawer__header"><h3 class="mdc-drawer__title">{{.CompanyName}}</h3><h6 class="mdc-drawer__subtitle">{{.CompanyWebsite}}</h6></div>
+
+                <div class="mdc-drawer__content">
+                <nav class="mdc-list">
+
+                    <a tabindex="0" class="mdc-list-item {{if eq .Page "/dashboard"}}mdc-list-item--activated{{else if eq .Page "/"}}mdc-list-item--activated{{else if eq .Page "/profile"}}mdc-list-item--activated{{else if eq .Page "/changepass"}}mdc-list-item--activated{{end}}" href="/dashboard">
+                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                     <span class="mdc-list-item__text">Dashboard</span>
+                    </a>
+
+                    <h6 class="mdc-list-group__subheader">Orders</h6>
+
+                    <a class="mdc-list-item {{if eq .Page "/sales"}}mdc-list-item--activated{{end}}" href="/sales">
+                    <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">receipt</i>
+                    <span class="mdc-list-item__text">Sales order</span>
+                    </a>
+
+
+                    <hr class="mdc-list-divider">
+
+
+                </nav>
+                </div>
+            </aside>
+
+            <div class="mdc-drawer-scrim"></div>
+            <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+                <main class="main-content" id="main-content">
+                &nbsp;
+                </main>
+            </div>
+        </section>
+
+    {{else if eq .LoginType "SUPERADMIN"}}
+
+        <section id="drawer">
+            <aside class="mdc-drawer mdc-drawer--modal">
+                <div class="mdc-drawer__header"><h5 class="mdc-drawer__title">{{.CompanyName}} ADMIN</h5><h6 class="mdc-drawer__subtitle">{{.CompanyWebsite}}</h6></div>
+
+                <div class="mdc-drawer__content">
+                <nav class="mdc-list">
+                   
+                    <a class="mdc-list-item {{if eq .Page "/dashboard"}}mdc-list-item--activated{{else if eq .Page "/"}}mdc-list-item--activated{{end}}" aria-current="page" tabindex="0" href="/dashboard">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                        <span class="mdc-list-item__text">Dashboard</span>
+                    </a>
+
+
+                    <a class="mdc-list-item {{if eq .Page "/settings"}}mdc-list-item--activated{{end}}" href="/settings" title="Settings (Ref URL,TFA, Credit Card)">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings_applications</i>
+                        <span class="mdc-list-item__text">Settings</span>
+                    </a>
+
+                    <hr class="mdc-list-divider">
+                    <h6 class="mdc-list-group__subheader">Website</h6>
+
+                    <a class="mdc-list-item {{if eq .Page "/editstruct/abase"}}mdc-list-item--activated{{end}}" href="/editstruct/abase">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">wysiwyg</i>
+                        <span class="mdc-list-item__text">Web Structure</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/webpages"}}mdc-list-item--activated{{end}}" href="/webpages">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">api</i>
+                        <span class="mdc-list-item__text">Web Pages</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/images"}}mdc-list-item--activated{{end}}" href="/images">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">party_mode</i>
+                        <span class="mdc-list-item__text">Images</span>
+                    </a>
+                   
+                    <hr class="mdc-list-divider">
+
+                    <h6 class="mdc-list-group__subheader">Accounting</h6>
+
+
+                    <a class="mdc-list-item {{if eq .Page "/agroup"}}mdc-list-item--activated{{end}}" href="/agroup">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">snippet_folder</i>
+                        <span class="mdc-list-item__text">Account Group</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/aheader"}}mdc-list-item--activated{{end}}" href="/aheader">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">text_snippet</i>
+                        <span class="mdc-list-item__text">Account Header</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/coa"}}mdc-list-item--activated{{end}}" href="/coa">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_tree</i>
+                        <span class="mdc-list-item__text">Chart of Account</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/journal"}}mdc-list-item--activated{{end}}" href="/journal">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
+                        <span class="mdc-list-item__text">Journal Entry</span>
+                    </a>
+
+
+
+                    <h6 class="mdc-list-group__subheader">Users</h6>
+
+                    <a class="mdc-list-item {{if eq .Page "/systemuser"}}mdc-list-item--activated{{end}}" href="/systemuser">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">contact_phone</i>
+                        <span class="mdc-list-item__text">System User</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/access"}}mdc-list-item--activated{{end}}" href="/access">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings_accessibility</i>
+                        <span class="mdc-list-item__text">Access Type</span>
+                    </a>
+
+                    <!--<a class="mdc-list-item {{if eq .Page "/register"}}mdc-list-item--activated{{end}}" href="/register">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">how_to_reg</i>
+                        <span class="mdc-list-item__text">Register</span>
+                    </a>-->
+
+                    <a class="mdc-list-item {{if eq .Page "/contacts/customer"}}mdc-list-item--activated{{end}}" href="/contacts/customer">
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">contact_page</i>
+                        <span class="mdc-list-item__text">Contacts</span>
+                    </a>
+
+
+
+                    <h6 class="mdc-list-group__subheader">Inventory</h6>
+                    <a class="mdc-list-item {{if eq .Page "/idepartment"}}mdc-list-item--activated{{end}}" href="/idepartment">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">layers</i>
+                        <span class="mdc-list-item__text">Item Department</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/iline"}}mdc-list-item--activated{{end}}" href="/iline">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">dehaze</i>
+                        <span class="mdc-list-item__text">Item Line</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/igroup"}}mdc-list-item--activated{{end}}" href="/igroup">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">category</i>
+                        <span class="mdc-list-item__text">Item Group</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/item"}}mdc-list-item--activated{{end}}" href="/item">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">chrome_reader_mode</i>
+                        <span class="mdc-list-item__text">Item</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/uom"}}mdc-list-item--activated{{end}}" href="/uom">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">architecture</i>
+                        <span class="mdc-list-item__text">Unit of Measure</span>
+                    </a>
+
+                    <!--<a class="mdc-list-item {{if eq .Page "/service"}}mdc-list-item--activated{{end}}" href="/service">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">cleaning_services</i>
+                        <span class="mdc-list-item__text">Service</span>
+                    </a>-->
+
+
+                    <h6 class="mdc-list-group__subheader">Report</h6>
+                    <a class="mdc-list-item {{if eq .Page "/activity"}}mdc-list-item--activated{{end}}" href="/activity">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">pageview</i>
+                        <span class="mdc-list-item__text">Activity Log</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/lsession"}}mdc-list-item--activated{{end}}" href="/lsession">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">swap_vert</i>
+                        <span class="mdc-list-item__text">Login Session</span>
+                    </a>
+
+                    <a class="mdc-list-item {{if eq .Page "/greport"}}mdc-list-item--activated{{end}}" href="/greport">
+                        <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">list_alt</i>
+                        <span class="mdc-list-item__text">General Report</span>
+                    </a>
+
+
+
+                </nav>
+                </div>
+            </aside>
+
+            <div class="mdc-drawer-scrim"></div>
+            <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+                <main class="main-content" id="main-content">
+                &nbsp;
+                </main>
+            </div>
+        </section>
+
+    {{else}}
+
+        <section id="drawer">
+            <aside class="mdc-drawer mdc-drawer--modal">
+                <div class="mdc-drawer__header"><h3 class="mdc-drawer__title">{{.CompanyName}}</h3><h6 class="mdc-drawer__subtitle">{{.CompanyWebsite}}</h6></div>
+
+                <div class="mdc-drawer__content">
+                <nav class="mdc-list">
+                    
+                    <a tabindex="0" class="mdc-list-item {{if eq .Page "/dashboard"}}mdc-list-item--activated{{else if eq .Page "/"}}mdc-list-item--activated{{else if eq .Page "/profile"}}mdc-list-item--activated{{else if eq .Page "/changepass"}}mdc-list-item--activated{{end}}" href="/dashboard">
+                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">dashboard</i>
+                     <span class="mdc-list-item__text">Dashboard</span>
+                    </a>
+                    
+                    <hr class="mdc-list-divider">
+            
+                    <h6 class="mdc-list-group__subheader">Accounts</h6>
+                    <a class="mdc-list-item {{if eq .Page "/retailer"}}mdc-list-item--activated{{end}}" href="/retailer">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">how_to_reg</i>
+                    <span class="mdc-list-item__text">Retailer</span>
+                    </a>
+
+                    <h6 class="mdc-list-group__subheader">Orders</h6>
+
+                    <a class="mdc-list-item {{if eq .Page "/sales"}}mdc-list-item--activated{{end}}" href="/sales">
+                    <i class="material-icons material-icons-outlined mdc-list-item__graphic" aria-hidden="true">receipt</i>
+                    <span class="mdc-list-item__text">Sales order</span>
+                    </a>
+
+                </nav>
+                </div>
+            </aside>
+
+            <div class="mdc-drawer-scrim"></div>
+            <div class="mdc-drawer-app-content mdc-top-app-bar--fixed-adjust">
+                <main class="main-content" id="main-content">
+                    &nbsp;
+                </main>
+            </div>
+        </section>
+
+    {{end}}
+
+{{end}}

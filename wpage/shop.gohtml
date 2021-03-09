@@ -1,0 +1,301 @@
+{{block "link" .}}
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+{{end}}
+
+{{block "style" .}}
+
+<style>
+     @font-face
+    {
+        src: url(./resources/fonts/proxima_ssv/ProximaNova-Regular.otf);
+        font-family: nova;
+    } 
+    p
+    {
+        font-family: nova;
+        /* letter-spacing: 0.03em; */
+    }
+    
+    .one
+    {
+        height: 25em;
+    }
+    .one p
+    {
+        padding-top: 120px;
+        text-align: center;
+        
+    }
+    .one img
+    {
+        width: 42%;
+    }
+    .two
+    {
+        background-color: #cb1e0b;
+        padding: 7.5em;
+
+    }
+    .two>p
+    {
+        font-weight: 600;
+        font-size: 15px;
+        text-align: center;
+        letter-spacing: 0.03em;
+        margin: 1.5em auto;
+    }
+    .two p span
+    {
+        
+        font-weight: 800;
+    }
+    .two a>img
+    {
+        width: 30px;
+        margin: 1em 0.5em;
+    }
+    .two .cards-wrapper
+    {
+        background-color: black;
+    }
+    .two .card-container
+    {
+        background-color: black;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 15px;
+    }
+    .two .card
+    {
+        color: white;
+        border-radius: 5px;
+        border: 1px solid;
+        border-color: rgba(120, 120, 120, 0.6);
+        opacity: 0.9;
+        transition: 0.3s;
+    }
+    .two .card:hover
+    {
+        opacity: 1;
+    }
+    .two .card .product_image-wrap
+    {
+        height: 25em;
+        /* width: 408px; */
+        /* background-position: center;
+        background-size: 157%;
+        background-repeat: no-repeat; */
+    }
+    .two .product_image-wrap img
+    {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .two .card p
+    {
+        font-size: 19px;
+        font-weight: 700;
+        margin-top: 16px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .two .card .buy-now
+    {
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        font-family: nova;
+        font-weight: 600;
+        font-size: 17px;
+        color: white;
+        background-color: rgba(219, 219, 219, 0.2);
+        padding: 10px 2vw;
+        display: block;
+        width: clamp(95px, 12vw, 12vw);
+        margin: 16px auto 28px auto;
+        transition: 0.3s;
+    }
+    .two .card .buy-now:hover
+    {
+        background-color: rgba(219, 219, 219, 0.4);
+    }
+    .two .card button p
+    {
+        margin: 0;
+        text-align: center;
+    }
+    .two .part-icon
+    {
+        width: 25%;
+        margin: 0px auto;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+    .two .part-icon i
+    {
+        font-size: 24px;
+    }
+    .two img.icon
+    {
+        color: white;
+        width: 22px;
+    }
+    .two .part-icon p
+    {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+.two .count {
+    padding: 3px 5px;
+    border-radius: 50px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    margin-left: -15px;
+    margin-top: 22px;
+    position: absolute;
+    font-family: nova;
+    min-width: 1.7em;
+    height: 1.7em;
+    text-align: center;
+}
+</style>
+
+{{end}}
+
+     <!--<div class="container">-->
+
+        {{block "section" .}}
+
+            <section class="one">
+                <p><img src="./resources/images/bag-n-brand5.png" alt=""></p>
+            </section>
+
+            <section class="two">
+                <p>STRANDBRANDS™️ <span>Updated Every Sunday.</span></p>
+                <a href="/cart" style="color: white;">
+                    <svg class="icon-shopping-bag" width="36" height="30" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg" style="margin: 30px 0px;">
+                        <g fill="none" fill-rule="evenodd">
+                            <path d="M7 7h22v18a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V7z" 
+                            stroke="currentColor" stroke-width="2"></path>
+                            <path d="M13 10V6c0-2.993 2.009-5 5-5s5 2.026 5 5v4" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <!-- <circle class="cart-not-empty" cx="18" cy="18" r="4" fill="currentColor"></circle> -->
+                        </g>
+                    </svg><span class="count">{{.CartCount}}</span>
+                    <!-- <img src="./icon/square-shopping-bag-with-handle.png" alt="" > -->
+                </a>
+
+                <div class="cards-wrapper">
+                    <div class="card-container">
+
+                       {{range $i, $rMap := .Items}}
+                        {{$itemName := index $rMap "item_name"}}
+                        {{$itemUrl := index $rMap "item_url"}}
+                        {{$itemImage := index $rMap "item_image"}}
+                        {{$itemID := index $rMap "aid"}}
+                            <div class="card">
+                               <a href="/shop/d/{{$itemUrl}}">
+                                <div class="product_image-wrap">
+                                    <img src="{{$itemImage}}" alt="{{$itemName}}">
+                                </div>
+                                <p>{{$itemName}}</p>
+                               </a>
+                                <button data-id="{{$itemID}}" data-url="{{$itemUrl}}" class="buy-now">Buy Now</button>
+                            </div>
+                       {{end}}
+
+                        
+
+                    </div>
+                    <div class="part-icon">
+                        <div class="icon icon-fav">
+                            <a href="/favourite" style="color: white;">
+                                <span>
+                                    <svg width="18" height="18" viewBox="0 0 18 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 16c-.16 0-.32-.063-.442-.188L2.29 9.543C2.21 9.47 0 7.375 0 4.875 0 1.823 1.798 0 4.8 0 6.56 0 8.207 1.438 9 2.25 9.794 1.437 11.44 0 13.2 0 16.2 0 18 1.823 18 4.875c0 2.5-2.21 4.594-2.3 4.688l-6.258 6.25c-.12.124-.28.187-.442.187zm5.98-7.132c.105-.103.215-.216.356-.375.235-.264.467-.56.684-.88.618-.914.98-1.85.98-2.738C17 2.373 15.647 1 13.2 1c-1.098 0-2.358.795-3.485 1.95L9 3.68l-.715-.73C7.158 1.794 5.898 1 4.8 1 2.354 1 1 2.373 1 4.875 1 6.4 2.043 7.967 2.997 8.835L9 14.84l5.98-5.972z"
+                                    fill="currentColor" fill-rule="nonzero"></path>
+                            
+                                </svg>
+                                </span>
+                            </a>
+                            <p>Favourites</p>
+                            
+                        </div>
+                        <div class="icon icon-kart">
+                            <a href="./kart.html" style="color: white;">
+                                <span>
+                                    <svg class="icon-shopping-bag" width="26" height="18" viewbox="0 0 36 30" xmlns="https://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="M7 7h22v18a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4V7z" 
+                                            stroke="currentColor" stroke-width="2"></path>
+                                            <path d="M13 10V6c0-2.993 2.009-5 5-5s5 2.026 5 5v4" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <!-- <circle class="cart-not-empty" cx="18" cy="18" r="4" fill="currentColor"></circle> -->
+                                        </g>
+                                    </svg>
+                                </span>
+                                <!-- <img src="./icon/square-shopping-bag-with-handle.png" alt="" > -->
+                            </a>
+                            <p>Shopping Bag</p>
+        
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            
+        {{end}}
+
+    <!--</div>-->
+
+    {{block "custom_script" .}}
+
+     <script>
+
+
+     $(document).ready(function(){
+     
+        $('.buy-now').on('click', function(){
+
+            $('#ms-loader').show();
+            var item=$(this).attr('data-id');
+            var itemUrl=$(this).attr('data-url');
+            var ip=localStorage.getItem('ip');
+            // var qty=$('#quantity').val();
+            //var color=$('#color').val();
+            
+            $.ajax({
+                dataType: "json",
+                async: true,
+                url: '/cart',
+                type:'POST',
+                dataType: 'json',
+                data: {"item": item, "todo": 'add', "ip": ip, "qty": 1, "item_url":itemUrl},
+                error: function(err){
+                    alert('ERROR>'+err);
+                    console.log(err);
+                } 
+
+                }).done(function(data){
+
+                    console.log(data);
+                    //updateCart(data);
+                    if (data.error=="0"){
+                      location.href=data.next_url;
+                    }
+
+            });
+
+        });
+     
+     });
+       
+     </script>
+
+    {{end}}

@@ -1,0 +1,517 @@
+    {{block "style" .}}
+        <style>
+            body
+            {
+                margin: 0px;
+                background-color: black;
+                color: white;
+            }
+            a
+            {
+                text-decoration: none;
+            }
+            a.btn
+            {
+                color: black;
+                text-transform: uppercase;
+                padding: 18px 28px;
+                background-color: white;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+            a.btn:hover
+            {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            header
+            {
+                background-color: black;
+                height: 80px;
+                display: grid;
+                grid-template-columns: 3fr 2.5fr 1fr;
+                grid-template-areas: 
+                ". logo btn";
+                position: sticky;
+                top: 0;
+                z-index: 9999;
+            }
+            header .part-one
+            {
+                grid-area: logo;
+                margin: auto 0%;
+            }
+            .header-title-logo img
+            {
+                height: 50px; 
+            
+            }
+            header .part-two
+            {
+                grid-area: btn;
+                margin: auto 0%;
+            }
+
+            header .part-two a
+            {
+                font-family: "archivo black", sans-serif;
+                letter-spacing: 0.05em;
+                padding: 13px 24px;
+            }
+            .one
+            {
+                height: 40.5em;
+                background-color: white;
+                color: black;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                /* grid-gap: 2em; */
+                
+            }
+            .one .part-one
+            {
+                padding: 6em;
+                padding-right: 3em;
+                padding-left: 7.5em;
+                padding-bottom: 0px;
+            }
+            .one .part-one div.text-area
+            {
+                font-family: "archivo", sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 25px;
+                margin-bottom: 65px;
+                letter-spacing: 0.5px;
+            }
+            
+            .one .part-one .text-area p
+            {
+                font-weight: 600;
+                
+            }
+            .one .part-one h1
+            {
+                font-family: "Archivo black", sans-serif;
+                font-size: 85px;
+                letter-spacing: -0.09em;
+                line-height: 85px;
+                margin: 40px 0px;
+                
+            }
+            .one .part-one a
+            {
+                font-family: "archivo", sans-serif;
+                font-weight: 500;
+                background-color: black;
+                color: white;
+                
+            }
+            .one .part-one a:hover
+            {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+            .one .part-two 
+            {
+                background-image: url(./resources/images/bag-n-brand2.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                margin: 3em 7em;
+            }
+            .two
+            {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 4em;
+                width: 85%;
+                margin: 3em auto;
+            }
+            .two .part-one img
+            {
+                width: 80%;
+            }
+            .two .part-one h1
+            {
+                font-family: "archivo black", sans-serif;
+                font-size: 80px;
+                letter-spacing: -.09em;
+                margin: 0px;
+            }
+            
+            .two .part-one p
+            {
+                font-family: "archivo", sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                justify-items: center;
+                margin-left: 4em;
+            }
+            .two .part-two ul
+            {
+                font-family: "archivo", sans-serif;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 22px;
+                margin-left: 7em;
+            }
+            footer .footer-title-logo img
+            {
+                height: 60px;
+                margin: 40px 0px;
+                
+            }
+            footer .contact a
+            {
+                color: white;
+                text-decoration: underline;
+            }
+            footer .contact p
+            {
+                font-family: "archivo", sans-serif;
+                font-size: 12px;
+                margin-bottom: 25px;
+            }
+            footer .contact p:last-child
+            {
+                font-weight: 600;
+                margin-bottom: 70px;
+            }
+            .modal-bg
+            {
+                display: none;
+                position: fixed;
+                width: 100%;
+                height: 95vh;
+                top: 0;
+                left: 0;
+                padding-bottom: 5em;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: grid;
+                
+                justify-content: center;
+                align-content: center;
+                font-family: 'Segoe UI', sans-serif;
+                display: none;
+                z-index: 9999;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+            
+            .modal
+            {
+                background-color: white;
+                width: 27%;
+                margin: 0 auto;
+                margin-top: 6em;
+                margin-bottom: 3em;
+                border-radius: 5px;
+            }
+            .modal .part-one
+            {
+                text-align: center;
+            }
+            .modal .part-one h1
+            {
+                color: black;
+                font-size: 28px;
+            }
+            .modal .part-one img
+            {
+                width: 30%;
+                margin-top: 2em;
+            }
+            .modal .part-two
+            {
+                background-color: rgba(250, 250, 250, 0.4);
+                padding: 8% 3%;
+                box-shadow: 0px 0px 5px 1px #f0f0f0 inset;
+            }
+            .modal input
+            {
+                width: 80%;
+                margin: 0px 8%;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                padding: 1.2em;
+                padding-right: 0px;
+                border: 1px solid;
+                background-color: #fcfcfc;
+                border-color: #ebebeb;
+                border-radius: 4px;
+                box-shadow: 0px 0px 4px 1px #f0f0f0 inset;
+                transition: 0.3s;
+            }
+            .modal input:hover
+            {
+                background-color: white;
+                box-shadow: 0px 0px 4px 1px #f0f0f0;
+            }
+            .modal input:focus
+            {
+                outline: none;
+                box-shadow: 0px 0px 4px 1px #f0f0f0;
+            }
+            .modal input[type="button"]
+            {
+                font-size: 16px;
+                font-weight: 600;
+                box-shadow: none;
+                padding-right: 1.2em;
+                color: white;
+                background-color: red;
+                width: 84%;
+            }
+            .modal .part-two p
+            {
+                font-size: 10px;
+                font-weight: 600;
+                text-align: center;
+                color: #7a7a7a;
+            }
+            .modal .part-two a
+            {
+                font-size: 10px;
+                color: red;
+                text-decoration: underline dotted;
+            }
+            .modal label
+            {
+                font-size: 14px;
+                font-weight: 700; 
+                color: black;
+                width: 90%;
+                margin: 0px 8%;
+                margin-top: 20px;
+                padding: 0px 2px ;
+                
+            }
+            
+            .modal-bg a 
+            {
+                text-transform: none;
+                font-weight: 700;
+                font-size: 14px;
+                text-align: center;
+                width: 15%;
+                margin: 0px auto;
+                color: #7a7a7a;
+            }
+            .modal-bg a span
+            {
+                color: red;
+            }
+            .login-modal-bg
+            {
+                display: none;
+                position: fixed;
+                width: 100%;
+                height: 95vh;
+                top: 0;
+                left: 0;
+                padding-bottom: 5em;
+                background-color: rgba(0, 0, 0, 0.8);
+                display: grid;
+                
+                justify-content: center;
+                align-content: center;
+                font-family: 'Segoe UI', sans-serif;
+                display: none;
+                z-index: 9999;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+            
+            .login-modal
+            {
+                
+                background-color: white;
+                
+                width: 27%;
+                margin: 0 auto;
+                margin-top: 6em;
+                margin-bottom: 3em;
+                border-radius: 5px;
+            }
+            .login-modal .part-one
+            {
+                text-align: center;
+            }
+            .login-modal .part-one h1
+            {
+                color: black;
+                font-size: 28px;
+            }
+            .login-modal .part-one img
+            {
+                width: 30%;
+                margin-top: 2em;
+            }
+            .login-modal .part-two
+            {
+                background-color: rgba(250, 250, 250, 0.4);
+                padding: 8% 3%;
+                box-shadow: 0px 0px 5px 1px #f0f0f0 inset;
+            }
+            .login-modal input
+            {
+                width: 80%;
+                margin: 0px 8%;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                padding: 1.2em;
+                padding-right: 0px;
+                border: 1px solid;
+                background-color: #fcfcfc;
+                border-color: #ebebeb;
+                border-radius: 4px;
+                box-shadow: 0px 0px 4px 1px #f0f0f0 inset;
+                transition: 0.3s;
+            }
+            .login-modal input:hover
+            {
+                background-color: white;
+                box-shadow: 0px 0px 4px 1px #f0f0f0;
+            }
+            .login-modal input:focus
+            {
+                outline: none;
+                box-shadow: 0px 0px 4px 1px #f0f0f0;
+            }
+            .login-modal input[type="button"]
+            {
+                font-size: 16px;
+                font-weight: 600;
+                box-shadow: none;
+                padding-right: 1.2em;
+                color: white;
+                background-color: red;
+                width: 84%;
+            }
+            .login-modal .part-two p
+            {
+                font-size: 12px;
+                font-weight: 700;
+                color: red;
+                text-align: right;
+                margin: 10px 8%;
+            }
+            .login-modal .part-two a
+            {
+                
+                font-size: 12px;
+                color: red;
+                
+            }
+            .login-modal label
+            {
+                font-size: 14px;
+                font-weight: 700; 
+                color: black;
+                width: 90%;
+                margin: 0px 8%;
+                margin-top: 20px;
+                padding: 0px 2px ;
+                
+            }
+            
+            .login-modal-bg a 
+            {
+                text-transform: none;
+                font-weight: 700;
+                font-size: 14px;
+                text-align: center;
+                width: 15%;
+                margin: 0px auto;
+                color: #7a7a7a;
+            }
+            .login-modal-bg a span
+            {
+                color: red;
+            }
+        </style>
+    {{end}}
+
+     <!--<div class="container">-->
+
+        {{block "section" .}}
+            <section class="one">
+                <div class="part-one">
+                    <div class="area-text">
+                        <h1>Bring your dreams to Akbor</h1>
+                    </div>
+                    <div class="text-area">
+                        Every entrepreneur understands how exhausting 
+                        creating a brand can be. What if you only needed 
+                        the inspiration for your idea or a simple sketch 
+                        of the logo?<br>
+                        <p>
+                            Bag-N-Brand supports entrepreneurs who build bold 
+                            businesses and more....
+                        </p>
+                    </div>
+                    
+
+                    <a class="btn btn-signup" >
+                        Customize membership
+                    </a>
+                </div>
+                <div class="part-two">
+                    <div class="img background-img">
+
+                    </div>
+                </div>
+            </section>
+
+            <hr style="margin: 2em auto; margin-top: 5em; background-color: white;  width: 85%; border: 0; height: 0.2px; ">
+            <section class="two">
+                <div class="part-one">
+                    <img src="./resources/images/bag-n-brand5.png" alt="">
+                    <h1>Sign Up Now</h1>
+                    <p>Do you have questions? Partners@bag-n-brand.com</p>
+                </div>
+                <div class="part-two">
+                    <ul>
+                        <li>
+                            Building a brand is a delicate process. When building
+                            an impactful brand, approach the task with caution.
+                            It's important to remember you are building something
+                            that your customers will notice. It does not stop there,
+                            next you need to be memorable.
+                        </li>
+                        <li>
+                            Bag-N-Brand uses a simple system for collecting information 
+                            about your idea. We build complete concepts and share them 
+                            with you for edits. 
+                        </li>
+                        <li>
+                            From the beginning we've always focused on providing
+                            exceptional services. Doing this provided us with
+                            insights about our customers over the years.
+                        </li>
+                        <li>
+                            We understand you want the ability to test your 
+                            market and extend your budget. To assist you with 
+                            this, we offer a Partnership that offers a minimum
+                            order quantity of 100 units.
+                        </li>
+                        <li>
+                            We also offer Klarna for custom orders which splits
+                            orders in 4 separate payments.
+                        </li>
+                        <li>
+                            Partner up today on the Basic Plan and get 9 days
+                            Free Trial. This is more than enough time to submit
+                            your design, and start printing.
+                        </li>
+                        <li>
+                            For all partners who print before their membership
+                            ends, will receive $10 discount.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <hr style="margin: 2em auto; background-color: white;  width: 85%; border: 0; height: 0.2px; ">
+        {{end}}
+
+    <!--</div>-->

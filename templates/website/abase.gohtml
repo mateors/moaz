@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="{{.Base}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{block "title" .}}BAGNBRAND3.0{{end}}</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black:regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Archivo:regular,italic,500,500italic,600,600italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Heebo:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+
+    <link rel="stylesheet" href="resources/css/header-footer.css">
+
+    {{block "link" .}}
+
+    {{end}}
+
+    {{block "style_src" .}}
+
+    {{end}}
+</head>
+
+{{block "common_style" .}}
+
+    <!-- sign up modal error msg -->
+    <style>
+        #ms-message-box
+        {
+            position: fixed;
+            bottom: 1.5em;
+            width: 100%;
+            display: none;
+        }
+        .ms-error-message
+        {
+            width: 90%;
+            margin: 0 auto;
+            /* position: ; */
+            /* bottom: 1em; */
+            background-color: rgb(253, 58, 87);
+            padding: 1.2em;
+            border: 2px solid white;
+            border-radius: 6px;
+        }
+        #ms-message 
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+
+    <style>
+        .ms-style
+        {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            /* padding-bottom: 5em; */
+            background-color: rgba(0, 0, 0, 0.96);
+            z-index: 9999;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        .ms-loader
+        {
+            position:fixed;
+            left:46%;
+            top:46%;
+            right:0;
+            bottom:0;
+            z-index:1000000;
+            /* display:none; */
+            padding-bottom:5vh;
+            -webkit-box-pack:center;
+            -webkit-justify-content:center;
+            -ms-flex-pack:center;
+            justify-content:center;
+            -webkit-box-align:center;
+            -webkit-align-items:center;
+            -ms-flex-align:center;
+            align-items:center;
+            /* background-color:rgba(0,0,0,.7); */
+        }
+        .ms-ellipsis
+        {
+            display:inline-block;
+            position:relative;
+            width:64px;
+            height:64px;
+        }
+        .ms-ellipsis div
+        {
+            position:absolute;
+            top:27px;
+            width:11px;
+            height:11px;
+            border-radius:50%;
+            background:#fff;
+            animation-timing-function:cubic-bezier(0,1,1,0);
+        }
+        .ms-ellipsis div:nth-child(1)
+        {
+            left:6px;
+            animation:ms-ellipsis1 .6s infinite
+        }
+        .ms-ellipsis div:nth-child(2)
+        {
+            left:6px;
+            animation:ms-ellipsis2 .6s infinite;
+        }
+        .ms-ellipsis div:nth-child(3)
+        {
+            left:26px;animation:ms-ellipsis2 .6s infinite;
+        }
+        .ms-ellipsis div:nth-child(4)
+        {
+            left:45px;
+            animation:ms-ellipsis3 .6s infinite;
+        }
+        @keyframes ms-ellipsis1
+        {
+            0%{transform:scale(0)}100%{transform:scale(1)}
+        }
+        @keyframes ms-ellipsis3
+        {
+            0%{transform:scale(1)}100%{transform:scale(0)}
+        }
+        @keyframes ms-ellipsis2
+        {
+            0%{transform:translate(0,0)}100%{transform:translate(19px,0)}
+        }
+    </style>
+    
+{{end}}
+
+{{block "style" .}}
+
+    <style>
+        section.one
+        {
+            margin-top: 65px;
+            background-image: url(./resources/images/bag-n-brand.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 43.4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 2.5fr 1fr;
+            grid-template-areas: 
+            "text text"
+            "btnone btntwo";
+        }
+        .one .block-text
+        {
+            grid-area: text;
+            justify-self: center;
+            align-self: center;
+        }
+        .one .block-text h1
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 132px;
+            margin: 0px;
+            font-weight: 600;
+            letter-spacing: -0.09em;
+        }
+        .one .btn-area
+        {
+            justify-self: center;
+        }
+        .one .btn-area a
+        {
+            font-family: "archivo", sans-serif;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        .one a.btn-hero-one
+        {
+            margin-left: 4em;
+        }
+        .two
+        {
+            height: 90vh;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+        
+        .two .block-text p
+        {
+            font-family: "archivo", sans-serif;
+            font-size: 20px;
+        }
+        .two .block-text span
+        {
+            font-weight: 500;
+        }
+        .three
+        {
+            height: 90vh;
+            background-image: url(./resources/images/bag-n-brand1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .four
+        {
+            height: 60vh;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+        .four p
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 20px;
+            letter-spacing: -.06em;
+
+        }
+        .five
+        {
+            height: 90vh;
+            background-image: url(./resources/images/bag-n-brand3.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .six
+        {
+            height: 60vh;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+        .six p
+        {
+            font-family: "archivo", sans-serif;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .six h3
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 26px;
+            margin: 0px;
+            letter-spacing: -.06em;
+        }
+        .seven
+        {
+            height: 100vh;
+            background-image: url(./resources/images/bag-n-brand4.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .eight
+        {
+            height: 80vh;
+            display: grid;
+            align-content: center;
+        }
+        .eight p
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 32px;
+            letter-spacing: -0.07em;
+        }
+        .nine
+        {
+            height: 80vh;
+            display: grid;
+            align-content: center;
+        }
+        .nine p
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 32px;
+            letter-spacing: -0.07em;
+        }
+        .ten
+        {
+            background-image: url(./resources/images/bag-n-brand5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2em;
+            
+        }
+        .ten .part-one
+        {
+            padding: 7em;
+        }
+        .ten .part-one p
+        {
+            font-family: "Archivo", sans-serif;
+        }
+        .ten .part-one h1
+        {
+            font-family: "Archivo black", sans-serif;
+            font-size: 100px;
+            letter-spacing: -0.08em;
+            line-height: 95px;
+            margin: 80px 0px;
+            
+        }
+        .ten .part-one a
+        {
+            font-family: "archivo", sans-serif;
+            font-weight: 500;
+        }
+        .ten .part-two 
+        {
+            background-image: url(./resources/images/bag-n-brand2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 5em 7em;
+        }
+        .eleven
+        {
+            height: 90vh;
+            display: grid;
+            align-content: center;
+            
+        }
+        .eleven .block-text h1
+        {
+            font-family: "heebo", sans-serif;
+            font-size: 76px;
+        }
+        .twelve
+        {
+            height: 90vh;
+            display: grid;
+            align-content: center;
+            
+        }
+        .twelve .block-text h1
+        {
+            font-family: "archivo black", sans-serif;
+            font-size: 32px;
+            letter-spacing: -0.07em;
+        }
+        .thirteen
+        {
+            
+            height: 41em;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-content: center;
+        }
+        .thirteen .part-one
+        {
+            z-index: 1;
+        }
+        .thirteen .part-one .block-text
+        {
+            
+            /* background-color: black; */
+            background-color: white;
+            margin: 3.5em 1em 0em 10em;
+            padding: 3em 6em;
+            
+        }
+        .thirteen .part-one h1
+        {
+            font-family: "archivo black", sans-serif;
+            letter-spacing: -0.065em;
+            color: black;
+        }
+        .thirteen .part-one p
+        {
+            font-family: "archivo", sans-serif;
+            font-size: 16px;
+            line-height: 22px;
+            color: black;
+        }
+        .thirteen .part-one span
+        {
+            font-weight: 600;
+        }
+        .thirteen .part-two
+        {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            background-color: black;
+            height: 26em;
+            margin: 0em 12em 0em 0em;
+            margin-left: -8em;
+            
+        }
+        .thirteen .part-two h1
+        {
+            font-family: "heebo",sans-serif;
+            font-size: 56px;
+        }
+        
+
+    </style>
+
+    <!-- responsiver part header & footer-->
+
+    <!-- responsive for tab -->
+    <style>
+        @media only screen and (max-width: 1025px) and (min-width: 760px)
+        {
+            .one .block-text h1 
+            {
+                font-size: 9vw;
+                
+            }
+            .one .btn-area a
+            {
+                font-size: 2vw;
+            }
+
+            .two .block-text p
+            {
+                font-size: 2vw;
+            }
+            .four p
+            {
+                font-size: 2.2vw;
+            }
+            .six p
+            {
+                font-size: 1.9vw;
+            }
+            .six h3 
+            {
+                font-size: 2.2vw;
+            }
+
+            .eight p,
+            .nine p 
+            {
+                font-size: 2.6vw;
+            }
+            .ten .part-one
+            {
+                padding: 8vw;
+            }
+            .ten .part-one p 
+            {
+                font-size: 1.6vw;
+            }
+            .ten .part-one h1
+            {
+                font-size: 7vw;
+                margin: 6vw 0;
+                line-height: 7vw;
+            }
+            .ten .part-one a
+            {
+                font-size: 1.7vw;
+            }
+            .ten .part-two 
+            {
+                margin: 5vw 7vw;
+            }
+            .twelve .block-text h1
+            {
+                font-size: 2.5vw;
+            }
+            .thirteen .part-one .block-text
+            {
+                margin: 3.5vw 1vw 0 9vw;
+                padding: 3vw 6vw;
+
+            }
+            .thirteen .part-one h1
+            {
+                font-size: 2.2vw;
+            }
+            .thirteen .part-one p 
+            {
+                font-size: 1.7vw;
+            }
+            .thirteen .part-two
+            {
+                height: 26vw;
+                margin: 0em 12vw 0em 0em;
+                margin-left: -8vw;
+            }
+        }
+            
+    </style>
+    <!-- responsive for mobile -->
+
+    <style>
+        @media only screen and (max-width: 750px) 
+        {
+            section.one 
+            {
+                height: 32em;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 0.7fr 0.7fr;
+                grid-template-areas: 
+                "text"
+                "btnone"
+                "btntwo";
+            }
+            .one .block-text
+            {
+                align-self: flex-end;
+                justify-self: center;
+            }
+            .one .block-text h1 
+            {
+                font-size: clamp(56px, 9vw, 9vw);
+                padding: 0 20px;
+                line-height: 1em;
+            }
+            .one .btn-area.area1
+            {
+                align-self: center;
+                justify-self: center;
+                margin-left: -15vw;
+            }
+            .one .btn-area.area2
+            {
+                align-self: flex-start;
+                justify-self: center;
+                /* margin-left: 2vw; */
+            }
+            .one .btn-area a
+            {
+                font-size: clamp(16px, 2vw, 2vw);
+            }
+
+            .two .block-text p
+            {
+                font-size: clamp(15px, 2vw, 2vw);
+            }
+            .four p
+            {
+                font-size: clamp(16px, 2.2vw, 2.2vw);
+            }
+            .six p
+            {
+                font-size: clamp(14px, 1.9vw, 1.9vw);
+            }
+            .six h3 
+            {
+                font-size: clamp(16px, 2.2vw, 2.2vw);
+            }
+
+            .eight p,
+            .nine p 
+            {
+                font-size: clamp(20px, 2.6vw, 2.6vw);
+            }
+            section.ten 
+            {
+                display: grid;
+                grid-template-columns: auto;
+                /* grid-template-rows: 1fr 1fr; */
+                grid-template-rows: auto auto;
+                grid-template-areas: 
+                "area2"
+                "area1";
+            }
+            .ten .part-one
+            {
+                grid-area: area1;
+                padding: 8vw;
+            }
+            .ten .part-one p 
+            {
+                font-size: clamp(14px, 1.6vw, 1.6vw);
+            }
+            .ten .part-one h1
+            {
+                font-size: clamp(36px, 7vw, 7vw);
+                margin: 8vw 0;
+                line-height: 12vw;
+            }
+            .ten .part-one a
+            {
+                font-size: clamp(14px, 1.6vw, 1.6vw);
+                margin-top: 3em;
+            }
+            .ten .part-two 
+            {
+
+                grid-area: area2;
+                height: 70vw;
+                margin: 5vw 7vw;
+            }
+            .twelve .block-text h1
+            {
+                font-size: clamp(16px, 2.5vw, 2.5vw);
+            }
+        }
+            
+    </style>
+
+    <!-- for section thirteen -->
+    <style>
+        @media only screen and (max-width: 750px) and (min-width: 472px){
+            .thirteen
+            {
+                height: auto;
+                padding: 10em 0;
+                display: grid;
+                grid-template-columns: 1.8fr 1fr;
+            }
+            .thirteen .part-one .block-text
+            {
+                margin: 3.5vw 1vw 0 9vw;
+                padding: 3vw 6vw;
+
+            }
+            .thirteen .part-one h1
+            {
+                font-size: clamp(14px, 2.2vw, 2.2vw);
+            }
+            .thirteen .part-one p 
+            {
+                font-size: clamp(13px, 1.7vw, 1.7vw);
+            }
+            .thirteen .part-two
+            {
+                height: 8em;
+                margin: 0em 12vw 0em 0em;
+                margin-left: -10em;
+                margin-top: -4em;
+            }
+        }
+    </style>
+
+    <style>
+        @media only screen and (max-width: 470px){
+            .thirteen
+            {
+                height: auto;
+                padding: 10em 0;
+                display: grid;
+                grid-template-columns: 2fr 0.5fr;
+            }
+            .thirteen .part-one .block-text
+            {
+                margin: 3.5vw 1vw 0 9vw;
+                padding: 3vw 6vw;
+
+            }
+            .thirteen .part-one h1
+            {
+                font-size: clamp(14px, 2.2vw, 2.2vw);
+            }
+            .thirteen .part-one p 
+            {
+                font-size: clamp(13px, 1.7vw, 1.7vw);
+            }
+            .thirteen .part-two
+            {
+                height: 8em;
+                margin: 0em 12vw 0em 0em;
+                margin-left: -10em;
+                margin-top: -4em;
+            }
+            .thirteen .part-two h1 
+            {
+                font-size: clamp(18px, 2.5vw, 5vw);
+            }
+
+        }
+    </style>
+
+{{end}}
+
+
+<body>
+
+    <div class="container">
+
+        {{block "header" .}}
+
+            <header>
+                <div class="part-one">
+                    <div class="header-title-logo">
+                        <a href="/">
+                            <img src="./resources/images/bag-n-brand5.png" alt="Bag-N-Brand logo" >
+                        </a>
+                    </div>
+                </div>
+                <div class="part-two">
+                    <div >
+                        <a href="javascript:void(0)" class="btn btn-login">
+                            Log In 
+                        </a>
+                        <a href="javascript:void(0)" class="btn-container " onclick="openNav()"> 
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                        </a>
+                        
+                    </div>
+                </div>
+            </header>
+
+            <div id="my-nav" class="my-nav" >
+                <a href="javascript:void(0)" class="btn btn-login" >
+                    <p>Log In</p>
+                </a>
+            </div>
+
+        {{end}}
+
+        {{block "section" .}}
+            <section class="one">
+                <div class="block-text">
+                    <center><h1>DREAM BIGGER</h1></center>
+                </div>
+                <div class="btn-area area1">
+                    <a href="/shop" class="btn btn-hero-one">
+                        SHOP STRANDBRANDS™️
+                    </a>
+                </div>
+                <div class="btn-area area2">
+                    <a href="/service-type" class="btn btn-hero-two">
+                        BUILD A BRAND
+                    </a>
+                </div>
+            </section>
+
+            <section class="two">
+                <div class="block-text">
+                    <p>SPECIAL RELEASE | <span>Strandbrands™️ </span></p>
+                </div>
+            </section>
+
+            <section class="three">
+            </section>
+
+            <section class="four">
+                <div class="block-text">
+                <center> <p>Unfold the story. Share the experience. Increase sales</p></center>
+                </div>
+            </section>
+
+            <section class="five">
+            </section>
+
+            <section class="six">
+                <div class="block-text">
+                    <center><p>Strandbrands™️ </p></center>
+                    
+                </div>
+                <div >
+                    <center><h3>A brand for every strand.</h3></center>
+                    
+                </div>
+
+            </section>
+
+            <section class="seven">
+            </section>
+
+            <section class="eight">
+                <div class="block-text">
+                    <center><p>Building a brand</p></center>
+                </div>
+            </section>
+
+            <section class="nine">
+                <div class="block-text">
+                    <center><p>starts with a simple idea</p></center>
+                </div>
+            </section>
+
+            <section class="ten">
+                <div class="part-one">
+                    <p>Share your idea for your brand and we will do the rest, It's your time now.</p>
+                    <div class="area-text">
+                        <h1>Build The Brand!</h1>
+                    </div>
+                    <a href="./service.html" class="btn btn-build">
+                        Build A Brand 
+                    </a>
+                </div>
+                <div class="part-two">
+                    <div class="img background-img">
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="eleven">
+                <div class="block-text">
+                    <center><h1>Klarna.</h1></center>
+                </div>
+            </section>
+
+            <section class="twelve">
+                <div class="block-text">
+                    <center><h1>Klarna splits order cost into 4 easy payment</h1></center>
+                </div>
+
+            </section>
+
+            <section class="thirteen">
+                <div class="part-one">
+                    <div class="block-text">
+                        <h1>Our customers print faster than ever because of Klarna!</h1>
+                        <p>Bag-N-Brand is offering a 9 day free trial for custom memberships. <span>Start today,print tomorrow, and your membership is free.</span></p>
+                    </div>
+
+                </div>
+                <div class="part-two">
+                    <h1>Klarna.</h1>
+                </div>
+            </section>
+        {{end}}
+
+        {{block "footer" .}}
+            <footer>
+                <div class="footer-title-logo">
+                    <center>
+                        <img src="./resources/images/bag-n-brand5.png" alt="Bag-N-Brand Logo" >
+                    </center>
+                </div>
+                
+                
+                <center>
+                    <div class="contact">
+                        <p>
+                            Contact Us: <span>&nbsp;</span>
+                            <Span>
+                                <a href="/b2cdatazip" class="location">
+                                    Location
+                                </a><span>&nbsp;</span>
+                                <a href="/partner" class="partner">
+                                    Partnerships
+                                </a><span>&nbsp;</span>
+                                <a href="/tos" class="terms">
+                                    Terms of Service
+                                </a><span>&nbsp;</span>
+                                <a href="/return-refund" class="refund">
+                                    Return/Refund Policy
+                                </a>
+                            </Span>
+                        </p>
+                        <p>BAG-N-BRAND.COM, A COWA ENTERTAINMENT LLC COMPANY</p>
+                    </div>      
+                </center>
+                
+            </footer>
+        {{end}}
+
+    </div>
+
+    {{block "modal" .}}
+
+
+        <div class="modal-bg login-modal-bg">
+            
+            <div class="modal login-modal">
+                <div class="part-one">
+                    <img src="./resources/images/bag-n-brand6.png" alt="">
+                    <h1>Welcome Back</h1>
+                </div>
+
+                <form id="signin" method="post">
+                    <div class="part-two">
+                        <label for="login-email">Email Address</label>
+                        <input id="login-email" type="email" name="email" placeholder="Email" required>
+                        <label for="password">Password</label>
+                        <input id="login-password" type="password" name="password" placeholder="Password" required>
+                        <p class="reset"><a>Reset my password</a></p>
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+            <center><a class="btn signup">Need an account? <span>Sign up here</span></a></center>
+            
+            
+        </div>
+
+        <div id="signupForm" class="modal-bg signup-modal-bg">
+            
+            <div class="modal signup-modal">
+                <div class="part-one">
+                    <img src="./resources/images/bag-n-brand6.png" alt="">
+                    <h1>Create an account</h1>
+                </div>
+
+                <form id="signup" method="post">
+                    <div class="part-two">
+                        <label for="first-name">First Name</label>
+                        <input id="first-name" type="text" name="first_name" placeholder="First Name" required>
+                        <label for="last-name">Last Name</label>
+                        <input id="last-name" type="text" name="last_name" placeholder="Last Name" required>
+                        <label for="company">Company Name</label>
+                        <input id="company" type="text" name="account_name" placeholder="Company Name" required>
+                        <label for="street">Street Address(No PO Box)</label>
+                        <input id="street" type="text" name="address1" placeholder="Street Address(No PO Box)" required>
+                        <label for="city">City</label>
+                        <input id="city" type="text" name="city" placeholder="City" required>
+                        <label for="state">State</label>
+                        <input id="state" type="text" name="state" placeholder="State" required>
+                        <label for="zip">Zip</label>
+                        <input id="zip" type="number" name="zip" placeholder="Zip" required>
+                        <label for="sale">Average Monthly Sale</label>
+                        <input id="sale" type="text" name="remarks" placeholder="Average Monthly Sale" required>
+                        <label for="phone">Phone Number</label>
+                        <input id="phone" type="number" name="mobile" placeholder="Phone Number" required>
+                        <label for="signup-email">Email Address</label>
+                        <input id="signup-email" type="email" name="email" placeholder="Email Address" required>
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" type="password" name="passwd" placeholder="Password" required>
+                        <input class="sign-up-btn" type="submit" value="Sign Up">
+                        <p class="terms">Click above to agree to our <a href="/tos" target="_blank">Terms of Service</a></p>
+
+                    </div>
+                </form>
+            </div>
+            <p style="text-align: center; margin-bottom: 4em;"><a class="btn login">Already a member? <span>Log in here</span></a></p>
+
+            <div id="ms-message-box">
+                <div id="ms-error-message-box" class="ms-error-message" > 
+                <div id="error_message">Email already taken</div> 
+                </div> 
+            </div>
+            
+        </div>
+
+        <!-- <div class="ms-style" style="position: relative; z-index: 2147483645;">  -->
+        <div id="ms-loader" class="ms-style">  
+            <div class="ms-loader" style="display: block;  margin: auto;"> 
+                <div class="ms-ellipsis"> 
+                <div></div> 
+                <div></div> 
+                <div></div> 
+                <div></div>
+                </div> 
+                <div class="w-embed"> </div> 
+            </div>
+        </div>
+
+        <div id="signupConfirm" class="second-modal-bg secure-checkout-bg">
+            <div class="second-modal secure-checkout-modal">
+                <p class="secure">Secure Checkout</p>
+                <div class="wrapper custom-pakage-wrapper">
+                    <div class="img-logo"></div>
+                    <p>
+                        <strong>Custom Packaging License[Basic Package]</strong><br>
+                        <span style="font-size: 14px;">
+                            Billed monthly after a 
+                            <span style="color: rgba(255, 0, 0, 0.8); font-weight: 700;">
+                                9-day free trial
+                            </span>
+                        </span>
+                    </p>
+                    <p style="align-self: center;"><strong>$10.00</strong></p>
+
+                </div>
+                <div class="wrapper subtotal-wrapper">
+                    <div class="title">
+                        <p>Sub Total:</p>
+                        <p>Tax(4%)</p>
+                    </div>
+                    <div class="price">
+                        <p>$10.00</p>
+                        <p >$0.40</p>
+                    </div>
+                </div>
+                <div class="wrapper total-wrapper">
+                    <div class="title">
+                        <p><strong>Total</strong></p>
+
+                    </div>
+                    <div class="price">
+                        <p ><strong style="color: red;">$10.40</strong></p>
+                    </div>
+                </div>
+                <button id="btnStartTrial" class="btn modal-btn">Start Free Trial</button>
+                <p class="terms">Click above to agree to our <a href="/tos" target="_blank">Terms of Service</a></p>
+            </div>
+        </div>
+
+        <div class="second-modal-bg reset-pass-bg">
+            <div class="second-modal reset-pass-modal">
+                <p class="step">STEP 1 OF 2</p>
+                <h1>Reset your password</h1>
+                <p class="describe">
+                    Enter your email address, and we'll send instructions to
+                    reset your password.
+                </p>
+                <label for="email">Email Address</label>
+                <input type="text" name="email" id="reset-pass-email" placeholder="Email">
+                <input type="submit" value="Send Password Reset Email">
+                <p class="set-reset-code"><a>I already have a reset code &#8594;</a></p>
+            </div>
+        </div>
+
+        <div class="second-modal-bg set-newpass-bg">
+            <div class="second-modal set-newpass-modal">
+                <p class="step">STEP 2 OF 2</p>
+                <h1>Check your email</h1>
+                <p class="describe">
+                    Please enter your 6-digit one-time code. Then create 
+                    and confirm your new password.
+                </p>
+                <label for="one-time-pass">6-digit one-time code</label>
+                <input type="text" name="one-time-pass" id="one-time-pass" placeholder="123456">
+                <label for="new-pass">New Password</label>
+                <input type="text" name="new-pass" id="new-pass" placeholder="New Password">
+                <label for="confirm-pass">Confirm Password</label>
+                <input type="text" name="confirm-pass" id="confirm-pass" placeholder="Confirm Password">
+                <input type="submit" value="Reset Password">
+                <p class="get-reset-code"><a>&#8592; Send a new reset code</a></p>
+            </div>
+        </div>
+
+    {{end}}
+
+    {{block "modal_gallery" .}}
+
+    {{end}}
+
+    {{block "terms" .}}
+     
+    {{end}}
+
+    {{block "script_src" .}}
+        <script src="resources/js/header-footer.js" ></script>
+    {{end}}
+
+    {{block "script" .}}
+     <script src="resources/js/jquery-3.4.1.min.js"></script>
+     <script src="resources/js/utility.js"></script>
+     <script>
+
+     $(document).ready(function() {
+
+        //clearData();
+        checkIfEmpty();
+        var battery=getBatteryStatus();
+        console.log(battery);
+
+      //iziToast.show({"title":'MATEORS', "message":'Allah is Great', "class":'iziToast-success', "position": 'topRight',timeout: 3200, icon: 'icon-check-circle'});
+      //console.log(getBatteryStatus());
+
+        /*
+        var errMsg = document.querySelector("#ms-message-box");
+        var openCheckoutModal = document.querySelector(".sign-up-btn");
+        var checoutModalBg =document.querySelector(".secure-checkout-bg");
+        var animatedLoading = document.querySelector(".ms-style");
+
+        openCheckoutModal.addEventListener("click", function(){
+            
+            errMsg.style.display = "block";
+            checoutModalBg.style.display = "none";
+            animatedLoading.style.display = "block";
+            setInterval(function(){ 
+                errMsg.style.display = "none";
+            }, 5000);
+            
+        });
+        */
+
+
+        $('#signup').submit(function(e){
+        
+            //alert('submit');
+            $('#ms-loader').show();
+            //$('#ms-message-box').show();
+            //$('#signup').append(`<input name="info" value="signup_verify">`);
+
+            $.ajax({
+                //dataType: "json",
+                async: true,
+                type: "POST",
+                url: "/signup_verify",
+                data: $('#signup').serialize(),
+                success: function(){
+                },
+                error: function(jqXHR, textStatus){
+                    console.log("failed with error: " + textStatus);
+                }
+
+                }).done(function(dres){
+
+                    $('#ms-loader').hide();
+                    console.log(dres);
+                    //alert(dres);
+                    if (dres.error=="0"){
+                        $('#signupConfirm').show();
+                    }else{
+                        $('#error_message').text(dres.message);
+                        $('#ms-message-box').show();
+                        setTimeout( () => { 
+                            $('#ms-message-box').hide();
+                        }, 5000);
+                    }
+
+            });
+
+            return false;
+        
+        });
+
+        $('#btnStartTrial').on('click', function(e){
+        
+            $('#signupConfirm').hide();
+            $('#ms-loader').show();
+            //alert(e.target);
+            $.ajax({
+                //dataType: "json",
+                async: true,
+                type: "POST",
+                url: "/signup",
+                data: $('#signup').serialize(),
+                success: function(){
+                },
+                error: function(jqXHR, textStatus){
+                    console.log("failed with error: " + textStatus);
+                }
+
+                }).done(function(dres){
+
+                    $('#signupForm').hide();
+                    $('#ms-loader').hide();
+                    console.log(dres);
+                    alert(dres);
+                    //alert(dres);
+                    if (dres.error=="0"){
+                       location.reload();
+                    }else{
+                        
+                    }
+
+            });
+
+            return false;
+
+        });
+
+
+     });
+
+     </script>
+        
+    {{end}}
+
+    {{block "custom_script" .}}
+
+    {{end}}
+
+</body>
+</html>

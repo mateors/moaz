@@ -1,0 +1,1300 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .demo-width-class {
+        width: 100%;
+    }
+
+    .mdc-text-field{
+        width:100%;
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mdc-menu-width{
+        width: 200px;
+    }
+    
+    #error_message{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    #error_message2{
+        margin-left:1.5rem;
+        margin-bottom:0px;
+        color: red;
+        font-size: 12px;
+    }
+
+    .mdc-select__menu{
+        height:120px;
+    }
+
+    .select2-selection--single{
+        height:56px;
+        padding:16px;
+        background-color: #eee !important;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .mdc-data-table{
+      
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .my-card {
+        padding:1rem;
+        background-color:transparent;
+    }
+
+    .mdc-typography--headline6 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: .0125em;
+    }
+    .mdc-typography--headline5, .mdc-typography--headline6 {
+        font-family: Roboto,sans-serif;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        line-height: 2rem;
+        text-decoration: inherit;
+        text-transform: inherit;
+    }
+
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+
+    .demo-titleS {
+        border-bottom: 1px solid rgba(0,0,0,.87);
+    }
+
+    .tabContent{
+        margin-top:0.5rem;
+    }
+
+    .container {
+        position: relative;
+        padding: 0px;
+        margin:0px;
+    }
+
+    .stage-transition-container-variant:nth-of-type(2) {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .stage-transition-container-variant:nth-of-type(2) .mdc-tab-scroller__scroll-content {
+        padding: 0px;
+    }
+
+    .row{
+        margin-bottom:1rem;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .mdc-data-table__header-cell, .mio-cc-table.mdc-data-table thead tr td {
+        color: #616161;
+        background-color: #fafafa;
+        font-weight: 400;
+    }
+
+
+    .mdc-data-table__cell, .mio-cc-table.mdc-data-table tbody tr td {
+        color: #424242;
+    }
+
+    .attribute{
+        margin-top:1rem;
+        padding-left: 1rem;
+        display: flex;
+    }
+    .mdc-data-table {
+        margin: 0.90rem;
+        width:90%;
+    }
+    .attrbtn{
+        height: 56px;
+        width: 120px;
+    }
+
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="resources/css/custom-select2.css">
+
+    <link rel="stylesheet" href="resources/css/tabs_styles.css">
+
+{{end}}
+
+{{define "content"}}
+    
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+        <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
+
+    <div class="mdc-snackbar mdc-snackbar--stacked">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                role="status"
+                aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Retry</span>
+            </button>
+            <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="dlist">
+
+        <!--<h2 class="demo-title mdc-typography--headline6">Item</h2>-->
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell--span-12">
+
+                    <div class="mdc-card">
+                    
+                        <div class="mdc-card__primary-actions" tabindex="0">
+                            
+                            <!--<div class="profile-title-area">
+                                <h2 class="profile_title">REGISTER NEW MEMBER</h2>
+                                <h3 class="profile_blockno">Please Consider with one of the following ID</h3>
+                            </div>-->
+
+                            <div id="register" class="sprofile_info">
+
+                                
+                                <!-----START------>
+                                    <div id="root-container">
+                                        <div class="component-demo">
+                                            <div class="component-demo__content">
+
+                                                <div class="component-demo__app-bar">
+
+                                                    <div class="component-demo__tab-section">
+                                                        <!---->
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                    <div class="mdc-tab-scroller__scroll-content">
+                                                                        <button role="tab" class="mdc-tab component-demo__tab mdc-tab--active" aria-selected="true" tabindex="0" id="tab1">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Item Info</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:40px; --mdc-ripple-fg-scale:2.32959; --mdc-ripple-fg-translate-start:32.6px, 12.2px; --mdc-ripple-fg-translate-end:13.9688px, 4px;"></span>
+                                                                        </button>
+
+                                                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab2">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Accounting</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                        </button>
+
+                                                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab3">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Inventory</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                        </button>
+
+                                                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab4">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Loyalty/Reward</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                        </button>
+
+                                                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab5">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Attribute</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                        </button>
+
+                                                                        <button role="tab" class="mdc-tab component-demo__tab" aria-selected="false" tabindex="-1" id="tab6">
+                                                                            <span class="mdc-tab__content">
+                                                                            <span class="mdc-tab__text-label">Website</span>
+                                                                            </span>
+                                                                            
+                                                                            <span class="mdc-tab-indicator">
+                                                                                <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style=""></span>
+                                                                            </span>
+                                                                        
+                                                                            <span class="mdc-tab__ripple mdc-ripple-upgraded" style="--mdc-ripple-fg-size:72px; --mdc-ripple-fg-scale:1.95217; --mdc-ripple-fg-translate-start:51.8625px, -17.4px; --mdc-ripple-fg-translate-end:24.7062px, -12px;"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!---->
+                                                    </div>
+
+                                                    <!---->
+                                                    <button id="btnPanelOpen" data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__config-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Open configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                                        tune
+                                                    </button>
+                                                    <!---->
+                                                </div>
+
+
+                                                <div class="component-demo__stage-content">
+                                                    
+                                                    <!---TAB1--->
+                                                    <div class="stage-transition-container-variant stage-transition-container-variant--show container">
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+
+                                                                    <div class="tabContent">
+                                                                        <table class="mytable">
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <div class="mdc-text-field">
+                                                                                        <input type="text" name="item_name" class="mdc-text-field__input" required>
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Item Name
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                    <input type="hidden" name="id" value="0">
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                        <input type="text" name="item_code" class="mdc-text-field__input" readonly>
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Itemcode
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                    <div class="mdc-text-field-helper-line">
+                                                                                        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">Auto generated</div>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                        <input type="text" name="barcode" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Barcode
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                    <div class="mdc-text-field-helper-line">
+                                                                                        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">SKU = Stock Keeping Unit</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+
+
+                                                                            <tr>
+                                                                            <td>
+                                                                                <select class="selectLine" name="item_line" required>
+                                                                                    <option value="">Item group</option>
+                                                                                </select>
+                                                                            </td>
+
+                                                                            <td>
+                                                                                <select class="selectGroup" name="category_id" required>
+                                                                                    <option value="">Availability</option>
+                                                                                </select>
+                                                                            </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <select class="selectSupplier" name="supplier">
+                                                                                        <option value="">Supplier</option>
+                                                                                    </select>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <select class="selectTax" name="tax_id">
+                                                                                        <option value="">VAT</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+
+
+                                                                            <tr>
+                                                                            <td>
+                                                                            <div class="mdc-text-field">
+                                                                                <input type="text" name="buy_price" class="mdc-text-field__input">
+                                                                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                    Buy Price
+                                                                                </label>
+                                                                                <div class="mdc-line-ripple"></div>
+                                                                            </div>
+                                                                            </td>
+
+                                                                            <td>
+                                                                            <div class="mdc-text-field">
+                                                                                <input type="text" name="sale_price" class="mdc-text-field__input">
+                                                                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                    Sale Price
+                                                                                </label>
+                                                                                <div class="mdc-line-ripple"></div>
+                                                                            </div>
+                                                                            </td>
+                                                                            </tr>
+
+
+
+                                                                            <tr>
+                                                                            <td>
+                                                                                <div class="mdc-form-field">
+                                                                                    <div class="mdc-checkbox" id="sts">
+                                                                                    <input type="checkbox" class="mdc-checkbox__native-control" name="status"/>
+                                                                                    <div class="mdc-checkbox__background">
+                                                                                        <svg class="mdc-checkbox__checkmark"
+                                                                                            viewBox="0 0 24 24">
+                                                                                        <path class="mdc-checkbox__checkmark-path"
+                                                                                                fill="none"
+                                                                                                d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                        </svg>
+                                                                                        <div class="mdc-checkbox__mixedmark"></div>
+                                                                                    </div>
+                                                                                    <div class="mdc-checkbox__ripple"></div>
+                                                                                    </div>
+                                                                                    <label for="checkbox-1">Active</label>
+                                                                                </div>
+                                                                            </td>
+                                                                            
+                                                                            <td>&nbsp;</td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!---TAB2--->
+                                                    <div class="stage-transition-container-variant">
+
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                <div class="mdc-tab-scroller__scroll-content">
+                                                                    
+                                                                    <div class="tabContent">
+                                                                        <table class="mytable">
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <select class="selectAsset" name="asset_account">
+                                                                                        <option value=""></option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <select class="selectCOGS" name="cogs_account">
+                                                                                        <option value=""></option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <select class="selectSales" name="sales_account">
+                                                                                        <option value=""></option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <select class="selectEquity" name="opening_balance_equity_account">
+                                                                                        <option value=""></option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                    
+
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!---TAB3--->
+                                                    <div class="stage-transition-container-variant">
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                    <div class="mdc-tab-scroller__scroll-content">
+                                                                    
+                                                                    <div class="tabContent">
+                                                                            <table class="mytable">
+
+                                                                                <tr>
+                                                                                    <td colspan="2">
+                                                                                        <select class="selectUOM" name="uom">
+                                                                                            <option value=""></option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <select class="selectTracking" name="tracking">
+                                                                                            <option value="no_tracking">No Tracking</option>
+                                                                                            <option value="unique_serial">Using Unique Serial</option>
+                                                                                            <option value="lot_number">Using Lot Number</option>
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <select class="selectType" name="item_type">
+                                                                                            <option value="consumable">Consumable</option>
+                                                                                            <option value="stockable">Stockable</option>
+                                                                                            <option value="service">Service</option>
+                                                                                            <option value="raw_material">Raw Material</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" name="reorder_level" class="mdc-text-field__input">
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Reorder Level
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" name="reorder_qty" class="mdc-text-field__input">
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Reorder Quantity
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+
+
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <select class="selectWarehouse" name="item_line">
+                                                                                            <option value=""></option>
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                                <input type="text" name="opening" class="mdc-text-field__input">
+                                                                                                <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                    Opening Stock
+                                                                                                </label>
+                                                                                                <div class="mdc-line-ripple"></div>
+                                                                                            </div>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </table>
+                                                                    </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!---TAB4--->
+                                                    <div class="stage-transition-container-variant">
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                    <div class="mdc-tab-scroller__scroll-content">
+                                                                        
+                                                                        <div class="tabContent">
+                                                                            <table class="mytable">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <select class="selectField" name="reward_unit">
+                                                                                            <option value="qty">Quantity</option>
+                                                                                            <option value="spent">Amount / Spent</option>
+                                                                                            <!--<option value="spent_percent_point">Spent Percent as Point</option>
+                                                                                            <option value="profit_share_percent">Profit Share Percent</option>-->
+                                                                                        </select>
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" name="reward_value" class="mdc-text-field__input">
+                                                                                            
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Value
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+
+                                                                                        
+                                                                                    </td>
+
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" name="reward_point" class="mdc-text-field__input">
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Points
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+                                                                                    </td>
+
+                                                                                    
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td colspan="3">
+                                                                                        5 points for every Tk. 100 spent<br>
+                                                                                        10 points for every 1 pcs purchase<br>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!---TAB5--->
+                                                    <div class="stage-transition-container-variant">
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                    <div class="mdc-tab-scroller__scroll-content">
+                                                                        
+                                                                        <div class="attribute">
+                                                                            
+                                                                            <table class="mytable">
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <select id="attrKey" class="selectAttr" name="attribute_key" data-placeholder="Hello">
+                                                                                            <option></option>
+                                                                                            <option value="Color">Color</option>
+                                                                                            <option value="Size">Size</option>
+                                                                                            <option value="Web">Web</option>
+                                                                                        </select>
+                                                                                    </td>
+                                                                                </tr>   
+
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" id="attrValue" name="attribute_value" class="mdc-text-field__input">
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Value
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <select id="attrStatus" class="selectStatus" name="attr_status">
+                                                                                            <option value="1">Active</option>
+                                                                                            <option value="0">Inactive</option>
+                                                                                        </select>
+                                                                                        <button class="mdc-button mdc-button--outlined attrbtn" id="btnAttrSave">
+                                                                                            <div class="mdc-button__ripple"></div>
+                                                                                            <i class="material-icons mdc-button__icon material-icons-outlined" aria-hidden="true">edit_attributes</i>
+                                                                                            <span class="mdc-button__label">Save</span>
+                                                                                        </button>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </table>
+                                                                            
+
+                                                                            <div class="mdc-data-table">
+
+                                                                                <table id="attrList" class="mdc-data-table__table">
+                                                                                    <thead>
+                                                                                        <tr class="mdc-data-table__header-row">
+                                                                                            <th class="mdc-data-table__header-cell">Attribute</th>
+                                                                                            <th class="mdc-data-table__header-cell">Value</th>
+                                                                                            <th class="mdc-data-table__header-cell">Status</th>
+                                                                                            <th class="mdc-data-table__header-cell">&nbsp;</th>
+                                                                                        </tr>
+                                                                                    </thead>
+
+                                                                                    <tbody class="mdc-data-table__content">
+
+                                                                                        <tr class="mdc-data-table__row">
+                                                                                            <td class="mdc-data-table__cell">Color</td>
+                                                                                            <td class="mdc-data-table__cell">Red</td>
+                                                                                            <td class="mdc-data-table__cell">Active</td>
+                                                                                            <td class="mdc-data-table__cell"><button data-id="#" class="mdc-icon-button material-icons">delete</button></td>
+                                                                                        </tr>
+
+                                                                                        <tr class="mdc-data-table__row">
+                                                                                            <td class="mdc-data-table__cell">Size</td>
+                                                                                            <td class="mdc-data-table__cell">10x20</td>
+                                                                                            <td class="mdc-data-table__cell">Active</td>
+                                                                                            <td class="mdc-data-table__cell"><button data-id="#" class="mdc-icon-button material-icons">delete</button></td>
+                                                                                        </tr>
+
+
+
+                                                                                        <tr class="mdc-data-table__row">
+                                                                                            <td class="mdc-data-table__cell">Web</td>
+                                                                                            <td class="mdc-data-table__cell">www.mateors.com</td>
+                                                                                            <td class="mdc-data-table__cell"><a href="#" target="_blank">Active</a></td>
+                                                                                            <td class="mdc-data-table__cell"><button data-id="#" class="mdc-icon-button material-icons">delete</button></td>
+                                                                                        </tr>
+
+                                                                                    </tbody>
+                                                                                </table>
+
+                                                                            </div>
+                                                                            
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!---TAB6--->
+                                                    <div class="stage-transition-container-variant">
+                                                        <div class="mdc-tab-bar" role="tablist">
+                                                            <div class="mdc-tab-scroller">
+                                                                <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll" style="margin-bottom: 0px;">
+                                                                    <div class="mdc-tab-scroller__scroll-content">
+                                                                        
+                                                                        <div class="tabContent">
+                                                                            <table class="mytable">
+
+                                                                                <tr>
+                                                                                    <td colspan="2">
+                                                                                        <div class="mdc-text-field">
+                                                                                            <input type="text" name="item_description" class="mdc-text-field__input" required>
+                                                                                            <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                                Item Description
+                                                                                            </label>
+                                                                                            <div class="mdc-line-ripple"></div>
+                                                                                        </div>
+                                                                                        
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="mdc-text-field mdc-text-field--no-label">
+                                                                                        <input type="file" id="pfile" name="item_image" class="mdc-text-field__input" aria-label="Product image">
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                    <div class="mdc-text-field-helper-line">
+                                                                                        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">Product image: width x height = 268 x 201</div>
+                                                                                    </div>
+                                                                                </td>
+
+                                                                                <td>
+                                                                                    <div class="mdc-text-field">
+                                                                                        <input type="text" name="item_url" class="mdc-text-field__input">
+                                                                                        <label class="mdc-floating-label mdc-floating-label--float-above">
+                                                                                            Item URL
+                                                                                        </label>
+                                                                                        <div class="mdc-line-ripple"></div>
+                                                                                    </div>
+                                                                                    <div class="mdc-text-field-helper-line">
+                                                                                        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent" aria-hidden="false">URL route for website</div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+
+
+
+                                                                                <tr>
+                                                                                <td>
+                                                                                    Display:
+
+                                                                                <div>
+                                                                                    <div class="mdc-form-field">
+                                                                                        <div class="mdc-checkbox" id="onsales">
+                                                                                            <input type="checkbox" class="mdc-checkbox__native-control" name="display_sales"/>
+                                                                                            <div class="mdc-checkbox__background">
+                                                                                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                </svg>
+                                                                                                <div class="mdc-checkbox__mixedmark"></div>
+                                                                                            </div>
+                                                                                            <div class="mdc-checkbox__ripple"></div>
+                                                                                        </div>
+                                                                                        <label for="checkbox-1">On Sales</label>
+                                                                                    </div>
+                                                                                </div>  
+
+                                                                                <div>
+                                                                                    <div class="mdc-form-field">
+                                                                                        <div class="mdc-checkbox" id="onpurchase">
+                                                                                            <input type="checkbox" class="mdc-checkbox__native-control" name="display_purchase"/>
+                                                                                            <div class="mdc-checkbox__background">
+                                                                                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                </svg>
+                                                                                                <div class="mdc-checkbox__mixedmark"></div>
+                                                                                            </div>
+                                                                                            <div class="mdc-checkbox__ripple"></div>
+                                                                                        </div>
+                                                                                        <label for="checkbox-1">On Purchase</label>
+                                                                                    </div>
+                                                                                </div>  
+
+                                                                                <div>
+                                                                                    <div class="mdc-form-field">
+                                                                                        <div class="mdc-checkbox" id="onwebsite">
+                                                                                            <input type="checkbox" class="mdc-checkbox__native-control" name="publish_on_web"/>
+                                                                                            <div class="mdc-checkbox__background">
+                                                                                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                                                    <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                                                                                </svg>
+                                                                                                <div class="mdc-checkbox__mixedmark"></div>
+                                                                                            </div>
+                                                                                            <div class="mdc-checkbox__ripple"></div>
+                                                                                        </div>
+                                                                                        <label for="checkbox-1">Publish On Website</label>
+                                                                                    </div>
+                                                                                </div>  
+
+
+                                                                                </td>
+                                                                                
+                                                                                <td>&nbsp;</td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+
+
+                                                <div class="component-demo__config-panel">
+
+                                                    <div class="component-demo__panel-header">
+                                                        <span class="component-demo__panel-header-label">Configuration</span>
+                                                        <!---->
+                                                        <button id="btnPanelClose" data-mdc-ripple-is-unbounded="" class="mdc-icon-button material-icons component-demo__panel-header-close mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" title="Close configuration panel" style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">
+                                                            close
+                                                        </button>
+                                                        <!---->
+                                                    </div>
+                                                    
+                                                    <div class="tabs-options">
+                                                        <span class="tabs-options__label">Options</span>
+                                                        <div class="tabs-options__checkbox"><!---->
+                                                                <div class="mdc-form-field ">
+                                                                    <div class="mdc-checkbox mdc-checkbox--upgraded mdc-ripple-upgraded mdc-ripple-upgraded--unbounded mdc-checkbox--disabled" data-checked="" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;" data-disabled="">
+                                                                    <input type="checkbox" class="mdc-checkbox__native-control" id="goog_1537503297" disabled="">
+                                                                    <div class="mdc-checkbox__background">
+                                                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                                                                        </svg>
+                                                                        <div class="mdc-checkbox__mixedmark"></div>
+                                                                    </div>
+                                                                    <div class="mdc-checkbox__ripple"></div>
+                                                                    </div>
+                                                                    <label for="goog_1537503297"><!---->Text label<!----></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <span class="tabs-options__label">Icons</span>
+                                                        <div class="tabs-options__radio">
+                                                        
+                                                            <!----><!----><!---->
+                                                        
+                                                            <div class="mdc-form-field">
+                                                                    <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;" data-checked="">
+                                                                        <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-0" name="tabs-icon-style">
+                                                                        <div class="mdc-radio__background">
+                                                                            <div class="mdc-radio__outer-circle"></div>
+                                                                            <div class="mdc-radio__inner-circle"></div>
+                                                                        </div>
+                                                                        <div class="mdc-radio__ripple"></div>
+                                                                    </div>
+                                                                    <label for="goog_1537503298-0"><!---->None<!----></label>
+                                                            </div>
+                                                    
+                                                            <!---->
+                                                            <div class="mdc-form-field">
+                                                                <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;">
+                                                                <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-1" name="tabs-icon-style">
+                                                                <div class="mdc-radio__background">
+                                                                    <div class="mdc-radio__outer-circle"></div>
+                                                                    <div class="mdc-radio__inner-circle"></div>
+                                                                </div>
+                                                                <div class="mdc-radio__ripple"></div>
+                                                                </div>
+                                                                <label for="goog_1537503298-1"><!---->Leading icon<!----></label>
+                                                            </div>
+                                                            
+                                                            <!---->
+                                                            <div class="mdc-form-field">
+                                                                <div class="mdc-radio mdc-ripple-upgraded mdc-ripple-upgraded--unbounded" style="--mdc-ripple-fg-size:16px; --mdc-ripple-fg-scale:1.75; --mdc-ripple-left:6px; --mdc-ripple-top:6px;">
+                                                                <input class="mdc-radio__native-control" type="radio" id="goog_1537503298-2" name="tabs-icon-style">
+                                                                <div class="mdc-radio__background">
+                                                                    <div class="mdc-radio__outer-circle"></div>
+                                                                    <div class="mdc-radio__inner-circle"></div>
+                                                                </div>
+                                                                <div class="mdc-radio__ripple"></div>
+                                                                </div>
+                                                                <label for="goog_1537503298-2"><!---->Top icon<!----></label>
+                                                            </div>
+
+                                                            <!----><!----><!---->
+                                                        </div>
+
+                                                    </div>
+                                            
+                                                </div>
+
+
+                                                <div class="component-demo__config-panel-scrim"></div>
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!------END------->
+                                
+
+                            </div>
+
+                            
+
+                        </div><!---primary actions-->
+
+                        <div class="mdc-card__actions">
+                            <div class="mdc-card__action-buttons">
+                                <button class="mdc-button mdc-button--raised mdcbtnw" id="btnSave">
+                                    <div class="mdc-button__ripple"></div>
+                                    <i class="material-icons mdc-button__icon" aria-hidden="true">done</i>
+                                    <span class="mdc-button__label">Save</span>
+                                </button>
+                            </div>
+                            <div class="mdc-card__action-icons"></div>
+                        </div>
+
+                    </div><!---my card---->
+
+
+                </div>
+            </div> 
+        </div> 
+
+ 
+    </section>
+
+
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    
+    <script>
+
+        //for (key in mdc) {
+           // console.log(key);
+        //}
+
+        var linearProgress=document.querySelector('.mdc-linear-progress');
+        var lProgress=mdc.linearProgress.MDCLinearProgress.attachTo(linearProgress);
+        //console.log(lProgress);
+
+        var snackbarClass=document.querySelector('.mdc-snackbar');
+        const snackbar = mdc.snackbar.MDCSnackbar.attachTo(snackbarClass);
+
+        const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+            textFieldElements.forEach((textFieldEl) => {
+            mdc.textField.MDCTextField.attachTo(textFieldEl);
+        });
+
+        var mdcTab=document.querySelector('.mdc-tab-bar');
+        const tabBar = mdc.tabBar.MDCTabBar.attachTo(mdcTab);
+        //console.log(tabBar);
+        //console.log(tabBar.tabList_);
+        //console.log(tabBar.foundation_);
+
+        tabBar.listen('MDCTabBar:activated', function(e){
+
+            var index=e.detail.index;
+            //console.log(e.detail.index);
+            tabBar.activateTab(index);
+            tabBar.scrollIntoView(index);
+
+            //var len=$('.stage-transition-container-variant').length; 
+            //console.log(len);
+            //attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+
+        $('#root-container > div > div > div.component-demo__stage-content > div').each(function(idx,elm){
+          //console.log(index,element);
+          
+          if (index==idx){
+            $(elm).attr("class", "stage-transition-container-variant stage-transition-container-variant--show container");
+          }else{
+            $(elm).attr("class", "stage-transition-container-variant");
+          }
+
+        });
+        //divv.eq(2).css({'background-color':'#343434'})
+        //console.log(divv.html());
+        //divv.attr("class", "stage-transition-container-variant stage-transition-container-variant--show");
+        //console.log();
+
+        });
+
+        //const textFieldElements = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+       // textFieldElements.forEach((textFieldEl) => {
+            //mdc.textField.MDCTextField.attachTo(textFieldEl);
+       // });
+
+        //const perPageMenu = mdc.menu.MDCMenu.attachTo(document.querySelector('#perPageMenu'));
+
+        $(document).ready(function(e) {
+
+            lProgress.close();
+            //var obj ={};
+            var cAray =[];
+
+            $('.selectAsset').select2({
+                placeholder :'Asset account',
+                width: '350px',
+                allowClear: true
+            });
+
+            $('.selectCOGS').select2({
+                placeholder :'Cost of Goods Sold account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectSales').select2({
+                placeholder :'Sales account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectEquity').select2({
+                placeholder :'Opening Balance Equity account',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectLine').select2({
+                placeholder :'Item Line *',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectGroup').select2({
+                placeholder :'Item Group *',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectSupplier').select2({
+                width: '100%',
+                allowClear: false
+            });
+
+            $('.selectWarehouse').select2({
+                placeholder :'Warehouse/Area',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectField').select2({
+                placeholder :'Reward Field',
+                width: '300px',
+                allowClear: true
+            });
+
+            $('.selectTracking').select2({
+                placeholder :'Tracking by',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectType').select2({
+                placeholder :'Item Type',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectTax').select2({
+                placeholder :'Tax / Vat *',
+                width: '100%',
+                allowClear: true
+            });
+
+            $('.selectUOM').select2({
+                placeholder :'Unit of Measure',
+                width: '100%',
+                allowClear: true
+            });  
+
+            $('.selectStatus').select2({
+                placeholder :'Attribute Status',
+                width: '170px',
+                allowClear: true
+            }); 
+
+            $('.selectAttr').select2({
+                placeholder :'Attribute Name',
+                width: '300px',
+                allowClear: true,
+                tags: true
+            }); 
+            
+
+
+            $('.mdc-tab').on('click', function(e){
+
+                var index=$(this).index();
+                //console.log('....');
+                //alert(index);
+                //tabBar.activateTab(index);
+                //tabBar.scrollIntoView(index);
+
+            });
+
+            //console.log($('.stage-transition-container-variant'));
+
+            var len=$('#attrList > tbody > tr').length;
+            console.log(len);
+
+            $('#attrList > tbody').on("click", ".mdc-data-table__cell", function(e){
+
+              $curr=$(this).closest("td");
+              var index=$(this).closest("tr").index();
+              var currentRow=$(this).closest("tr"); 
+
+              //var indx=Number(index);
+              var attrKey=currentRow.find("td:eq(0)").text();
+              var attrVal=currentRow.find("td:eq(1)").text();
+              var attrSts=currentRow.find("td:eq(2)").text();
+              //$(this).closest('tr').find('td:eq(1)').text();
+              //#attrList > tbody > tr:nth-child(2) > td:nth-child(2)
+              //alert(`${index}-${attr}`);
+
+              $('#attrKey').val(attrKey).trigger('change');
+              $('#attrValue').val(attrVal);
+              $('#attrStatus').val(attrSts).trigger('change');
+
+            
+            });
+
+            var counter = 0;
+            //ADD TABLE ROW
+            $('#btnAttrSave').on('click', function(e){
+
+                e.preventDefault();
+
+                var attrKeyV=$('#attrKey').val();
+                var attrKeyT=$('#attrKey option:selected').text();
+
+                var attrValue=$('#attrValue').val();
+
+                var attrStatusV=$('#attrStatus').val();
+                var attrStatusT=$('#attrStatus option:selected').text();
+                
+
+                counter = $('#attrList > tbody > tr').length - 0;
+                var newRow = $("<tr class=\"mdc-data-table__row\">");
+                var cols = "";
+
+                //cols += '<td><select id="itemid' + counter + '" name="item[]' + counter + '" required>' +productOption+ '</select></td>';
+                var selid="itemid"+counter;
+                
+                cols += `<td class="mdc-data-table__cell">${attrKeyT}</td>`;
+                cols += `<td class="mdc-data-table__cell">${attrValue}</td>`;
+                cols += `<td class="mdc-data-table__cell">${attrStatusT}</td>`;
+                
+                //cols += `<td><div class="mdc-text-field mdc-text-field--no-label"><input type="text" name="stock_info" class="mdc-text-field__input" placeholder="stock info"><div class="mdc-line-ripple"></div></div></td>`;
+
+
+                cols += `<td class="mdc-data-table__cell"><button data-id="#" class="mdc-icon-button material-icons">delete</button></td>`;
+                
+
+                newRow.append(cols);
+                $("#attrList > tbody").append(newRow);
+                //$('.selectProduct').select2({placeholder: 'Select a Product', allowClear:true, width: '200px'});
+                //const txtFieldElnt = [].slice.call(document.querySelectorAll('.mdc-text-field'));
+                //txtFieldElnt.forEach((txtFieldElmnt) => {
+                    //mdc.textField.MDCTextField.attachTo(txtFieldElmnt);
+                //});
+                counter++;
+
+            });
+
+            //DELETE table row
+            $("#attrList > tbody").on('click', ".mdc-icon-button", function(e){
+
+                e.preventDefault();
+                //console.log(cAray);
+                var btnName=$(this).text().trim();
+                //alert(btnName);
+                if(btnName=="delete"){
+                    //var index=$(this).closest("tr").index();
+                    //console.log(btnName+'>'+index);
+                    var cnt = $('#attrList > tbody > tr').length - 0;
+                    //alert(cnt);
+                    if(cnt>1){
+                        $(this).closest("tr").remove();
+                    }
+                }
+                //calculateAmount();
+            });
+
+            $("#btnPanelOpen, #btnPanelClose").on('click', function(e){
+            
+                var btnName=$(this).text().trim();
+                //alert(btnName);
+                if (btnName=="tune"){
+                    $('.component-demo').toggleClass("component-demo--open");
+
+                }else if(btnName=="close"){
+                    $('.component-demo').toggleClass("component-demo--open");
+
+                }else{
+                
+                }
+                return false;
+            });
+
+            $('#btnSave').on("click", function(e){
+            
+                alert();
+                lProgress.open();
+                lProgress.progress=1;
+                lProgress.determinate=false;
+
+                snackbar.timeoutMs=10000;
+                snackbar.labelText="Member registration successful, check the welcome email/sms for the password.";
+                snackbar.actionButtonText="OKAY";
+                snackbar.open();
+
+                return false;
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+

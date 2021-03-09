@@ -1,0 +1,269 @@
+{{define "title"}}{{.Title}}{{end}}
+
+{{define "style"}}
+
+  <style>
+
+    .mytable td { 
+        border:0px solid black; 
+        padding:10px     
+    } 
+
+    .mdc-data-table{
+        width: 100%;
+    }
+
+    .mdc-data-table__content td{
+           
+    }
+
+    .mdc-text-field{
+        width:25rem;
+    }
+    .demo-width-class{
+        width:25rem;
+    }
+
+    .topWrapper {
+        display: flex;
+        border-bottom: 1px solid #e0e0e0;
+        justify-content: space-between;
+    }
+
+    .topTitle{
+        flex:1;
+        text-align:left;
+        padding-bottom: 1em;
+    }
+
+    .filter_area{
+         flex: 1 1 55%;
+         padding: 1em;
+    }
+
+    .topAction{
+        /*flex: 0 0 45%;*/
+        flex:1;
+        text-align:right;
+        padding-bottom: 1em;
+    }
+
+    .mdc-menu-surface--anchor>a{
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+
+    .CodeMirror {
+        
+        height: 500px;
+        color: black;
+        direction: ltr;
+    }
+  </style>
+
+{{end}}
+
+{{define "link"}}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="resources/css/material-components-web.min.css">
+    <link rel="stylesheet" href="resources/css/top_footer.css">
+
+  
+    <link rel="stylesheet" href="resources/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="resources/codemirror/addon/fold/foldgutter.css" />
+    <link rel="stylesheet" href="resources/codemirror/addon/hint/show-hint.css">
+
+{{end}}
+
+{{define "content"}}
+    
+
+    <section id="dlist">
+
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+               <div class="mdc-layout-grid__cell--span-12">
+
+                    <div class="topWrapper">
+
+                      <div class="topTitle">
+                         {{$cPage := removeExt .CurrentPage}}
+                         Page : {{$cPage}}
+                      </div>
+
+                      <div class="topAction">
+
+                         <a href="/webpages" class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">arrow_back</i>
+                            <span class="mdc-button__label">Back</span>
+                         </a>
+
+                         <button id="btnSave" data-page="{{$cPage}}" class="mdc-button mdc-button--outlined">
+                            <div class="mdc-button__ripple"></div>
+                            <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
+                            <span class="mdc-button__label">Save</span>
+                         </button>
+
+                      </div>
+                    </div>
+
+                    <div id="codes">
+                        <textarea id="code" name="code">{{.PageData}}</textarea>
+                    </div>
+
+               </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="mdc-snackbar">
+        <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label"
+                role="status"
+                aria-live="polite">
+                This item already has the label "travel". You can add a new label.
+            </div>
+            <div class="mdc-snackbar__actions">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Retry</span>
+            </button>
+            <button class="mdc-icon-button mdc-snackbar__dismiss material-icons" title="Dismiss">close</button>
+            </div>
+        </div>
+    </div>
+
+{{end}}
+
+
+{{define "footer_script"}}
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="resources/js/jquery-3.4.1.min.js"></script>
+
+
+
+  <script src="resources/codemirror/lib/codemirror.js"></script>
+
+  <script src="resources/codemirror/addon/fold/foldcode.js"></script>
+  <script src="resources/codemirror/addon/fold/foldgutter.js"></script>
+  <script src="resources/codemirror/addon/fold/brace-fold.js"></script>
+  <script src="resources/codemirror/addon/fold/xml-fold.js"></script>
+  <script src="resources/codemirror/addon/fold/indent-fold.js"></script>
+  <script src="resources/codemirror/addon/fold/markdown-fold.js"></script>
+  <script src="resources/codemirror/addon/fold/comment-fold.js"></script>
+  
+  <script src="resources/codemirror/addon/edit/matchtags.js"></script>
+
+  <script src="resources/codemirror/addon/selection/active-line.js"></script>
+  <script src="resources/codemirror/addon/hint/show-hint.js"></script>
+  <script src="resources/codemirror/addon/hint/xml-hint.js"></script>
+  <script src="resources/codemirror/addon/hint/html-hint.js"></script>
+  <script src="resources/codemirror/mode/xml/xml.js"></script>
+  <script src="resources/codemirror/mode/javascript/javascript.js"></script>
+  <script src="resources/codemirror/mode/css/css.js"></script>
+  <script src="resources/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+
+    <script>
+
+        //console.log(mdc);
+        //const snackbar = new mdc.snackbar.MDCSnackbar.attachTo(document.querySelector('.mdc-snackbar'));
+
+        var snackbarClass=document.querySelector('.mdc-snackbar');
+        const snackbar = mdc.snackbar.MDCSnackbar.attachTo(snackbarClass);
+
+        $(document).ready(function() {
+
+
+            var codeSelector=document.getElementById("code");
+
+            var editor = CodeMirror.fromTextArea(codeSelector, {
+                mode: "text/html",
+                matchTags: {bothTags: true},
+                //extraKeys: {"Ctrl-J": "toMatchingTag"}
+                styleActiveLine: true,
+                lineNumbers: true,
+                lineWrapping: true,
+                extraKeys: {"Ctrl-Q": function(cm){ cm.foldCode(cm.getCursor()); }},
+                foldGutter: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                //value: '<html><body>test</body></html>'
+            });
+            //document.documentElement.innerHTML
+
+            //editor.foldCode(CodeMirror.Pos(0, 1));
+            
+            //var obj ={};
+            var cAray =[];
+
+           
+
+            $("#btnSave").on('click', function(e){
+
+                //console.log('mdc-icon-button');
+                //var btnName=$(this).text().trim();
+                //console.log(btnName);
+                 //var keyval=$(this).attr("data-id");   
+                 //alert(keyval);
+                 var code=$("#code").val();
+                 var pageID=$(this).attr('data-page');
+                 //var code = document.getElementById("code"); //innerHTML
+                 //console.log(code);
+                 var btnName="Save";
+
+                 //var currentValue = CodeMirror.getValue();
+                 //CodeMirror.signal("change", name, );
+                 //console.log(editor.getValue("\n"));
+
+                if (btnName=="Save"){
+
+                    //console.log('update');
+                    //$('#dform').find('input[name="todo"]').val('update');
+
+                    
+                    //console.log(code);  
+                    
+                    $.ajax({
+                        async: true,
+                        type: "POST",
+                        dataType: "json",
+                        url: "/editpage",
+                        data: {"page": pageID, "code": editor.getDoc().getValue("\n")},
+                        success: function(){
+                        },
+                        error: function(){
+                        }
+
+                    }).done(function(dres){
+
+                
+                        //$('#my-dialog-content > table').find('input[name="id"]').val(dres[0].aid);
+                        //console.log(dres);
+                        snackbar.timeoutMs=5000;
+                        snackbar.labelText=dres.message;
+                        snackbar.actionButtonText="OKAY";
+                        snackbar.open();
+                        
+                    });
+
+                }//
+
+            });
+
+            
+        });
+
+
+    </script>
+
+{{end}}
+
