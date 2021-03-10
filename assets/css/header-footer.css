@@ -23,6 +23,7 @@ input[type="button"],
 }
 a
 {
+    cursor: pointer !important;
     text-decoration: none;
 }
 a.btn
@@ -33,6 +34,7 @@ a.btn
     background-color: white;
     border-radius: 5px;
     transition: 0.3s;
+    cursor: pointer !important;
 }
 a.btn:hover
 {
@@ -169,7 +171,10 @@ footer .contact p:last-child
 {
     background-color: red !important;
     box-shadow: none !important;
-    
+    padding: 16px 0 !important;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
 }
 .modal .part-one
 {
@@ -286,6 +291,7 @@ footer .contact p:last-child
 
 .modal-bg a
 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-transform: none;
     font-weight: 700;
     font-size: 14px;
@@ -561,8 +567,11 @@ header .part-two .btn-container
     .my-nav .btn-login
     {
         position: absolute;
-        bottom: 3em;
-        left: 41%;
+        /* bottom: 3em;
+        left: 41%; */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         font-family: "archivo black", sans-serif !important;
         letter-spacing: 0.05em;
         padding: 13px 66px;
@@ -705,16 +714,16 @@ header .part-two .btn-container
     {
         width: clamp(275px, 60vw, 60vw);
     }
-    .my-nav .btn-login
+    /* .my-nav .btn-login
     {
         left: 35vw;
-    }
+    } */
 
 }
 @media only screen and (max-width: 400px)
 {
-    .my-nav .btn-login
+    /* .my-nav .btn-login
     {
         left: 25vw;
-    }
+    } */
 }
