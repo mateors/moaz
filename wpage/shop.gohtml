@@ -116,7 +116,8 @@
         background-color: rgba(219, 219, 219, 0.2);
         padding: 10px 2vw;
         display: block;
-        width: clamp(95px, 12vw, 12vw);
+        width: clamp(110px, 12vw, 12vw);
+        
         margin: 16px auto 28px auto;
         transition: 0.3s;
     }
@@ -152,23 +153,107 @@
         font-size: 16px;
         font-weight: 500;
     }
-
-.two .count {
-    padding: 3px 5px;
-    border-radius: 50px;
-    background-color: white;
-    color: black;
-    font-size: 14px;
-    margin-left: -15px;
-    margin-top: 22px;
-    position: absolute;
-    font-family: nova;
-    min-width: 1.7em;
-    height: 1.7em;
-    text-align: center;
-}
+    .part-icon svg
+    {
+        margin-bottom: 5px;
+    }
+    .two .count 
+    {
+        padding: 3px 5px;
+        border-radius: 50px;
+        background-color: white;
+        color: black;
+        font-size: 14px;
+        margin-left: -15px;
+        margin-top: 22px;
+        position: absolute;
+        font-family: nova;
+        min-width: 1.7em;
+        height: 1.7em;
+        text-align: center;
+    }
 </style>
 
+<!-- responsive -->
+<style>
+    /* responsive  for tab */
+    @media only screen and (max-width: 1025px) and (min-width: 760px)
+    {
+        .one
+        {
+            height: 50vw;
+            padding: 32px;
+        }
+        .one img
+        {
+            width: 80%;
+        }
+        section.two 
+        {
+            padding: clamp(60px, 7.5vw, 7.5vw);
+        }
+        .two .card-container
+        {
+            grid-template-columns: 1fr 1fr;
+        }
+        .two .part-icon
+        {
+            width: 45%;
+            margin: 0px auto;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            text-align: center;
+        }
+    }
+    /* responsive  for mobile */
+    @media only screen and (max-width: 750px)
+    {
+        .one
+        {
+            height: 60vw;
+            padding: 32px;
+        }
+        .one p
+        {
+            padding-top: 17vw;
+        }
+        .one img
+        {
+            width: 80%;
+        }
+        section.two 
+        {
+            padding: clamp(18px, 7.5vw, 7.5vw);
+        }
+        .two .card-container
+        {
+            grid-template-columns: 1fr;
+        }
+        .two .card .buy-now
+        {
+            width: 35vw;
+        }
+        .two .part-icon
+        {
+            width: 90%;
+            margin: 0px auto;
+            padding: 40px 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+            text-align: center;
+        }
+    }
+    @media only screen and (max-width: 290px)
+    {
+        .two .part-icon
+        {
+            padding: 40px 0;
+        }
+        
+    }
+</style>
 {{end}}
 
      <!--<div class="container">-->
