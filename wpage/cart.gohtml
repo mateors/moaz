@@ -4,103 +4,7 @@
 
 {{block "style" .}}
 
-    <style>
-        @keyframes bounce-x {
-            0% {
-                transform: translate3d(0, 0, 0)
-            }
-
-            10% {
-                transform: translate3d(-6px, 0, 0)
-            }
-
-            20% {
-                transform: translate3d(12px, 0, 0)
-            }
-
-            29% {
-                transform: translate3d(-12px, 0, 0)
-            }
-
-            38% {
-                transform: translate3d(11px, 0, 0)
-            }
-
-            47% {
-                transform: translate3d(-9px, 0, 0)
-            }
-
-            56% {
-                transform: translate3d(7px, 0, 0)
-            }
-
-            65% {
-                transform: translate3d(-5px, 0, 0)
-            }
-
-            74% {
-                transform: translate3d(3px, 0, 0)
-            }
-
-            83% {
-                transform: translate3d(-1px, 0, 0)
-            }
-
-            92% {
-                transform: translate3d(1px, 0, 0)
-            }
-
-            100% {
-                transform: translate3d(0, 0, 0)
-            }
-        }
-        .ec-size .ec-store .form-control--bounce .form-control__button-text,.ec-size .ec-store .form-control--bounce .form-control__button-svg {
-            display: inline-block;
-            position: relative;
-            animation: bounce-x .8s ease forwards 0s
-        }
-
-        .form-control__loader {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0;
-            background-size: 40px 40px;
-            transition: opacity .2s linear .3s;
-            animation: progress-bar-stripes .5s linear infinite;
-            background-image: linear-gradient(
-            45deg
-            , rgba(18,18,18,0.06) 25%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 50%, rgba(18,18,18,0.06) 50%, rgba(18,18,18,0.06) 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06));
-        }
-        .ec-size .ec-store .form-control--button .form-control__loader {
-            transition: opacity .2s linear 0s;
-        }
-
-        .ec-size .ec-store .form-control {
-            border: none;
-            border-radius: 3px;
-            background-color: #121212;
-            color: #999;
-            font-size: inherit;
-            line-height: normal;
-            transition: background-color .15s ease-out 0s;
-        }
-
-         .btn-cancel{
-            color:yellow;
-            cursor: pointer;
-        }
-
-        .btn-cancel:hover{
-            color:red;
-            cursor: pointer;
-        }
-          
-            
-        
-    </style>
+    
 
     <style>
         @font-face
@@ -283,7 +187,7 @@
         }
         .cards-wrapper .product-detail p
         {   
-            padding: 3px 0px;
+            padding: 5px 0px;
         }
         .product-detail>span
         {
@@ -342,14 +246,14 @@
         {
             margin: 15px 0px;
         }
-        .cart-describe .continue a
-        {
-            color: rgba(255, 255, 255, 0.8);
-            transition: 0.2s;
-        }
-        .cart-describe .continue a:hover
+        .cart-describe p a
         {
             color: rgba(255, 255, 255, 1);
+            transition: 0.2s;
+        }
+        .cart-describe p a:hover
+        {
+            color: rgba(255, 255, 255, 0.9);
 
         }
         .payment input[type="text"]
@@ -743,7 +647,7 @@
                     
                     <div class="cart-describe">
                         <h1>Shopping cart</h1>
-                        <p><a href="/shop">Store</a> &nbsp;/ &nbsp;Shopping cart</p>
+                        <p><a href="/shop">Store</a> &nbsp;/ &nbsp;<a href="">Shopping cart</a></p>
 
                         {{range $i, $rMap := .ShoppingList}}
                          {{$itemImage := index $rMap "item_image"}}
@@ -809,7 +713,7 @@
                             used to send you order status updates.
                         </p>
                         <input id="myInput" type="text" name="email" placeholder="Your email address">
-                        <p class="err-email-msg">Please enter your email<p>
+                        <p class="err-email-msg">Please enter your email</p>
                         
                         <label class="checkbox-container" for="terms">I agree with <span class="terms-modal">Terms & Conditions</span>
                             <input type="checkbox" name="terms" id="terms">
@@ -824,7 +728,7 @@
                         <div class="checkout form-control form-control--bounce">
                             <!--<input type="button" value="Checkout">-->
                             <button class="form-control__button" type="button">
-                                <div class="form-control__loader"></div>
+                                
                                 <span class="form-control__button-text">Checkout</span>
                             </button>
 

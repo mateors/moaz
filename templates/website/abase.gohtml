@@ -145,22 +145,24 @@
     <style>
         section.one
         {
-            margin-top: 65px;
+            /* margin-top: 65px; */
             background-image: url(./resources/images/bag-n-brand.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            height: 43.4rem;
+            height: 100vh !important;
+            /* padding: 5em; */
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            /* grid-template-columns: 1fr 1fr;
             grid-template-rows: 2.5fr 1fr;
             grid-template-areas: 
             "text text"
-            "btnone btntwo";
+            "btnone btntwo"; */
         }
         .one .block-text
         {
-            grid-area: text;
+            /* grid-area: text; */
+            margin-top: 6em;
             justify-self: center;
             align-self: center;
         }
@@ -170,11 +172,29 @@
             font-size: 132px;
             margin: 0px;
             font-weight: 600;
-            letter-spacing: -0.09em;
+            letter-spacing: -0.1em;
+            line-height: 1em;
+            text-align: center;
         }
-        .one .btn-area
+        .one .btn-part
         {
             justify-self: center;
+            width: 60vw;
+            margin-top: 50px;
+            /* margin: 0 auto; */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* justify-items: center; */
+        }
+        .one .btn-area.area1 
+        {
+            justify-self: left;
+            margin-left: -40px;
+        }
+        .one .btn-area.area2 
+        {
+            justify-self: right;
+            margin-right: 30px;
         }
         .one .btn-area a
         {
@@ -182,10 +202,7 @@
             font-weight: 400;
             font-size: 22px;
         }
-        .one a.btn-hero-one
-        {
-            margin-left: 4em;
-        }
+        
         .two
         {
             height: 90vh;
@@ -292,6 +309,17 @@
             background-size: cover;
             background-position: center;
             height: auto;
+        }
+        .ten .overlay
+        {
+            background-color: rgba(0, 0, 0, 0.7);
+            height: auto;
+            
+            padding: 5em 7em 7em 7em;
+            
+        }
+        .ten .grid-content
+        {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 2em;
@@ -299,7 +327,8 @@
         }
         .ten .part-one
         {
-            padding: 7em;
+            align-self: center;
+        /* padding: 7em; */
         }
         .ten .part-one p
         {
@@ -308,10 +337,10 @@
         .ten .part-one h1
         {
             font-family: "Archivo black", sans-serif;
-            font-size: 100px;
+            font-size: 86px;
             letter-spacing: -0.08em;
             line-height: 95px;
-            margin: 80px 0px;
+            margin: 60px 0px;
             
         }
         .ten .part-one a
@@ -321,24 +350,29 @@
         }
         .ten .part-two 
         {
+            height: 580px;
+            width: 580px;
             background-image: url(./resources/images/bag-n-brand2.png);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            margin: 5em 7em;
+            /* margin: 5em 7em; */
         }
         .eleven
         {
             height: 90vh;
-            display: grid;
-            align-content: center;
+            
+            background-image: url(./resources/images/bag-n-brand1.png);
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
             
         }
-        .eleven .block-text h1
+        /* .eleven .block-text h1
         {
             font-family: "heebo", sans-serif;
             font-size: 76px;
-        }
+        } */
         .twelve
         {
             height: 90vh;
@@ -412,22 +446,39 @@
 
     </style>
 
-    <!-- responsiver part header & footer-->
+    
 
     <!-- responsive for tab -->
     <style>
         @media only screen and (max-width: 1025px) and (min-width: 760px)
         {
-            .one .block-text h1 
+            
+            .one
             {
-                font-size: 9vw;
+                padding: 15vh 0;
+            }
+            .one .block-text h1
+            {
+                padding: 0 15vw;
+                text-align: center;
+            }
+            .one .btn-part
+            {
+                width:90vw;
+                text-align: center;
+                
                 
             }
-            .one .btn-area a
+            .btn-part .btn-area.area1
             {
-                font-size: 2vw;
+                margin: 0;
+                margin-left: clamp(0vw, 7vw, 7vw);
             }
-
+            .btn-part .btn-area.area2
+            {
+                margin: 0;
+                margin-right: clamp(0vw, 7vw, 7vw);
+            }
             .two .block-text p
             {
                 font-size: 2vw;
@@ -450,27 +501,54 @@
             {
                 font-size: 2.6vw;
             }
+            .ten,
+            .ten .overlay
+            {
+                height: auto;
+            }
+            .ten .overlay
+            {
+                padding: 3em 5em;
+                
+                margin: 0;
+                
+            }
+            section.ten .grid-content
+            {
+                display: grid;
+                /* grid-template-columns: auto; */
+                /* grid-template-rows: 1fr 1fr; */
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: 
+                "area1 area2";
+            }
             .ten .part-one
             {
-                padding: 8vw;
+                grid-area: area1;
+                padding: 2em 0;
             }
             .ten .part-one p 
             {
-                font-size: 1.6vw;
+                font-size: clamp(14px, 1.6vw, 1.6vw);
             }
             .ten .part-one h1
             {
-                font-size: 7vw;
-                margin: 6vw 0;
-                line-height: 7vw;
+                font-size: clamp(36px, 7vw, 7vw);
+                margin: 1em 0;
+                line-height: 1em;
             }
             .ten .part-one a
             {
-                font-size: 1.7vw;
+                font-size: clamp(14px, 1.6vw, 1.6vw);
+                margin-top: 3em;
             }
             .ten .part-two 
             {
-                margin: 5vw 7vw;
+
+                grid-area: area2;
+                height: auto;
+                width: auto;
+                /* margin: 0 8vw; */
             }
             .twelve .block-text h1
             {
@@ -499,6 +577,23 @@
         }
             
     </style>
+    <style>
+        @media only screen and (max-width: 875px)
+        {
+            .btn-part .btn-area.area1
+            {
+                margin: 0;
+                text-align: right;
+                margin-left: 2vw;
+            }
+            .btn-part .btn-area.area2
+            {
+                margin: 0;
+                text-align: left;
+                margin-right: 2vw;
+            }
+        }
+    </style>
     <!-- responsive for mobile -->
 
     <style>
@@ -506,37 +601,38 @@
         {
             section.one 
             {
-                height: 32em;
+                padding: 10vh 0;
                 display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 0.7fr 0.7fr;
-                grid-template-areas: 
-                "text"
-                "btnone"
-                "btntwo";
+                
             }
-            .one .block-text
-            {
-                align-self: flex-end;
-                justify-self: center;
-            }
+            
             .one .block-text h1 
             {
                 font-size: clamp(56px, 9vw, 9vw);
                 padding: 0 20px;
                 line-height: 1em;
+                text-align: center;
+                padding: 0 20vw;
+            }
+            .one .btn-part
+            {
+                width: 100vw;
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto auto;
+
             }
             .one .btn-area.area1
             {
-                align-self: center;
+                margin: 0;
                 justify-self: center;
-                margin-left: -15vw;
+                text-align: center;
             }
             .one .btn-area.area2
             {
-                align-self: flex-start;
+                margin: 0;
                 justify-self: center;
-                /* margin-left: 2vw; */
+                text-align: center;
             }
             .one .btn-area a
             {
@@ -565,7 +661,19 @@
             {
                 font-size: clamp(20px, 2.6vw, 2.6vw);
             }
-            section.ten 
+            .ten,
+            .ten .overlay
+            {
+                height: auto;
+            }
+            .ten .overlay
+            {
+                padding: 3em 2em;
+                
+                margin: 0;
+                
+            }
+            section.ten .grid-content
             {
                 display: grid;
                 grid-template-columns: auto;
@@ -578,7 +686,7 @@
             .ten .part-one
             {
                 grid-area: area1;
-                padding: 8vw;
+                /* padding: 0 8vw; */
             }
             .ten .part-one p 
             {
@@ -600,7 +708,8 @@
 
                 grid-area: area2;
                 height: 70vw;
-                margin: 5vw 7vw;
+                width: auto;
+                /* margin: 0 8vw; */
             }
             .twelve .block-text h1
             {
@@ -682,6 +791,42 @@
         }
     </style>
 
+    <!-- fade in, slide in -->
+    <style>
+        .fade-in
+        {
+            transform: translateY(5%);
+            opacity: 0; 
+            transition: transform 0.3s ease-in, opacity 0.8s ease-in;
+        }
+        .fade-in.appear
+        {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .from-left
+        {
+            transform: translateX(3%);
+            opacity: 0;
+        }
+        .from-right
+        {
+            transform: translateX(-3%);
+            opacity: 0;
+        }
+        .from-left,
+        .from-right
+        {
+            transition: transform 0.5s ease-in, opacity 0.8s ease-in;
+        }
+        .from-left.appear,
+        .from-right.appear
+        {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
+
 {{end}}
 
 
@@ -724,17 +869,19 @@
         {{block "section" .}}
             <section class="one">
                 <div class="block-text">
-                    <center><h1>DREAM BIGGER</h1></center>
+                    <h1>DREAM BIGGER</h1>
                 </div>
-                <div class="btn-area area1">
-                    <a href="/shop" class="btn btn-hero-one">
-                        SHOP STRANDBRANDS™️
-                    </a>
-                </div>
-                <div class="btn-area area2">
-                    <a href="/service-type" class="btn btn-hero-two">
-                        BUILD A BRAND
-                    </a>
+                <div class="btn-part">
+                    <div class="btn-area area1">
+                        <p><a href="/shop" class="btn btn-hero-one">
+                            SHOP STRANDBRANDS™️
+                        </a></p>
+                    </div>
+                    <div class="btn-area area2">
+                        <p> <a href="/service-type" class="btn btn-hero-two">
+                           BUILD A BRAND
+                        </a></p>
+                    </div>
                 </div>
             </section>
 
@@ -784,25 +931,31 @@
             </section>
 
             <section class="ten">
-                <div class="part-one">
-                    <p>Share your idea for your brand and we will do the rest, It's your time now.</p>
-                    <div class="area-text">
-                        <h1>Build The Brand!</h1>
-                    </div>
-                    <a href="./service.html" class="btn btn-build">
-                        Build A Brand 
-                    </a>
-                </div>
-                <div class="part-two">
-                    <div class="img background-img">
-
+                <div class="overlay">
+                    <div class="grid-content fade-in">
+                        <div class="part-one ">
+                            <p>Share your idea for your brand and we will do the rest, It's your time now.</p>
+                            <div class="area-text">
+                                <h1>Build The Brand!</h1>
+                            </div>
+                            <a href="./service.html" class="btn btn-build">
+                                Build A Brand 
+                            </a>
+                        </div>
+                        <div class="part-two">
+                            <div class="img background-img">
+            
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="eleven">
-                <div class="block-text">
-                    <center><h1>Klarna.</h1></center>
+            <section class="eleven slide-in from-right">
+                <div class="block-text ">
+                    
+                    <!-- <img src="./resources/images/bag-n-brand1.png" alt="Klarna" width="90%" height="90%" style="object-fit: contain;"> -->
+
                 </div>
             </section>
 
@@ -815,14 +968,15 @@
 
             <section class="thirteen">
                 <div class="part-one">
-                    <div class="block-text">
+                    <div class="block-text slide-in from-left">
                         <h1>Our customers print faster than ever because of Klarna!</h1>
                         <p>Bag-N-Brand is offering a 9 day free trial for custom memberships. <span>Start today,print tomorrow, and your membership is free.</span></p>
                     </div>
 
                 </div>
-                <div class="part-two">
-                    <h1>Klarna.</h1>
+                <div class="part-two slide-in from-right">
+                    <!-- <h1>Klarna.</h1> -->
+                    <img src="./resources/images/bag-n-brand1.png" alt="Klarna" width="100%" height="100%">
                 </div>
             </section>
         {{end}}
@@ -1044,6 +1198,34 @@
     {{block "script" .}}
      <script src="resources/js/jquery-3.4.1.min.js"></script>
      <script src="resources/js/utility.js"></script>
+
+     <!-- intersection Observer -->
+    <script>
+        var faders = document.querySelectorAll(".fade-in");
+        var slideIn = document.querySelectorAll(".slide-in");
+        var appearOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -250px 0px"
+        };
+        var appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+            entries.forEach(entry => {
+                if(!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add("appear");
+                    appearOnScroll.unobserve(entry.target);
+                }
+            })
+        },appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        slideIn.forEach(slideIn => {
+            appearOnScroll.observe(slideIn);
+        })
+    </script>
      <script>
 
      $(document).ready(function() {
