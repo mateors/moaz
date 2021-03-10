@@ -574,12 +574,15 @@ header .part-two .btn-container
         transform: translate(-50%, -50%);
         font-family: "archivo black", sans-serif !important;
         letter-spacing: 0.05em;
-        padding: 13px 66px;
+        /* padding: 13px 66px; */
+        width: clamp(150px, 30vw, 280px);
         background-color: rgba(255, 255, 255, 1);
         border-radius: 6px;
+        
     }
     .my-nav .btn-login p
     {
+        
         font-family: "archivo black", sans-serif !important;
         text-align: center;
     }
@@ -713,6 +716,16 @@ header .part-two .btn-container
     .second-modal
     {
         width: clamp(275px, 60vw, 60vw);
+    }
+    .modal .part-two
+    {
+        padding-left: clamp(15px, 12vw, 25px);
+        padding-right: clamp(15px, 12vw, 25px);
+    }
+    .second-modal
+    {
+        padding-left: clamp(15px, 10vw, 25px);
+        padding-right: clamp(15px, 10vw, 25px);
     }
     /* .my-nav .btn-login
     {
