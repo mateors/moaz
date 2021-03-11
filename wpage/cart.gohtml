@@ -15,7 +15,7 @@
         p
         {
             font-family: nova;
-            /* letter-spacing: 0.03em; */
+           
         }
         button,
         input[type="submit"],
@@ -163,6 +163,38 @@
         {
             grid-area: three;
         }
+
+
+        .cards-wrapper .product-short
+        {
+            margin: 20px 0px;
+            display:grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto;
+            grid-gap: 1em;
+        }
+        .cards-wrapper .product-short .last-img
+        {
+            position: relative;
+        }
+        .product-short .last-img .overlay
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .product-short .last-img .center-text
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: nova;
+            font-size: 16px;
+        }
         .cards-wrapper .product
         {
             margin: 20px 0px;
@@ -170,6 +202,7 @@
             grid-template-columns: 90px auto 60px;
             grid-gap: 1em;
         }
+        .cards-wrapper .product-img,
         .cards-wrapper .product_image-wrap
         {
             width: 80px;
@@ -178,12 +211,20 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100%;
+            overflow: hidden;
         }
+        .cards-wrapper .product-img img,
         .cards-wrapper .product_image-wrap img
         {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: 0.5s;
+        }
+        .cards-wrapper .product-img img:hover
+        {
+            transform: scale(1.1);
+            
         }
         .cards-wrapper .product-detail p
         {   
@@ -222,6 +263,7 @@
             float: right;
             padding: 5px;
             padding-left: 7px;
+            margin-left: 10px;
             color: rgba(255, 255, 255, 0.6);
         }
         .cards-wrapper .product-price a.btn-cancel:hover
@@ -468,7 +510,7 @@
         {
             margin-bottom: 16px;
         }
-        .modal-terms .content-link span
+        .modal-terms .content-link button
         {
             font-size: 14px;        
             padding-right: 1em;
@@ -516,7 +558,7 @@
             border: none;
             outline: none;
             padding: 8px 12px;
-            width: 6vw;
+            width: 100px;
             border-radius: 3px;
             margin-left: 5px;
 
@@ -531,9 +573,18 @@
         {
             background-color: rgba(255, 255, 255, 0.3);
         }
-        .content-wrapper div
+        .content-wrapper .ec-page-body
         {
             margin-bottom: 2.5em;
+        }
+        .modal-terms .content-link button
+        {
+            cursor: pointer;
+            background-color: black;
+            padding: 10px 24px 10px 0px;
+            color: white;
+            font-family: nova;
+            font-size: 14px;
         }
     </style>
     <!-- custom checkbox -->
@@ -611,6 +662,329 @@
         transform: rotate(45deg);
     }
     </style>
+
+    <!-- responsive -->
+    <style>
+        /* responsive  for tab */
+        @media only screen and (max-width: 1025px) and (min-width: 760px)
+        {
+            .one
+            {
+                height: 50vw;
+                padding: 32px;
+            }
+            .one img
+            {
+                width: 80%;
+            }
+            section.two 
+            {
+                padding: clamp(60px, 7.5vw, 7.5vw);
+            }
+            /* .two .card-container
+            {
+                grid-template-columns: 1fr 1fr;
+            } */
+
+            .two .cards-wrapper
+            {
+                grid-template-columns: 1.3fr 2fr;
+               
+            }
+            .two .cards-wrapper p,
+            .two .cards-wrapper label
+            {
+                font-size: 14px;
+            }
+            .two .cards-wrapper h1 
+            {
+                font-size: 28px;
+            }
+            .cards-wrapper .product
+            {
+                grid-template-columns: 55px auto 50px;
+                grid-gap: 0.8em;
+            }
+            .cards-wrapper .product-img
+            {
+                width: 55px;
+                height: 40px;
+            }
+            .product .product-detail p
+            {
+                padding: 2px 0;
+            }
+            .cards-wrapper .product-price a.btn-cancel
+            {
+                padding: 2px 2px 2px 5px;
+            }
+            .cards-wrapper .total-price span,
+            .payment p.next-step
+            {
+                font-size: 18px !important;
+            }
+            .payment #myInput
+            {
+                padding: 6px 8px;
+            }
+            .payment .encrypted
+            {
+                display: block;
+            }
+            .payment .encrypted svg,
+            .payment .paypal-check-btn,
+            .payment .paypal-credit-btn
+            {
+                display: none;
+            }
+            .payment .encrypted p
+            {
+                font-size: 11px;
+                padding-right: 10px;
+            }
+            
+            
+            .two .part-icon
+            {
+                width: 45%;
+                margin: 0px auto;
+                padding: 40px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                text-align: center;
+            }
+
+
+        }
+        @media only screen and (max-width: 1000px) and (min-width: 760px)
+        {
+            .two .cards-wrapper
+            {
+                grid-template-columns: 1fr 1fr;
+               
+            }
+            .cards-wrapper .product
+            {
+                grid-template-columns: auto auto;
+                grid-gap: 0.8em;
+            }
+            .cards-wrapper .product-img
+            {
+                display: none;
+            }
+            .payment .checkout.form-control.form-control--bounce
+            {
+                display: block;
+                margin: 15px 0;
+            }
+            .payment .form-control__button
+            {
+                width: 100%;
+            }
+            .payment .encrypted p
+            {
+                display: none;
+            }
+            .two .part-icon
+            {
+                width: 55%;
+            }
+        }
+        /* responsive  for mobile */
+        @media only screen and (max-width: 750px)
+        {
+            .one
+            {
+                height: 60vw;
+                padding: 32px;
+            }
+            .one p
+            {
+                padding-top: 17vw;
+            }
+            .one img
+            {
+                width: 80%;
+            }
+            section.two 
+            {
+                padding: clamp(18px, 7.5vw, 7.5vw);
+            }
+            /* .two .card-container
+            {
+                grid-template-columns: 1fr;
+            }
+            .two .card .buy-now
+            {
+                width: 35vw;
+            } */
+
+            .two .cards-wrapper
+            {
+                /* grid-template-columns: unset;
+                grid-template-rows: unset;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto; */
+                grid-template-areas: 
+                "describe describe"
+                "payment payment"
+                "icon icon";
+                /* display: ; */
+                grid-gap: 0;
+            }
+            .cards-wrapper .cart-describe
+            {
+                grid-area: describe;
+            }
+            .cards-wrapper .payment
+            {
+                grid-area: payment;
+            }
+            .cards-wrapper .part-icon
+            {
+                grid-area: icon;
+            }
+            .cart-describe .promo,
+            .cart-describe .continue
+            {
+                display: none;
+            }
+            .payment h1
+            {
+                display: none;
+            }
+            .two .cards-wrapper p,
+            .two .cards-wrapper label
+            {
+                font-size: 16px;
+            }
+            .two .cards-wrapper h1 
+            {
+                font-size: 28px;
+            }
+            .cards-wrapper .product
+            {
+                grid-template-columns: 55px auto 50px;
+                grid-gap: 0.5em;
+            }
+            .cards-wrapper .product-img
+            {
+                width: 55px;
+                height: 40px;
+            }
+            .product .product-detail p
+            {
+                padding: 2px 0;
+            }
+            .cards-wrapper .product-price a.btn-cancel
+            {
+                padding: 2px 2px 2px 5px;
+            }
+            .cards-wrapper .total-price span,
+            .payment p.next-step
+            {
+                font-size: 18px !important;
+            }
+            .payment #myInput
+            {
+                
+                padding: 12px 10px;
+            }
+            
+            .hidden-promo
+            {
+                display: block !important;
+                margin-top: 20px;
+            }
+            .payment .encrypted
+            {
+                display: none;
+            }
+            .payment .encrypted svg,
+            .payment .paypal-check-btn,
+            .payment .paypal-credit-btn
+            {
+                display: none;
+            }
+            .payment .checkout.form-control.form-control--bounce
+            {
+                display: block;
+                margin: 15px 0;
+            }
+            .payment .form-control__button
+            {
+                width: 100%;
+            }
+            .payment .encrypted p
+            {
+                display: none;
+            }
+
+
+            .two .part-icon
+            {
+                width: 90%;
+                margin: 0px auto;
+                padding: 40px 30px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 1em;
+                text-align: center;
+            }
+        }
+        @media only screen and (max-width: 290px)
+        {
+            .two .part-icon
+            {
+                padding: 40px 0;
+            }
+            
+        }
+    </style>
+    <!-- terms modal responsive -->
+    <style>
+        @media only screen and (max-width: 1020px)
+        {
+            .modal-terms
+            {
+                width: 80%;
+
+            }
+            .modal-terms .content-link button
+            {
+                padding: 10px 12px 10px 0px;
+            }
+            .modal-terms .content-btn button 
+            {
+                width: 100px;
+            }
+        }
+        @media only screen and (max-width: 480px)
+        {
+            .modal-terms
+            {
+                width: 100%;
+            }
+            .modal-terms .content-link button
+            {
+                padding: 10px 12px 10px 0px;
+            }
+            .modal-terms .content-btn button 
+            {
+                width: 100%;
+                margin: 3px 0;
+            }
+        }
+        @media only screen and (max-width: 700px)
+        {
+            .terms-modal-bg p, .terms-modal-bg ul,.terms-modal-bg strong,
+            .modal-terms .content-link button,
+            .modal-terms .content-btn button
+            {
+                font-size: 16px;
+            }
+        }
+    </style>
 {{end}}
 
      <!--<div class="container">-->
@@ -657,10 +1031,58 @@
                          {{$quantity := index $rMap "quantity"}}
                          {{$itemID := index $rMap "item_id"}}
                          {{$trxid := index $rMap "trxid"}}
-                        <div class="product">
-                            <div class="product-img product_image-wrap">
-                                <img src="{{$itemImage}}" alt="{{$itemUrl}}">
+                         <div class="product-short-wrapper" style="display: none;">
+                            <div class="product-short" >
+                                <div class="product_image-wrap">
+                                    <img src="./img/bag-n-brand-product/bag-n-brand(13).jpg" alt="">
+                                </div>
+                                <div class="product_image-wrap">
+                                    <img src="./img/bag-n-brand-product/bag-n-brand(13).jpg" alt="">
+                                </div>
+                                <div class="product_image-wrap">
+                                    <img src="./img/bag-n-brand-product/bag-n-brand(13).jpg" alt="">
+                                </div>
+                                <div class="product_image-wrap">
+                                    <img src="./img/bag-n-brand-product/bag-n-brand(13).jpg" alt="">
+                                </div>
+                                <div class="product_image-wrap last-img">
+                                    <img src="./img/bag-n-brand-product/bag-n-brand(13).jpg" alt="">
+                                    <div class="overlay"></div>
+                                    <div class="center-text">+2</div>
+                                </div>
+                                <p class="descript-product"><strong>6 items</strong><svg style="margin-left: 10px;" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M11 4L6 9 1 4" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path></svg></p>
                             </div>
+
+                        </div>
+                        
+                        <div class="product-wrapper" style="display: block;">
+                            <div class="product">
+                                <div class="product-img product_image-wrap">
+                                    <img src="{{$itemImage}}" alt="{{$itemUrl}}">
+                                </div>
+    
+                                <div class="product-detail">
+                                    <p>{{$itemName}}</p>
+                                    <!-- <p>Qty: 1 <i class="fas fa-chevron-down"></i></p> -->
+                                    <span>Qty :</span>
+                                    <select name="qty" class="qty" data-id="{{$itemID}}" data-trxid="{{$trxid}}">
+                                        {{range $qty := $qtySlc}}
+                                         <option value="{{$qty}}" {{if compare $quantity $qty}}selected{{end}}>{{$qty}}</option>
+                                        {{end}}
+                                    </select>
+                                </div>
+    
+                                <div class="product-price">
+                                    <a class="btn-cancel" data-trxid="{{$trxid}}" data-id="{{$itemID}}">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                            <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                                                <path d="M.5.5l11 11M.5 11.5l11-11"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <p>${{toRound $price}}</p>
+                                </div>
+
 
                             <div class="product-detail">
                                 <p>{{$itemName}}</p>
@@ -682,6 +1104,7 @@
                                     </svg>
                                 </a>
                                 <p>${{toRound $price}}</p>
+
                             </div>
                         </div>
                         {{end}}
@@ -731,7 +1154,10 @@
                                 
                                 <span class="form-control__button-text">Checkout</span>
                             </button>
-
+                            <p class="hidden-promo" style="display: none;">
+                                Have a promo coupon or gift card?<br>
+                                Redeem your code
+                            </p>
                             <div class="encrypted">
                                 <svg width="18" height="23" viewBox="0 0 18 23" xmlns="http://www.w3.org/2000/svg" style="color: rgba(255, 255, 255, 0.5);">
                                     <g fill="currentColor" fill-rule="evenodd">
@@ -745,13 +1171,13 @@
                                 <p>All data is transmitted encrypted via a secure TLS connection</p>
                             </div>
                         </div>
-                        <a href="#"><button class="paypal-check">
+                        <a href="#" class="paypal-check-btn"><button class="paypal-check">
                                 <i class="fab fa-paypal"></i>
                                 <span class="pay" style="color: #0307ff; ">Pay</span ><span class="pal" style="color: #47a3ff;">Pal</span>
                                 <span style="font-style: normal; font-weight: 400; font-size: clamp(12px, 1.1vw, 1.1vw);">Checkout</span> 
                             </button>
                         </a><br>
-                        <a href="#"><button class="paypal-credit">
+                        <a href="#" class="paypal-credit-btn"><button class="paypal-credit">
                                 <i class="fab fa-paypal" style="color: white;"></i>
                                 PayPal CREDIT
                             </button>
@@ -824,11 +1250,11 @@
                         </svg>
                     </p>
                     <div class="content-link">
-                        <span id="aboutus">About Us</span> 
-                        <span id="shippingInfo">Shipping & Payment Info</span>
-                        <span id="returnPolicy">Return Policy</span> 
-                        <span id="termsCond">Terms and Conditions</span>
-                        <span id="privacy">Privacy Policy</span>
+                        <button id="aboutus">About Us</button> 
+                        <button id="shippingInfo">Shipping & Payment Info</button>
+                        <button id="returnPolicy">Return Policy</button> 
+                        <button id="termsCond">Terms and Conditions</button>
+                        <button id="privacy">Privacy Policy</button>
                     </div>
 
 
@@ -846,7 +1272,7 @@
 
                         <div id="returnPolicyText" class="returnpolicy" style="display: none;">
                             <div class="ec-page-title"><h1 class="page-title__name ec-header-h1">Return Policy</h1></div>
-                            <div class="ec-page-body"><div><p>Return &amp; Refund Policy</p><div><p>Updated at 2020-12-22</p></div><p><br><br><br></p><h1>Definitions and key terms</h1><p>To help explain things as clearly as possible in this Return &amp; Refund Policy, every time any of these terms are referenced, are strictly defined as:</p><ul><li>Company: when this policy mentions “Company,” “we,” “us,” or “our,” it refers to BAG-N-BRAND.COM, that is responsible for your information under this Return &amp; Refund Policy.</li><li>Customer: refers to the company, organization or person that signs up to use the BAG-N-BRAND.COM Service to manage the relationships with your consumers or service users.</li><li>Device: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit BAG-N-BRAND.COM and use the services.</li><li>Service: refers to the service provided by BAG-N-BRAND.COM as described in the relative terms (if available) and on this platform.</li><li>Website: BAG-N-BRAND.COM’s site, which can be accessed via this URL: <a href="http://www.bag-n-brand.com/">www.bag-n-brand.com</a></li><li>You: a person or entity that is registered with BAG-N-BRAND.COM to use the Services.</li></ul><h1>Return &amp; Refund Policy</h1><p>Thanks for shopping at BAG-N-BRAND.COM. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you’re exploring, evaluating, and purchasing our products.</p><p>As with any shopping experience, there are terms and conditions that apply to transactions at BAG-N-BRAND.COM. We’ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at BAG-N-BRAND.COM, you agree to the terms set forth below along with BAG-N-BRAND.COM’s Privacy Policy.</p><p>If there’s something wrong with the product/service you bought, or if you are not happy with it, you have 1 month to issue a refund and return your product/service.</p><p>If you would like to return a product, the only way would be if you follow the next guidelines:</p><h1>Refunds</h1><p>We at BAG-N-BRAND.COM commit ourselves to serving our customers with the best products. Every single product that you choose is thoroughly inspected, checked for defects and packaged with utmost care. We do this to ensure that you fall in love with our products.</p><p>Sadly, there are times when we may not have the product(s) that you choose in stock, or may face some issues with our inventory and quality check. In such cases, we may have to cancel your order. You will be intimated about it in advance so that you don't have to worry unnecessarily about your order. If you have purchased via Online payment (not Cash on Delivery), then you will be refunded once our team confirms your request.</p><p>We carry out thorough quality check before processing the ordered item. We take utmost care while packing the product. At the same time we ensure that the packing is good such that the items won’t get damaged during transit. Please note that BAG-N-BRAND.COM is not liable for damages that are caused to the items during transit or transportation.</p><p>We will revise your returned product as soon as we receive it and if it follows the guidelines addressed above, we will proceed to issue a refund of your purchase. Your refund may take a couple of days to process but you will be notified when you receive your money.</p><p><strong>PRINT NOW PAY LATER REFUND OUTLINE</strong></p><div><ul><li><strong>How It Works:</strong></li></ul></div><div><p>* Business clients approved for the program reserve the rights to products &amp; services.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Once approved the client must <span class="complexword" style="background-color: initial;">purchase</span> on credit the Print Now Pay Later Membership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Credit <span class="passivevoice" style="background-color: initial;">is extended</span> via our banking partner.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Member accounts <span class="complexword" style="background-color: initial;">retain</span> staff throughout the lifetime of their partnership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Business request can come 24/7 with agents in both the US &amp; ASIA.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Custom Packaging projects can <span class="passivevoice" style="background-color: initial;">be assembled</span> in hours.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Research &amp; Sourcing projects can <span class="passivevoice" style="background-color: initial;">be activated</span> in a matter of minutes.</p><p style="margin-left: 20px;"><span></span>* Transparency on the cost of services is always at the forefront of our operation. Services conducted without knowledge and approval from the client will not <span class="passivevoice" style="background-color: initial;">be charged</span>. [All service request can <span class="passivevoice" style="background-color: initial;">be confirmed</span> via text, app, email]</p></div><div style="margin-left: 20px;"><div style="margin-left: 20px;">* Clients who don't use the total amount of credit will receive a check for the remaining.<br></div></div><div style="margin-left: 20px;"><div style="margin-left: 20px;">* Clients who wish to refund inventory should email: <strong>finance@bag-n-brand.com | Subject: Account Credit</strong><span></span></div></div><div><div><br></div></div><div><div>- More Questions Contact: <strong>Finance@bag-n-brand.com </strong>for more questions. </div></div><p><br></p><h1>Shipping</h1><p>BAG-N-BRAND.COM is not responsible for return shipping costs. Every shipping has to be paid by the customer, even if the item had free shipping in the first place, the customer has to pay for the shipping in return.</p><h1>Your Consent</h1><p>By using our website/app, registering an account, or making a purchase, you hereby consent to our Return &amp; Refund Policy and agree to its terms.</p><h1>Changes To Our Return &amp; Refund Policy</h1><p>Should we update, amend or make any changes to this document so that they accurately reflect our Service and policies. Unless otherwise required by law, those changes will be prominently posted here. Then, if you continue to use the Service, you will be bound by the updated Return &amp; Refund Policy. If you do not want to agree to this or any updated Return &amp; Refund Policy, you can delete your account.</p><h1>Contact Us</h1><p>If, for any reason, You are not completely satisfied with any good or service that we provide, don't hesitate to contact us and we will discuss any of the issues you are going through with our product.</p><ul><li>Via Email: Legal@bag-n-brand.com</li><li>Via Phone Number: 4405619809</li></ul></div></div>
+                            <div class="ec-page-body"><div><p>Return &amp; Refund Policy</p><div><p>Updated at 2020-12-22</p></div><p><br><br><br></p><h1>Definitions and key terms</h1><p>To help explain things as clearly as possible in this Return &amp; Refund Policy, every time any of these terms are referenced, are strictly defined as:</p><ul><li>Company: when this policy mentions “Company,” “we,” “us,” or “our,” it refers to BAG-N-BRAND.COM, that is responsible for your information under this Return &amp; Refund Policy.</li><li>Customer: refers to the company, organization or person that signs up to use the BAG-N-BRAND.COM Service to manage the relationships with your consumers or service users.</li><li>Device: any internet connected device such as a phone, tablet, computer or any other device that can be used to visit BAG-N-BRAND.COM and use the services.</li><li>Service: refers to the service provided by BAG-N-BRAND.COM as described in the relative terms (if available) and on this platform.</li><li>Website: BAG-N-BRAND.COM’s site, which can be accessed via this URL: <a href="http://www.bag-n-brand.com/">www.bag-n-brand.com</a></li><li>You: a person or entity that is registered with BAG-N-BRAND.COM to use the Services.</li></ul><h1>Return &amp; Refund Policy</h1><p>Thanks for shopping at BAG-N-BRAND.COM. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you’re exploring, evaluating, and purchasing our products.</p><p>As with any shopping experience, there are terms and conditions that apply to transactions at BAG-N-BRAND.COM. We’ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at BAG-N-BRAND.COM, you agree to the terms set forth below along with BAG-N-BRAND.COM’s Privacy Policy.</p><p>If there’s something wrong with the product/service you bought, or if you are not happy with it, you have 1 month to issue a refund and return your product/service.</p><p>If you would like to return a product, the only way would be if you follow the next guidelines:</p><h1>Refunds</h1><p>We at BAG-N-BRAND.COM commit ourselves to serving our customers with the best products. Every single product that you choose is thoroughly inspected, checked for defects and packaged with utmost care. We do this to ensure that you fall in love with our products.</p><p>Sadly, there are times when we may not have the product(s) that you choose in stock, or may face some issues with our inventory and quality check. In such cases, we may have to cancel your order. You will be intimated about it in advance so that you don't have to worry unnecessarily about your order. If you have purchased via Online payment (not Cash on Delivery), then you will be refunded once our team confirms your request.</p><p>We carry out thorough quality check before processing the ordered item. We take utmost care while packing the product. At the same time we ensure that the packing is good such that the items won’t get damaged during transit. Please note that BAG-N-BRAND.COM is not liable for damages that are caused to the items during transit or transportation.</p><p>We will revise your returned product as soon as we receive it and if it follows the guidelines addressed above, we will proceed to issue a refund of your purchase. Your refund may take a couple of days to process but you will be notified when you receive your money.</p><p><strong>PRINT NOW PAY LATER REFUND OUTLINE</strong></p><div><ul><li><strong>How It Works:</strong></li></ul></div><div><p style="margin-bottom: unset;">* Business clients approved for the program reserve the rights to products &amp; services.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px; margin-bottom: unset;">* Once approved the client must <span class="complexword" style="background-color: initial;">purchase</span> on credit the Print Now Pay Later Membership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px; margin-bottom: unset;">* Credit <span class="passivevoice" style="background-color: initial;">is extended</span> via our banking partner.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px; margin-bottom: unset;">* Member accounts <span class="complexword" style="background-color: initial;">retain</span> staff throughout the lifetime of their partnership.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px; margin-bottom: unset;">* Business request can come 24/7 with agents in both the US &amp; ASIA.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px; margin-bottom: unset;">* Custom Packaging projects can <span class="passivevoice" style="background-color: initial;">be assembled</span> in hours.<br></p></div><div style="margin-left: 20px;"><p style="margin-left: 20px;">* Research &amp; Sourcing projects can <span class="passivevoice" style="background-color: initial;">be activated</span> in a matter of minutes.</p><p style="margin-left: 20px; margin-bottom: unset;"><span></span>* Transparency on the cost of services is always at the forefront of our operation. Services conducted without knowledge and approval from the client will not <span class="passivevoice" style="background-color: initial;">be charged</span>. [All service request can <span class="passivevoice" style="background-color: initial;">be confirmed</span> via text, app, email]</p></div><div style="margin-left: 20px;"><div style="margin-left: 20px; margin-bottom: unset; font-size: 14px;">* Clients who don't use the total amount of credit will receive a check for the remaining.<br></div></div><div style="margin-left: 20px;"><div style="margin-left: 20px;  margin-bottom: unset; font-size: 14px;">* Clients who wish to refund inventory should email: <strong>finance@bag-n-brand.com | Subject: Account Credit</strong><span></span></div></div><div><div><br></div></div><div><div>- More Questions Contact: <strong>Finance@bag-n-brand.com </strong>for more questions. </div></div><p><br></p><h1>Shipping</h1><p>BAG-N-BRAND.COM is not responsible for return shipping costs. Every shipping has to be paid by the customer, even if the item had free shipping in the first place, the customer has to pay for the shipping in return.</p><h1>Your Consent</h1><p>By using our website/app, registering an account, or making a purchase, you hereby consent to our Return &amp; Refund Policy and agree to its terms.</p><h1>Changes To Our Return &amp; Refund Policy</h1><p>Should we update, amend or make any changes to this document so that they accurately reflect our Service and policies. Unless otherwise required by law, those changes will be prominently posted here. Then, if you continue to use the Service, you will be bound by the updated Return &amp; Refund Policy. If you do not want to agree to this or any updated Return &amp; Refund Policy, you can delete your account.</p><h1>Contact Us</h1><p>If, for any reason, You are not completely satisfied with any good or service that we provide, don't hesitate to contact us and we will discuss any of the issues you are going through with our product.</p><ul><li>Via Email: Legal@bag-n-brand.com</li><li>Via Phone Number: 4405619809</li></ul></div></div>
                         </div>
                         
                         <div id="termsCondText" class="termscondition" style="display: block;">
