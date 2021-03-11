@@ -1052,6 +1052,7 @@
                                 </div>
                                 <p class="descript-product"><strong>6 items</strong><svg style="margin-left: 10px;" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M11 4L6 9 1 4" fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path></svg></p>
                             </div>
+
                         </div>
                         
                         <div class="product-wrapper" style="display: block;">
@@ -1081,6 +1082,29 @@
                                     </a>
                                     <p>${{toRound $price}}</p>
                                 </div>
+
+
+                            <div class="product-detail">
+                                <p>{{$itemName}}</p>
+                                <!-- <p>Qty: 1 <i class="fas fa-chevron-down"></i></p> -->
+                                <span>Qty :</span>
+                                <select name="qty" class="qty" data-id="{{$itemID}}" data-trxid="{{$trxid}}">
+                                    {{range $qty := $qtySlc}}
+                                     <option value="{{$qty}}" {{if compare $quantity $qty}}selected{{end}}>{{$qty}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+
+                            <div class="product-price">
+                                <a class="btn-cancel" data-trxid="{{$trxid}}" data-id="{{$itemID}}">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                                            <path d="M.5.5l11 11M.5 11.5l11-11"></path>
+                                        </g>
+                                    </svg>
+                                </a>
+                                <p>${{toRound $price}}</p>
+
                             </div>
                         </div>
                         {{end}}
